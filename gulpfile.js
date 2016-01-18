@@ -6,6 +6,7 @@ var gulp = require('gulp');
     // Sass
 var sass = require('gulp-sass');
 var rename = require("gulp-rename");
+var bourbon = require('node-bourbon');
 var autoprefixer = require('gulp-autoprefixer');
     // Jade
 var jade = require('gulp-jade');
@@ -30,7 +31,7 @@ var buildDir = 'dist/';
 gulp.task('sass', function () {
   gulp.src(appDir+'sass/index.scss')
     .pipe(plumber())
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({includePaths: require('node-bourbon').includePaths}).on('error', sass.logError))
     .pipe(autoprefixer({ browsers: ['last 25 versions'] }))
     .pipe(rename('theme.css'))
     .pipe(gulp.dest(appDir+'css/'))
