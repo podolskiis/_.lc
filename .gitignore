@@ -1,0 +1,6 @@
+## Dir
+node_modules/
+app/bower/
+plan/
+dist/
+build/
