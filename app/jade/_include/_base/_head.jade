@@ -1,0 +1,22 @@
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0")
+  block title
+    title Заголовок страницы
+  meta(name="keywords" content="Ключевые слова, и, фразы, через, запятую")
+  meta(name="description" content="Описание контента страницы, 1-2 предложения.")
+  link(rel="shortcut icon" href="favicon.ico")
+  include ../_styles
+  | 
+  <!--[if lt IE 9]>
+  +styles(
+    "//rawgit.com/codefucker/finalReject/master/reject/reject.css"
+  )
+  +scripts(
+    "//rawgit.com/codefucker/finalReject/master/reject/reject.min.js"
+    ,"//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"
+    ,"//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"
+  )
+  | 
+  <![endif]-->

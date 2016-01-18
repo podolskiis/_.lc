@@ -1,0 +1,57 @@
+// normalize.css (I add | normalize editors)
+*{word-wrap:break-word}a:focus,input:focus,button:focus{outline:none;color:inherit}
+
+// Framework Site
+html {overflow-y: scroll; font-size: 100.01%}
+body {
+  background-color: #fff;
+  &>.all,
+  &>footer{overflow: hidden; position: relative}
+}
+// clearfix
+.rw, .main-grid {
+  &:before,
+  &:after {content: ''; display: table; line-height: 0}
+  &:after {clear: both}
+}
+ul,ol,dl {
+  &.nav,
+  &.reset,
+  &[class*="rw"]{
+    list-style: none; padding: 0; margin: 0}
+}
+// rstmg
+.rstmg > *:first-child {margin-top: 0;}
+.rstmg > *:last-child  {margin-bottom: 0;}
+.rstmg > *.last-child  {margin-bottom: 0;}
+
+// Line-height
+@for $i from 6 through 30 {.lh#{2*$i} {line-height: 2px *$i !important}}
+
+// Font-size
+@for $i from 1 through 19 {.fz#{10+$i} {font-size: 10px +$i !important}}
+@for $i from 15 through 30 {.fz#{2*$i} {font-size: 2px *$i !important}}
+
+// Margin bottom li-dd
+@for $i from 1 through 10 {.mgli#{5*$i} >* {margin-top: 5px *$i}}
+[class*="mgli"] >*:first-child{margin-top: 0;}
+
+// Padding element
+@for $i from 0 through 10 {
+  [class*="box"].pg#{5*$i} {padding: 5px *$i !important}
+  .pgtb#{5*$i} {padding-top: 5px *$i; padding-bottom: 5px *$i}
+  .btn.pg#{5*$i} {padding-left: 5px *$i !important; padding-right: 5px *$i !important}}
+
+// Ul.list-icons
+.list-icons > * {position: relative;}
+.list-icons .icons {position: absolute;left: 0;}
+@for $i from 8 through 50 {.list-icons.pgl#{2*$i} > * {padding-left: 2px *$i}}
+
+// margin top/bottom element
+@for $i from 1 through 5 {
+  .one {
+    &-mg#{5*$i} {margin-top: 5px*$i; margin-bottom: 5px*$i !important}
+    &-mgt#{5*$i} {margin-top: 5px*$i !important}
+    &-mgb#{5*$i} {margin-bottom: 5px*$i !important}
+  }
+}

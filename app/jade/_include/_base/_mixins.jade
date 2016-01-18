@@ -1,0 +1,17 @@
+//- BASE MIXINS
+//- connection files
+mixin styles(...files)
+  each file in files
+    link(rel="stylesheet" href=file)
+mixin scripts(...files)
+  each file in files
+    script(src=file)
+//- helpers
+mixin li(...items)
+  each item in items
+    li= item
+mixin li_a(...items)
+  each item in items
+    li: a(href="")= item
+mixin email(email)
+  a(href="mailto:" + email) #{email}

@@ -1,0 +1,51 @@
+body
+  font-size: em(14px)
+  line-height: em(22px)
+  font-family: $tm_ff_d
+  color: $tm_color_d
+html,body,.container
+  min-width: 320px
+// .container
+//   max-width: 990px !important
+//   width: auto !important
+h1,h2,h3,h4,h5,
+b,strong,th,dt
+  
+h1,h2,h3,h4,h5
+  +ffn
+p,pre,ul,ol,dl,.p
+  
+a
+  color: $tm_color_link_a
+  text-decoration: underline
+  &:hover
+    color: $tm_color_link_b
+a,input,textarea,button
+  +tsn(.2)
+
+// text-color
+.color-def
+  color: $tm_color_d
+.color-gray
+  color: #ccc
+
+// background-color
+.bg-white
+  background-color: #fff
+.bg-black
+  background-color: #000
+
+// HOOK MIXINS
+// +zoom($op:.7)
+// +img_fit($h:200, $bg:#fff)
+// +border_link($color, $hover)
+// .icons
+//   +icons
+//   &.z24
+//     +size(24px)
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+// FORM
+form
+  input,textarea
+    +placeholder
+      color: #aaa
+      opacity: 1
+    &:focus
+      +placeholder
+        opacity: .3
+  &.default
+    $inputHt: 32
+    $inputPgWt: 10
+    $inputPgHt: 5
+    #{$text-inputs}
+      outline: none
+      margin: 0 0 5px
+      padding: $inputPgHt+px $inputPgWt+px
+      line-height: ($inputHt -$inputPgHt*2)-2+px
+      height: $inputHt+px
+      font-family: $tm_ff_d
+      color: $tm_color_d
+      //edit
+      font-size: 12px
+      background: #fff
+      border: 1px solid #ddd
+      &:focus
+        border-color: #aaa
+    textarea
+      min-height: 100px
+      height: auto
+    label
+      display: inline-block
+      margin-bottom: 2px
+    .wrap
+      margin-top: 5px
+      &:first-child
+        margin-top: 0
+      &.btn-wrap
+        margin-top: 15px
+// BTN
+.btn
+  background-color: transparent
+  border: 0
+  text-align: center
+  display: inline-block
+  position: relative
+  white-space: nowrap
+  cursor: pointer
+  text-decoration: none !important
+  padding: 0 15px
+  &:hover
+    text-decoration: none
+  & input
+    background: none
+    border: 0
+    padding: 0
+    position: absolute
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+    width: 100%
+    height: 100%
+    opacity: 0
+    -moz-opacity: 0
+  &.border
+    border: 1px solid transparent
+  &.radius
+    border-radius: 2px
+  &.orange // orange
+    background: #cc0
+    color: #fff
+    &:hover
+      background: #0cc
+    &:active
+      background: #00c
+    &.border
+      border-color: #cc0

@@ -1,0 +1,33 @@
+include _variables
+block var
+include _mixins
+include ../_codes
+doctype html
+html
+  include _head
+  body(
+    class = home ? 'home' : 'page'
+    class = sidebar ? '' : 'no-sidebar'
+    class = sidebar && left_sidebar ? 'sidebar-l' : ''
+    class = sidebar && right_sidebar ? 'sidebar-r' : ''
+  )
+    .all
+      include ../_header
+      // MAIN START 
+      main
+        if section
+          block content
+        else
+          .container
+            h1.main-title #{title}
+            .main-grid
+              // content start 
+              .main-content
+                block content
+              // content end 
+              if sidebar
+                include ../_sidebar
+      // MAIN END 
+      include ../_footer
+    include ../_modals
+    include ../_scripts

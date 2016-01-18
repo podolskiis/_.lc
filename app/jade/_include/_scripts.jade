@@ -1,0 +1,14 @@
+//- script.
+  function loadLink (hf) {
+    ms=document.createElement("link");ms.rel="stylesheet";
+    ms.href=hf;document.getElementsByTagName("head")[0].appendChild(ms);
+  }
+  loadLink ("css/custom.css");
+// build:js js/libs.min.js 
+// bower:js 
+// endbower 
+// endbuild 
++scripts(
+  "js/theme.js"
+  ,"js/custom.js"
+)
