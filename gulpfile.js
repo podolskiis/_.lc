@@ -70,6 +70,7 @@ gulp.task('bower', function () {
     .pipe(gulp.dest(distDir))
     .pipe(reload({ stream:true }));
 });
+
 /* WATCH
  ********************************************************/
 gulp.task('watch', ['serve','setWatch','jade'], function() {
@@ -79,7 +80,6 @@ gulp.task('watch', ['serve','setWatch','jade'], function() {
 });
 // combination tasks
 gulp.task('default', ['watch']);
-
 
 /* BUILD TASKS
  ********************************************************/
@@ -98,7 +98,7 @@ gulp.task('default', ['watch']);
     return gulp.src(appDir+'*.html')
     .pipe(useref())
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.css', minifyCss()))
+    .pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
     .pipe(gulp.dest(buildDir));
   });
 

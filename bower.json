@@ -2,7 +2,8 @@
   "name": "project",
   "version": "1.0.0",
   "dependencies": {
-    "jquery": "1.11"
+    "jquery": "1.11",
+    "bxslider-4": "bxSlider#~4.2.5"
   },
   "devDependencies": {
     "fancyBox": "~2.1.5",
@@ -10,7 +11,16 @@
     "animate.css": "~3.5.1",
     "superfish": "~1.7.7",
     "jquery-form-styler": "jquery.formstyler#~1.7.4",
-    "jquery-validation": "~1.14.0",
-    "bxslider-4": "bxSlider#~4.2.5"
+    "jquery-validation": "~1.14.0"
+  },
+  "overrides": {
+    "bxslider-4": {
+      "main": [
+        "dist/jquery.bxslider.js"
+      ],
+      "dependencies": {
+        "jquery": ">= 1.8.3"
+      }
+    }
   }
 }
