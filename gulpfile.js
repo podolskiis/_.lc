@@ -83,95 +83,62 @@ gulp.task('default', ['watch']);
 
 /* BUILD TASKS
  ********************************************************/
-  // Variables
-  var minifyCss = require('gulp-minify-css');
-  var cache = require('gulp-cache');
-  var imagemin = require('gulp-imagemin');
-  var useref = require('gulp-useref');
-  var uglify = require('gulp-uglify');
-  var del = require('del');
-  var runSequence = require('run-sequence');
-  var uncss = require('gulp-uncss');
+// Variables build
+var clean = require('gulp-clean');
+var size = require('gulp-size');
+var imagemin = require('gulp-imagemin');
+var uglify = require('gulp-uglify');
+var useref = require('gulp-useref');
+var minifyCss = require('gulp-minify-css');
 
-  // CSS и JavaScript
-  gulp.task('html', function () {
-    return gulp.src(appDir+'*.html')
-    .pipe(useref())
+// Clean dir
+gulp.task('clean', function () {
+  return gulp.src('dist/', {read: false})
+    .pipe(clean());
+});
+// Transfer the HTML, CSS, JS into dist
+gulp.task('useref', function () {
+  var assets = useref.assets();
+  return gulp.src('app/*.html')
+    .pipe(assets)
     .pipe(gulpif('*.js', uglify()))
     .pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
-    .pipe(gulp.dest(buildDir));
-  });
-
-  // Копируем постоянные файлы в dist
-  gulp.task('htac', function() {
-    return gulp.src(appDir+'.htaccess')
-    .pipe(gulp.dest(buildDir))
-  });
-  gulp.task('ico', function() {
-    return gulp.src(appDir+'favicon.ico')
-    .pipe(gulp.dest(buildDir))
-  });
-  gulp.task('custom:css', function() {
-    return gulp.src(appDir+'css/custom.css')
-    .pipe(gulp.dest(buildDir+'css'))
-  });
-  gulp.task('custom:js', function() {
-    return gulp.src(appDir+'js/custom.js')
-    .pipe(gulp.dest(buildDir+'js'))
-  });
-  gulp.task('theme:js', function() {
-    return gulp.src(appDir+'js/theme.js')
-    .pipe(gulp.dest(buildDir+'js'))
-  });
-
-  // Копируем шрифты в dist
-  gulp.task('fonts', function() {
-    return gulp.src(appDir+'fonts/**/*')
-    .pipe(gulp.dest(buildDir+'fonts'))
-  });
-
-  // Оптимизация изображений
-  gulp.task('img', function(){
-    return gulp.src(appDir+'plagins/**/*.+(png|jpg|gif|svg)')
-    .pipe(imagemin({ interlaced: true }))
-    .pipe(gulp.dest(buildDir+'images'))
-  });
-  gulp.task('clean:not', function(callback){
-    del([
-      buildDir+'**/*',
-      '!dist/images', '!dist/images/**/*',
-      '!dist/fonts', '!dist/fonts/**/*'
-    ], callback)
-  });
-
-  // Remove unused folders & files
-  gulp.task('clean', function(cb){
-    del(['dist'], cb);
-  });
-
-  // DOP
-  // Удалит неиспользуемые CSS селекторы
-  gulp.task('un:css', function () {
-    return gulp.src(appDir+'css/theme.css')
-    .pipe(uncss({
-      html: [buildDir+'*.html']
+    .pipe(assets.restore())
+    .pipe(useref())
+    .pipe(gulp.dest('dist/'));
+});
+// Transferring Fonts
+gulp.task('fonts', function () {
+  gulp.src('app/fonts/**/*')
+    .pipe(gulp.dest('dist/fonts/'));
+});
+// Transferring and compress img
+gulp.task('img', function () {
+  return gulp.src('app/images/**/*')
+    .pipe(imagemin({
+      progressive: true,
+      interlaced: true
     }))
-    .pipe(minifyCss())
-    .pipe(rename({suffix:'.maxmin'}))
-    .pipe(gulp.dest(buildDir+'css'));
-  });
+    .pipe(gulp.dest('dist/images/'));
+});
+// We transfer the remaining files (.ico, .htaccess, etc ...)
+gulp.task('extras', function () {
+  return gulp.src([
+    'app/.*',
+    'app/*.*',
+    '!app/*.html',
+    // dop custom files
+    'app/**/theme.js',
+    'app/**/custom.js',
+    'app/**/custom.css'
+  ]).pipe(gulp.dest('dist/'))
+});
 
-  // Build production site
-  gulp.task('dist', function(cb){
-    runSequence('html','theme:js', cb);
-  });
-  gulp.task('dist:all', function(cb){
-    runSequence('clean', ['html','htac','ico','custom:css','custom:js','theme:js','fonts','img'], cb);
-  });
-  // Build production site ! - UN:CSS - !
-  // gulp.task('dist', function(cb){
-  //   runSequence('clean:not',['html','custom:css','custom:js'],'un:css', cb);
-  // });
-  // gulp.task('dist:all', function(cb){
-  //   runSequence('clean',['html','htac','ico','custom:css','custom:js','fonts','img'],'un:css', cb);
-  // });
+// Build folder DIST
+gulp.task('dist', ['useref','img','fonts','extras'], function () {
+  return gulp.src('dist/**/*').pipe(size({title: 'build'}))
+});
+// Build folder DIST (only after compiling Jade)
+gulp.task('build', ['clean'], function () {
+  gulp.start('dist')
+});
