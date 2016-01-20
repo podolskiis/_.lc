@@ -8,15 +8,9 @@ head
   meta(name="description" content="Описание контента страницы, 1-2 предложения.")
   link(rel="shortcut icon" href="favicon.ico")
   include ../_styles
-  | 
-  <!--[if lt IE 9]>
-  +styles(
-    "//rawgit.com/codefucker/finalReject/master/reject/reject.css"
-  )
-  +scripts(
-    "//rawgit.com/codefucker/finalReject/master/reject/reject.min.js"
-    ,"//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"
-    ,"//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"
-  )
-  | 
-  <![endif]-->
+  |<!--[if lt IE 9]>
+  <link rel="stylesheet" href="//rawgit.com/codefucker/finalReject/master/reject/reject.css"/>
+  <script src="//rawgit.com/codefucker/finalReject/master/reject/reject.min.js"></script>
+  <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+  |<![endif]-->

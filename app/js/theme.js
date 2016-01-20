@@ -1,13 +1,5 @@
 jQuery(function($){
 
-//->wait page loading
-  $(window).load(function() {
-    $('#preloader').each(function(){
-      $(this).find('i').delay(150).fadeOut("slow");
-      $(this).delay(300).fadeOut("slow");
-    });
-  });
-
 //->Btn-toggle (slideToggle)
   $('.btn-toggle').each(function(){
     $(this).on('click', function(event) {
