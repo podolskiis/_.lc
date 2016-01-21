@@ -175,9 +175,13 @@ gulp.task('http', function () {
       '/activ.sergeypodolsky.ru/public_html/work/2016/'+dirProject
     ));
 });
-gulp.task('build:http', function(callback) {
-  runSequence('clean',
-              ['useref','img','fonts','extras'],
-              'http',
-              callback);
+
+/* BUILD and DEPLOOY  in the loop
+ ********************************************************/
+gulp.task('build:http', function(cb) {
+  runSequence(
+    'clean',
+    ['useref','img','fonts','extras'],
+    'http',
+    cb);
 });
