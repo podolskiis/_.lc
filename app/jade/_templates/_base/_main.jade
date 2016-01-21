@@ -1,0 +1,26 @@
+include _variables.jade
+include ../_project_variables.jade
+block var
+include _mixins.jade
+include ../_project_mixins.jade
+doctype html
+html
+  include _head.jade
+  body(
+    class = home ? 'home' : 'page'
+    class = sidebar ? '' : 'no-sidebar'
+    class = sidebar && left_sidebar ? 'sidebar-l' : ''
+    class = sidebar && right_sidebar ? 'sidebar-r' : ''
+  )
+    .all
+      include ../_header.jade
+      // MAIN START 
+      main
+        if section
+          block content
+        else
+          +with_sidebars()
+      // MAIN END 
+      include ../_footer.jade
+    include ../_modals.jade
+    include ../_scripts.jade

@@ -1,0 +1,48 @@
+//- BASE MIXINS
+  //- connection files
+mixin styles(...files)
+  each file in files
+    link(rel="stylesheet" href=file)
+mixin scripts(...files)
+  each file in files
+    script(src=file)
+  //- layout
+mixin with_sidebars()
+  .container
+    h1.main-title #{title}
+    .main-grid
+      // content start 
+      .main-content
+        block content
+      // content end 
+      if sidebar
+        include ../_sidebar.jade
+  //- nav links
+mixin main_menu()
+  block main_menu
+  if v_main_menu[0] !== undefined
+    each key in v_main_menu
+      if active === key
+        li.active: a(href="#")= key
+      else
+        li: a(href="#")= key
+  else
+    each val, key in v_main_menu
+      if active === key
+        li.active: a(href=val)= key
+      else
+        li: a(href=val)= key
+
+//- HELPERS MIXINS
+mixin email(email,icon)
+  a(href="mailto:" + email)
+    if icon
+      span(class=icon)
+      | 
+    | #{email}
+mixin li(...items)
+  each item in items
+    li= item
+mixin li_a(...items)
+  each item in items
+    li: a(href="")= item

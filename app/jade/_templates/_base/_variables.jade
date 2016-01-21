@@ -1,0 +1,17 @@
+//- BASE VARIABLES
+-var home = false
+-var title = 'title'
+-var section = false
+  //- layout
+-var sidebar = true
+  if sidebar
+    -var left_sidebar = true
+    -var right_sidebar = true
+  //- panels
+-var panel = true
+
+//- MAIN MENU
+//- or reference type <a href="#">Главная</a>
+-var v_main_menu = ['Главная','О компании','Контакты']
+//- or reference type <a href="index.html">Главная</a>
+  -var v_main_menu = {'Главная':'index.html','О компании':'about.html','Контакты':'contacts.html'}
