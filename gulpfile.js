@@ -154,7 +154,7 @@ gulp.task('build', ['clean'], function () {
 
 /* DEPLOOY
  ********************************************************/
-var runSequence = require('run-sequence');//del
+var runSequence = require('run-sequence');
 var gutil = require('gulp-util');
 var ftp = require('vinyl-ftp');
 var dirProject = '02/test1';
