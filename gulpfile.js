@@ -161,9 +161,9 @@ var dirProject = '02/test1';
 
 gulp.task('http', function () {
   var conn = ftp.create({
-    host:     '',
-    user:     '',
-    password: '',
+    host:     '92.53.96.55',
+    user:     'podolskiis',
+    password: '**********',
     parallel: 10,
     log: gutil.log
   });
