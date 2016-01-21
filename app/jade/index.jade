@@ -1,17 +1,18 @@
-extends _include/_base/_main
+extends _templates/_base/_main.jade
 block var
-  -var home=true
-  //- -var section=true
-  -var sidebar=true
-  -var left_sidebar=false
-  -var right_sidebar=true
-  -var title='Главная'
+  -var home = true
+  -var sidebar = true
+  -var left_sidebar = false
+  -var right_sidebar = true
+  -var title = 'Главная'
 block title
   title #{title}
+block main_menu
+  -var active = title
 block content
   p.
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.
   p: a(href="").btn.orange.lh32 button
-  p: +email('email@dom.ru')
+  p: +email('email@dom.ru','icon-email')
 
 
