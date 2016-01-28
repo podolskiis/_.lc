@@ -157,7 +157,6 @@ gulp.task('build', ['clean'], function () {
 var runSequence = require('run-sequence');
 var gutil = require('gulp-util');
 var ftp = require('vinyl-ftp');
-var dirProject = '02/test1';
 
 gulp.task('http', function () {
   var conn = ftp.create({
@@ -172,7 +171,7 @@ gulp.task('http', function () {
   ];
   return gulp.src(globs, {base: buildDir, buffer: false})
     .pipe(conn.dest(
-      '/activ.sergeypodolsky.ru/public_html/work/2016/'+dirProject
+      '/activ.sergeypodolsky.ru/public_html/work/2016/02/test1/'
     ));
 });
 
