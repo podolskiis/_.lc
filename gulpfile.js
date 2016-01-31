@@ -136,8 +136,7 @@ gulp.task('extras', function () {
     appDir+'*.*',
     '!'+appDir+'*.html',
     // dop custom files
-    appDir+'**/theme.js',
-    appDir+'**/custom.js',
+    appDir+'**/*.js',
     appDir+'**/custom.css'
   ]).pipe(gulp.dest(buildDir))
 });

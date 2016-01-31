@@ -16,23 +16,31 @@ $src: '../'
 
 // FOOTER
 // Push footer
-=footer_fixed($h, $t)
+=footer_fixed($h, $t:0)
   html,body
     height: 100%
   body>.all
     min-height: 100%
     &:after
-      padding-bottom: $t+px
       content: ''
       display: block
+      height: $h+$t
   body>footer
-    height: $h+px
-    margin-top: -$h+px
+    height: $h
+    margin-top: -$h
   html.fancybox-lock body
     overflow: visible !important
 
 // IMAGES
-// Put a picture in a block ( .img.fit )
+// icons
+=icons()
+  background-image: url(#{$src}images/theme/icons.png)
+  background-position: 100% 100%
+  background-repeat: no-repeat
+  display: inline-block
+  position: relative
+  top: -1px
+  vertical-align: middle
 =img_fit($h:200, $bg:#fff)
   .img
     background: $bg
@@ -45,15 +53,6 @@ $src: '../'
     img
       max-width: 100%
       max-height: 100%
-// icons
-=icons()
-  background-image: url(#{$src}images/theme/icons.png)
-  background-position: 100% 100%
-  background-repeat: no-repeat
-  display: inline-block
-  position: relative
-  top: -1px
-  vertical-align: middle
 // Zoom hover img
 =zoom($op:.7)
   a.zoom
@@ -64,6 +63,21 @@ $src: '../'
     &:hover img
       transform: scale(1.1)
       opacity: $op
+=radius_img($z:100px,$bd_z:5px)
+  border: $bd_z solid #e00
+  display: inline-block
+  border-radius: 50%
+  >*
+    +size($z)
+    display: block
+    overflow: hidden
+    border-radius: 50%
+    >*
+    img
+      width: 100%
+      height: auto
+      min-height: $z
+      vertical-align: middle
 
 // BORDER
 // border-link

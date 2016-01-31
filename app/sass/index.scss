@@ -1,15 +1,15 @@
 @import "bourbon";
-@import "variables.sass";
+@import "variables";
 
 // file layout
-@import "layout/bootstrap.scss";
-@import "layout/tools.scss";
-@import "layout/main_grid.sass";
+@import "layout/bootstrap";
+@import "layout/tools";
+@import "layout/main_grid";
 
 // file base
-@import "base/mixins.sass";
-@import "base/tools.scss";
-@import "base/helper.scss";
+@import "base/mixins";
+@import "base/tools";
+@import "base/helper";
 
 // file project
 @import "project/index";

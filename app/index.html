@@ -6,21 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Главная</title>
-    <meta name="keywords" content="Ключевые слова, и, фразы, через, запятую">
-    <meta name="description" content="Описание контента страницы, 1-2 предложения.">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
     <link rel="shortcut icon" href="favicon.ico">
-    <!-- build:css css/plagins.min.css -->
+    <!-- build:css css/vendor.min.css -->
     <!-- bower:css-->
-    <!-- endbower -->
+    <!-- endbower-->
     <!-- endbuild -->
-    <!-- build:css css/theme.min.css -->
     <link rel="stylesheet" href="css/theme.min.css" />
-    <!-- endbuild -->
     <link rel="stylesheet" href="css/custom.css" />
+    <script src="js/modernizr.js"></script>
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="//rawgit.com/codefucker/finalReject/master/reject/reject.css"/>
     <script src="//rawgit.com/codefucker/finalReject/master/reject/reject.min.js"></script>
-    <script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
@@ -30,21 +28,26 @@
       <!-- HEADER START -->
       <header class="main-header">
         <div class="container">
-          <!-- header-top-bar start-->
+          <!-- header-top-bar start -->
           <div class="header-top-bar">
             <div class="row show_grid">
               <div class="col-xs-4">
-                <h1 class="header-title"><a href="/" class="logo"><img src="images/theme/logo.png" alt="logo"></a></h1> </div>
+                <h2 class="logo"><a href="/"><img src="images/theme/logo.png" alt="logo"></a></h2> </div>
               <div class="col-xs-8">
                 <div class="header-tools fr">
-                  <ul class="reset mgli5 list-tel">
-                    <li><a href="tel:+71234567890"><span class="cod">+7 (123) </span><span class="num">456-78-90</span></a></li>
-                  </ul>
+                  <!-- contacts start -->
+                  <div class="contacts">
+                    <ul class="reset mgli5 contacts-list">
+                      <li class="contacts-item contacts-item-phone"><a href="tel:+71234567890"><span class="cod">+7 (123) </span><span class="num">456-78-90</span></a></li>
+                      <li class="contacts-item contacts-item-email"><a href="mailto:email@dom.ru"><span class="icon-email"></span> email@dom.ru</a> </li>
+                    </ul>
+                  </div>
+                  <!-- contacts end -->
                 </div>
               </div>
             </div>
           </div>
-          <!-- header-top-bar end-->
+          <!-- header-top-bar end -->
           <!-- main-menu start -->
           <nav class="nav-bar main-menu">
             <ul class="nav rw hidden-xs">
@@ -72,9 +75,10 @@
           <div class="main-grid">
             <!-- content start -->
             <div class="main-content">
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.</p>
+              <p>
+                <Lorem>ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.</Lorem>
+              </p>
               <p><a href="" class="btn orange lh32">button</a></p>
-              <p><a href="mailto:email@dom.ru"><span class="icon-email"></span> email@dom.ru</a> </p>
             </div>
             <!-- content end -->
             <!-- right-sidebar start -->
@@ -110,13 +114,14 @@
       <div class="modal-content">content</div>
     </div>
     <!-- MODAL END -->
-    <!-- build:js js/libs.min.js -->
+    <!-- build:js js/vendor.min.js -->
     <!-- bower:js-->
     <script src="/bower/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
+    <script src="/bower/jquery-placeholder/jquery.placeholder.js"></script>
+    <script src="/bower/jQuery.equalHeights/jquery.equalHeights.js"></script>
+    <!-- endbower-->
     <!-- endbuild -->
     <script src="js/theme.js"></script>
-    <script src="js/custom.js"></script>
   </body>
 
 </html>

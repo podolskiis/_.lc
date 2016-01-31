@@ -1,21 +1,26 @@
 // HEADER START 
 header.main-header
   .container
-    // header-top-bar start
+    // header-top-bar start 
     .header-top-bar
       .row.show_grid
         .col-xs-4
-          h1.header-title
-            a.logo(href="/")
+          h2.logo
+            a(href="/")
               img(src="images/theme/logo.png" alt="logo")
         .col-xs-8
           .header-tools.fr
-            ul.reset.mgli5.list-tel
-              li
-                a(href="tel:+71234567890")
-                  span.cod +7 (123) 
-                  span.num 456-78-90
-    // header-top-bar end
+            // contacts start 
+            .contacts
+              ul.reset.mgli5.contacts-list
+                li.contacts-item.contacts-item-phone
+                  a(href="tel:+71234567890")
+                    span.cod +7 (123) 
+                    span.num 456-78-90
+                li.contacts-item.contacts-item-email
+                  +email('email@dom.ru','icon-email')
+            // contacts end 
+    // header-top-bar end 
     // main-menu start 
     nav.nav-bar.main-menu
       ul.nav.rw.hidden-xs
