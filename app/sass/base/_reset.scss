@@ -1,0 +1,35 @@
+// I add | normalize editors
+*{word-wrap:break-word}
+a:focus,
+input:focus,
+button:focus {outline:none; color:inherit}
+
+// Framework Site
+html {
+  overflow-y: scroll;
+  font-size: 100%
+}
+body {
+  background-color: #fff;
+  &>.all,
+  &>footer {
+    overflow: hidden;
+    position: relative
+  }
+}
+// clearfix
+.rw, .main-grid {
+  &:before,
+  &:after {content: " "; display: table}
+  &:after {clear: both}
+}
+ul,ol,dl {
+  &.nav,
+  &.reset,
+  &[class*="rw"]{
+    list-style: none; padding: 0}
+}
+// rstmg
+.rstmg > *:first-child {margin-top: 0}
+.rstmg > * :last-child {margin-bottom: 0}
+.rstmg > * .last-child {margin-bottom: 0}

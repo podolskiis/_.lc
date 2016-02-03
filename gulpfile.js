@@ -2,29 +2,30 @@
 
 /* VARIABLES
  ********************************************************/
-var gulp = require('gulp');
-    // Sass
-var sass = require('gulp-sass');
-var rename = require("gulp-rename");
-var bourbon = require('node-bourbon');
-var minifyCss = require('gulp-minify-css'); // set to (Sass,Build)
-var autoprefixer = require('gulp-autoprefixer');
-    // Jade
-var jade = require('gulp-jade');
-var jadeInheritance = require('gulp-jade-inheritance');
-var prettify = require('gulp-prettify');
-var changed = require('gulp-changed');
-var cached = require('gulp-cached');
-var gulpif = require('gulp-if'); // set to (Jade,Build)
-var filter = require('gulp-filter');
-    // Tools
-var browserSync = require('browser-sync');
-var reload = browserSync.reload;
-var plumber = require('gulp-plumber'); // set to (Sass,Jade)
-var wiredep = require('wiredep').stream;
-    // Destination path
-var appDir = 'app/';
-var buildDir = 'dist/';
+var
+  gulp = require('gulp'),
+  // Sass
+  sass = require('gulp-sass'),
+  rename = require("gulp-rename"),
+  bourbon = require('node-bourbon'),
+  minifyCss = require('gulp-minify-css'), // set to (Sass,Build)
+  autoprefixer = require('gulp-autoprefixer'),
+  // Jade
+  jade = require('gulp-jade'),
+  jadeInheritance = require('gulp-jade-inheritance'),
+  prettify = require('gulp-prettify'),
+  changed = require('gulp-changed'),
+  cached = require('gulp-cached'),
+  gulpif = require('gulp-if'), // set to (Jade,Build)
+  filter = require('gulp-filter'),
+  // Tools
+  browserSync = require('browser-sync'),
+  reload = browserSync.reload,
+  plumber = require('gulp-plumber'), // set to (Sass,Jade)
+  wiredep = require('wiredep').stream,
+  // Destination path
+  appDir = 'app/',
+  buildDir = 'dist/';
 
 /* PREPROCESSING
  ********************************************************/
@@ -35,7 +36,7 @@ var buildDir = 'dist/';
       .pipe(sass({includePaths: require('node-bourbon').includePaths}).on('error', sass.logError))
       .pipe(autoprefixer({ browsers: ['last 25 versions'] }))
       .pipe(rename('theme.min.css'))
-      .pipe(minifyCss({compatibility: 'ie8'}))
+      // .pipe(minifyCss({compatibility: 'ie8'}))
       .pipe(gulp.dest(appDir+'css/'))
       .pipe(reload({ stream:true }));
   });
@@ -62,7 +63,7 @@ var buildDir = 'dist/';
     browserSync.init({
       server: {baseDir: appDir},
       notify: false
-    })
+    });
   });
   // Bower Wiredep
   gulp.task('bower', function () {
@@ -73,7 +74,7 @@ var buildDir = 'dist/';
       .pipe(wiredep({
         ignorePath: /^(\.\.\/)*\.\./
       }))
-      .pipe(gulp.dest(appDir+'jade/'))
+      .pipe(gulp.dest(appDir+'jade/'));
   });
 
 /* WATCH
@@ -93,11 +94,12 @@ gulp.task('default', ['serve','watch']);
 /* BUILD TASKS
  ********************************************************/
 // Variables build
-var clean = require('gulp-clean');
-var size = require('gulp-size');
-var imagemin = require('gulp-imagemin');
-var uglify = require('gulp-uglify');
-var useref = require('gulp-useref');
+var
+  clean = require('gulp-clean'),
+  size = require('gulp-size'),
+  imagemin = require('gulp-imagemin'),
+  uglify = require('gulp-uglify'),
+  useref = require('gulp-useref');
 
 // Clean dir
 gulp.task('clean', function () {
@@ -138,24 +140,25 @@ gulp.task('extras', function () {
     // dop custom files
     appDir+'**/*.js',
     appDir+'**/custom.css'
-  ]).pipe(gulp.dest(buildDir))
+  ]).pipe(gulp.dest(buildDir));
 });
 
 // Build folder DIST
 gulp.task('dist', ['useref','img','fonts','extras'], function () {
-  return gulp.src(buildDir+'**/*').pipe(size({title: 'build'}))
+  return gulp.src(buildDir+'**/*').pipe(size({title: 'build'}));
 });
 // Build folder DIST (only after compiling Jade)
 gulp.task('build', ['clean'], function () {
-  gulp.start('dist')
+  gulp.start('dist');
 });
 
 
 /* DEPLOOY
  ********************************************************/
-var runSequence = require('run-sequence');
-var gutil = require('gulp-util');
-var ftp = require('vinyl-ftp');
+var
+  runSequence = require('run-sequence'),
+  gutil = require('gulp-util'),
+  ftp = require('vinyl-ftp');
 
 gulp.task('http', function () {
   var conn = ftp.create({

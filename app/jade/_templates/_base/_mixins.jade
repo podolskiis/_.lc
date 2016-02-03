@@ -15,7 +15,7 @@ mixin with_sidebars()
       .main-content
         block content
       // content end 
-      if sidebar
+      if right_sidebar || left_sidebar
         include ../_sidebar.jade
   //- nav links
 mixin main_menu()

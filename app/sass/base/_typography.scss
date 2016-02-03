@@ -1,0 +1,29 @@
+h1,h2,h3,h4,h5,
+b,strong,th,dt {
+  
+}
+h1,h2,h3,h4,h5 {
+  // @include ffn;
+}
+p,pre,ul,ol,dl,.p {
+  
+}
+a {
+  color: $tm_color_link_a;
+  text-decoration: underline;
+  &:hover {
+    color: $tm_color_link_b;
+  }
+}
+a,input,textarea,button {
+  @include tsn(.2);
+}
+
+// text-color
+.color-def {
+  color: $tm_color_d;
+}
+.color-gray {
+  color: #ccc;
+}
+

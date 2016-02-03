@@ -7,15 +7,14 @@
     "jQuery.equalHeights": "jquery.equalheights#^1.5.2"
   },
   "devDependencies": {
-    "jquery": "1.12",
+    "jquery-ui": "1.11",
     "fancyBox": "~2.1.5",
     "animate.css": "~3.5.1",
     "superfish": "~1.7.7",
     "jquery-form-styler": "jquery.formstyler#~1.7.4",
     "jquery-validation": "~1.14.0",
     "bxslider-4": "bxSlider#~4.2.5",
-    "owl.carousel": "OwlCarousel2#~2.0.0-beta.3",
-    "jquery-placeholder": "^2.3.1"
+    "owl.carousel": "OwlCarousel2#~2.0.0-beta.3"
   },
   "overrides": {
     "bxslider-4": {

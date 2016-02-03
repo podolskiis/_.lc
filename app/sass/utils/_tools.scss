@@ -1,0 +1,106 @@
+// Font-size
+@for $i from 1 through 19 {.fz#{10+$i} {font-size: 10px +$i !important}}
+@for $i from 15 through 30 {.fz#{2*$i} {font-size: 2px *$i !important}}
+
+// Line-height
+@for $i from 6 through 30 {.lh#{2*$i} {line-height: 2px *$i !important}}
+
+// Margin bottom li-dd
+@for $i from 1 through 10 {.mgli#{5*$i} >* {margin-top: 5px *$i}}
+[class*="mgli"] >*:first-child{margin-top: 0;}
+
+// Padding element
+@for $i from 0 through 10 {
+  [class*="box"].pg#{5*$i} {padding: 5px *$i !important}
+  .pgtb#{5*$i} {padding-top: 5px *$i; padding-bottom: 5px *$i}
+  .btn.pg#{5*$i} {padding-left: 5px *$i !important; padding-right: 5px *$i !important}}
+
+// Ul.list-icons
+.list-icons > * {position: relative;}
+.list-icons .icons {position: absolute;left: 0;}
+@for $i from 8 through 50 {.list-icons.pgl#{2*$i} > * {padding-left: 2px *$i}}
+
+// margin top/bottom element
+@for $i from 1 through 5 {
+  .one {
+    &-mg#{5*$i} {margin-top: 5px*$i; margin-bottom: 5px*$i !important}
+    &-mgt#{5*$i} {margin-top: 5px*$i !important}
+    &-mgb#{5*$i} {margin-bottom: 5px*$i !important}
+  }
+}
+
+/* ============================
+ * Tools layout
+ * ============================*/
+// Bootstrap (add style)
+@for $i from 0 through 12 {
+  .row {
+      &.mg#{5*$i} {margin-left: -(5px*$i)/2; margin-right: -(5px*$i)/2}
+      &.mg#{5*$i}>[class*="col-"] {padding-left: (5px*$i)/2; padding-right: (5px*$i)/2}
+      &.mgb#{5*$i}>[class*="col-"] {padding-bottom: 5px *$i}
+  }
+}
+.row {
+  .tbl > *[class*="col-"] {float: none}
+}
+// Table
+table {
+  &.w100p {width: 100%}
+  &.top td {vertical-align: top}
+  &.bot td {vertical-align: bottom}
+  @for $i from 1 through 10 {
+    &.mg#{5*$i} td {padding-left: 5px *$i}
+    &.mgb#{5*$i} td {padding-left: 5px *$i; padding-top: 5px *$i}
+  }
+  &[class*="mg"] tr td:first-child{padding-left: 0}
+  &[class*="mgb"] tr:first-child td{padding-top: 0}
+}
+// Table class
+.tbl {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+  &.w-auto {width: auto}
+  & > * {display: table-cell; vertical-align: middle}
+  &.top > * {vertical-align: top}
+  &.bot > * {vertical-align: bottom}
+  @for $i from 1 through 10 {
+    &.mg#{5*$i} >* {padding-left: 5px *$i}
+  }
+  &[class*="mg"]>*:first-child{padding-left: 0}
+}
+// grid float
+.rw {
+  & > * {float: left; min-height: 1px}
+}
+// grid inline
+.rw-inline {
+  letter-spacing: -0.3em;
+   & > * {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 1px;
+    letter-spacing: normal;
+  }
+}
+// rw.mg margin
+@for $i from 1 through 10 {
+  [class*="rw"].mg#{5*$i} {margin-left: -5px *$i}
+  [class*="rw"].mg#{5*$i} >* {margin-left: 5px *$i}
+  [class*="rw"].mgb#{5*$i} {margin:0 0 -5px *$i -5px *$i}
+  [class*="rw"].mgb#{5*$i} >* {margin:0 0 5px *$i 5px *$i}
+}
+// dl float
+// .rw-dl {
+//   dt {float: left}
+//   @for $i from 1 through 5 {
+//     &.w#{50*$i} dt {width: 50px *$i}
+//     &.w#{50*$i} dd {margin-left: (50px*$i)+5}
+//   }
+//   &[class*="w50%"] dt {width: 50%}
+//   &[class*="w50%"] dd {margin-left: 50%}
+//   &[class*="w50%"].mg5 dt {width: 49.5%}
+//   &[class*="w50%"].mg5 dd {margin-left: 50.5%}
+// }

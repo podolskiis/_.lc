@@ -1,21 +1,24 @@
 jQuery(function($){
 
-//-> 
+// 
 
 
-//-> 
+// Resize
+  $(window).resize(function() {
 
+  }); $(window).resize();
 
-//-> 
+// load
+  $(window).load(function() {
+    var // Equal Heights
+      $eqHtJs=$('.eqHtJs>*');
+      $eqHtJs.equalHeights();
+    $(window).resize();
+  });
 
-
-
-//-> Equal Heights
-  $('.eqHtJs > *').equalHeights();
-
-//-> IE 8
+// IE 8
   if (!Modernizr.input.placeholder) {
     $('[placeholder]').placeholder();
   }
 
-}); // jQuery
+});

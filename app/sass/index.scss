@@ -1,15 +1,29 @@
-@import "bourbon";
-@import "variables";
+@import
+  'bourbon',
 
-// file layout
-@import "layout/bootstrap";
-@import "layout/tools";
-@import "layout/main_grid";
+  'vendors/bootstrap',
 
-// file base
-@import "base/mixins";
-@import "base/tools";
-@import "base/helper";
+  'utils/variables',
+  'utils/mixins',
+  'utils/tools',
+  'utils/helpers',
 
-// file project
-@import "project/index";
+  'base/reset',
+  'base/fonts',
+  'base/base',
+  'base/typography',
+
+  'layout/navigation',
+  'layout/grid',
+  'layout/header',
+  'layout/footer',
+  'layout/sidebar',
+
+  'components/forms',
+  'components/buttons',
+
+  'pages/home',
+  'pages/contact',
+
+  'themes/theme',
+  'themes/responsive';

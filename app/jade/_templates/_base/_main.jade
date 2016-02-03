@@ -7,10 +7,9 @@ doctype html
 html
   include _head.jade
   body(
-    class = home ? 'home' : 'page'
-    class = sidebar ? '' : 'no-sidebar'
-    class = sidebar && left_sidebar ? 'sidebar-l' : ''
-    class = sidebar && right_sidebar ? 'sidebar-r' : ''
+    class = home?'page-home':'page-post'
+    class = left_sidebar?'sidebar-l':''
+    class = right_sidebar?'sidebar-r':''
   )
     .all
       include ../_header.jade
