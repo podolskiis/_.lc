@@ -18,7 +18,7 @@ body {
   }
 }
 // clearfix
-.rw, [class*="grid"] {
+.rw,.page__layout {
   &:before,
   &:after {content: " "; display: table}
   &:after {clear: both}

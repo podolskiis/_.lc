@@ -11,7 +11,7 @@ mixin with_sidebars()
   .container
     h1.main-title #{title}
     if sidebar_right || sidebar_left
-      .page__grid
+      .page__layout
         .page__content
           block content
         include ../_sidebar.jade
@@ -27,7 +27,7 @@ mixin main_menu(class_menu)
     if v_main_menu[0] !== undefined
       each key in v_main_menu
         if active === key
-          li(class=class__item class=class__item+'--active')
+          li(class=class__item class=class__item+'_active')
             a(class=class__link href="#")= key
         else
           li(class=class__item)
@@ -35,7 +35,7 @@ mixin main_menu(class_menu)
     else
       each val, key in v_main_menu
         if active === key
-          li(class=class__item class=class__item+'--active')
+          li(class=class__item class=class__item+'_active')
             a(class=class__link href=val)= key
         else
           li(class=class__item)
