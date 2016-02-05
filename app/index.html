@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 
   <head>
     <meta charset="utf-8">
@@ -25,93 +25,80 @@
     <![endif]-->
   </head>
 
-  <body class="page-home">
-    <div class="all">
+  <body class="page page--home page--sidebar_right">
+    <div class="page__item">
       <!-- HEADER START -->
-      <header class="main-header">
+      <header class="header">
         <div class="container">
-          <!-- header-top-bar start -->
-          <div class="header-top-bar">
-            <div class="row show_grid">
-              <div class="col-xs-4">
-                <h2 class="logo"><a href="/"><img src="images/theme/logo.png" alt="logo"></a></h2> </div>
-              <div class="col-xs-8">
-                <div class="header-tools fr">
-                  <!-- contacts start -->
-                  <div class="contacts">
-                    <ul class="reset mgli5 contacts-list">
-                      <li class="contacts-item contacts-item-phone"><a href="tel:+71234567890"><span class="cod">+7 (123) </span><span class="num">456-78-90</span></a></li>
-                      <li class="contacts-item contacts-item-email"><a href="mailto:email@dom.ru"><span class="icon-email"></span> email@dom.ru</a> </li>
-                    </ul>
-                  </div>
-                  <!-- contacts end -->
-                </div>
+          <div class="row">
+            <div class="col-xs-4">
+              <h2 class="logo"><a href="/" class="logo__link"><img src="images/theme/logo.png" alt="logo" class="logo__img"><span class="logo__title text-hide">подпись к логотипу</span></a></h2> </div>
+            <div class="col-xs-8">
+              <div class="fr">
+                <ul class="contacts reset mgli5">
+                  <li class="contacts__item contacts__item_phone"><a href="tel:+71234567890" class="phone"><span class="phone__cod">+7 (123) </span><span class="phone__num">456-78-90</span></a></li>
+                  <li class="contacts__item contacts__item_email"><a href="mailto:email@dom.ru" class="email"><span class="icon-email"></span> email@dom.ru</a> </li>
+                </ul>
               </div>
             </div>
           </div>
-          <!-- header-top-bar end -->
-          <!-- main-menu start -->
-          <nav class="nav-bar main-menu">
-            <ul class="nav rw hidden-xs">
-              <li class="active"><a href="#">Главная</a></li>
-              <li><a href="#">О компании</a></li>
-              <li><a href="#">Новости</a></li>
-              <li><a href="#">Контакты</a></li>
-            </ul>
-            <button type="button" class="btn-toggle visible-xs">nav</button>
-            <ul class="nav-mobile visible-xs">
-              <li class="active"><a href="#">Главная</a></li>
-              <li><a href="#">О компании</a></li>
-              <li><a href="#">Новости</a></li>
-              <li><a href="#">Контакты</a></li>
+          <nav class="navigation">
+            <ul class="navigation__list rw hidden-xs">
+              <li class="navigation__item navigation__item--active"><a href="#" class="navigation__link">Главная</a></li>
+              <li class="navigation__item"><a href="#" class="navigation__link">О компании</a></li>
+              <li class="navigation__item"><a href="#" class="navigation__link">Новости</a></li>
+              <li class="navigation__item"><a href="#" class="navigation__link">Контакты</a></li>
             </ul>
           </nav>
-          <!-- main-menu end -->
         </div>
       </header>
       <!-- HEADER END -->
       <!-- MAIN START -->
-      <main>
+      <main class="main">
         <div class="container">
           <h1 class="main-title">Главная</h1>
-          <div class="main-grid">
-            <!-- content start -->
-            <div class="main-content">
+          <div class="page__grid">
+            <div class="page__content">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.</p>
-              <form class="default">
-                <div class="wrap">
+              <form class="form">
+                <div class="form__item">
                   <label>Ваше имя</label>
                   <br/>
                   <input name="name" type="text" placeholder="Ваше имя" class="required" /> </div>
-                <div class="wrap">
+                <div class="form__item">
                   <textarea rows="5" name="msg" placeholder="Сообщение" class="required w100p"></textarea>
                 </div>
-                <div class="wrap btn-wrap">
+                <div class="form__item form__item--btn">
                   <button type="submit" class="btn orange lh32">submit</button>
                 </div>
               </form>
               <p>&nbsp;</p>
             </div>
-            <!-- content end -->
+            <aside class="page__sidebar page__sidebar--right">
+              <div class="panel">
+                <h3 class="panel__title">right panel</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.</p>
+              </div>
+            </aside>
           </div>
         </div>
       </main>
       <!-- MAIN END -->
-      <!-- FOOTER START -->
-      <footer class="main-footer">
-        <div class="container">
-          <div class="row show_grid">
-            <div class="col-xs-6">
-              <p class="copyright">© 2015 Rightblog.ru Copyright</p>
-            </div>
-            <div class="col-xs-6">
-              <p class="developer fr">Разработка сайта:<a href="//studio.ru" target="_blank">studio.ru</a></p>
-            </div>
+    </div>
+    <!-- FOOTER START -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6">
+            <p class="copyright">© 2015 Rightblog.ru Copyright</p>
+          </div>
+          <div class="col-xs-6">
+            <p class="developer fr">Разработка сайта:<a href="//studio.ru" target="_blank">studio.ru</a></p>
           </div>
         </div>
-      </footer>
-      <!-- FOOTER END -->
-    </div>
+      </div>
+    </footer>
+    <!-- FOOTER END -->
     <!-- MODAL START -->
     <div id="id" class="modal is-hidden">
       <h3 class="modal-title"></h3>

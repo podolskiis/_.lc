@@ -2,8 +2,8 @@ extends _templates/_base/_main.jade
 block var
   -var title = 'Главная'
   -var home = true
-  //- -var left_sidebar = true
-  //- -var right_sidebar = true
+  //- -var sidebar_left = true
+  -var sidebar_right = true
 block title
   title #{title}
 block main_menu
@@ -11,17 +11,16 @@ block main_menu
 block content
   p.
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.
-  form.default
-    .wrap
+  form.form
+    .form__item
       label Ваше имя
       br
       input(class="required" name="name" type="text" placeholder="Ваше имя")
-    .wrap
+    .form__item
       textarea(class="required w100p" rows="5" name="msg" placeholder="Сообщение")
-    .wrap.btn-wrap
+    .form__item.form__item--btn
       button.btn.orange.lh32(type="submit") submit
-  p
-    | &nbsp;
+  p &nbsp;
 
 
 

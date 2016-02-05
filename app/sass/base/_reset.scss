@@ -11,14 +11,14 @@ html {
 }
 body {
   background-color: #fff;
-  &>.all,
-  &>footer {
+  &>.page__item,
+  &>.footer {
     overflow: hidden;
     position: relative
   }
 }
 // clearfix
-.rw, .main-grid {
+.rw, [class*="grid"] {
   &:before,
   &:after {content: " "; display: table}
   &:after {clear: both}

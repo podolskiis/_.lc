@@ -22,7 +22,7 @@ $src: '../';
       height: 100%;
     }
     body {
-      &>.all {
+      &>.page__item {
         min-height: 100%;
         &:after {
           content: ' ';
@@ -30,7 +30,7 @@ $src: '../';
           height: $h+$t;
         }
       }
-      &>footer {
+      &>.footer {
         height: $h;
         margin-top: -$h;
       }

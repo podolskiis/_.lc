@@ -10,32 +10,40 @@ mixin scripts(...files)
 mixin with_sidebars()
   .container
     h1.main-title #{title}
-    .main-grid
-      // content start 
-      .main-content
-        block content
-      // content end 
-      if right_sidebar || left_sidebar
+    if sidebar_right || sidebar_left
+      .page__grid
+        .page__content
+          block content
         include ../_sidebar.jade
+    else
+      block content
   //- nav links
-mixin main_menu()
+mixin main_menu(class_menu)
+  -var class__list = class_menu+'__list'
+  -var class__item = class_menu+'__item'
+  -var class__link = class_menu+'__link'
   block main_menu
-  if v_main_menu[0] !== undefined
-    each key in v_main_menu
-      if active === key
-        li.active: a(href="#")= key
-      else
-        li: a(href="#")= key
-  else
-    each val, key in v_main_menu
-      if active === key
-        li.active: a(href=val)= key
-      else
-        li: a(href=val)= key
+  ul(class=class__list class!=attributes.class)
+    if v_main_menu[0] !== undefined
+      each key in v_main_menu
+        if active === key
+          li(class=class__item class=class__item+'--active')
+            a(class=class__link href="#")= key
+        else
+          li(class=class__item)
+            a(class=class__link href="#")= key
+    else
+      each val, key in v_main_menu
+        if active === key
+          li(class=class__item class=class__item+'--active')
+            a(class=class__link href=val)= key
+        else
+          li(class=class__item)
+            a(class=class__link href=val)= key
 
 //- HELPERS MIXINS
 mixin email(email,icon)
-  a(href="mailto:" + email)
+  a(href="mailto:"+email, class!=attributes.class)
     if icon
       span(class=icon)
       | 

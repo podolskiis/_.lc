@@ -1,24 +1,18 @@
-body
-  &[class*="sidebar-"]
-    .main-content
+.page
+  $rootParent: &
+  &__content
+    #{$rootParent}[class*="sidebar"] &
       width: 100%
       float: left
-  &.sidebar-l
-    .main-content
+    #{$rootParent}--sidebar_left &
       padding-left: $w_sidebar_l+$pg_content+$main_grid_unit
-    .left-sidebar
-      float: left
-      width: $w_sidebar_l+$main_grid_unit
-      margin-left: -100%
-      position: relative
-      background: #B5E3FF
-  &.sidebar-r
-    .main-content
+    #{$rootParent}--sidebar_right &
       padding-right: $w_sidebar_r+$pg_content+$main_grid_unit
-    .right-sidebar
-      float: left
-      width: $w_sidebar_r+$main_grid_unit
-      margin-left: -250px
-      position: relative
-      background: #FFACAA
-
+  &__sidebar--left
+    float: left
+    width: $w_sidebar_l+$main_grid_unit
+    margin-left: -100%
+  &__sidebar--right
+    float: left
+    width: $w_sidebar_r+$main_grid_unit
+    margin-left: -$w_sidebar_r+$main_grid_unit
