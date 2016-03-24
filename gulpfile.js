@@ -1,5 +1,3 @@
-'use strict';
-
 /* VARIABLES
  ********************************************************/
 var
@@ -36,7 +34,7 @@ var
       .pipe(sass({includePaths: require('node-bourbon').includePaths}).on('error', sass.logError))
       .pipe(autoprefixer({ browsers: ['last 25 versions'] }))
       .pipe(rename('theme.min.css'))
-      .pipe(minifyCss({compatibility: 'ie8'}))
+      // .pipe(minifyCss({compatibility: 'ie8'}))
       .pipe(gulp.dest(appDir+'css/'))
       .pipe(reload({ stream:true }));
   });
@@ -136,9 +134,7 @@ gulp.task('extras', function () {
   return gulp.src([
     appDir+'.*',
     appDir+'*.*',
-    '!'+appDir+'*.html',
-    // dop custom files
-    appDir+'**/custom.css'
+    '!'+appDir+'*.html'
   ]).pipe(gulp.dest(buildDir));
 });
 // Transferring js

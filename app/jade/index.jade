@@ -2,7 +2,7 @@ extends _templates/_base/_main.jade
 block var
   -var title = 'Главная'
   -var home = true
-  //- -var sidebar_left = true
+  -var sidebar_left = true
   -var sidebar_right = true
 block title
   title #{title}
@@ -19,7 +19,7 @@ block content
     .form__item
       textarea(class="required w100p" rows="5" name="msg" placeholder="Сообщение")
     .form__item.form__item_btn
-      button.btn.orange.lh32(type="submit") submit
+      button.btn.btn_orange.lh_32(type="submit") submit
   p &nbsp;
 
 

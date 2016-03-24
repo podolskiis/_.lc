@@ -16,7 +16,6 @@
     <!-- build:css css/theme.min.css -->
     <link rel="stylesheet" href="css/theme.min.css" />
     <!-- endbuild -->
-    <link rel="stylesheet" href="css/custom.css" />
     <script src="js/modernizr.js"></script>
     <!--[if lt IE 9]>
     <link rel="stylesheet" href="//rawgit.com/codefucker/finalReject/master/reject/reject.css"/>
@@ -25,14 +24,14 @@
     <![endif]-->
   </head>
 
-  <body class="page page_home page_sidebar_right">
+  <body class="page page_home page_sidebar_left page_sidebar_right">
     <div class="page__item">
       <!-- HEADER START -->
       <header class="header">
         <div class="container">
           <div class="row">
             <div class="col-xs-4">
-              <h2 class="logo"><a href="/" class="logo__link"><img src="images/theme/logo.png" alt="logo" class="logo__img"><span class="logo__title text-hide">подпись к логотипу</span></a></h2> </div>
+              <h2 class="logo"><a href="/" class="logo__link"><img src="images/theme/logo.png" alt="logo" class="logo__img"><span class="logo__title hide">подпись к логотипу</span></a></h2> </div>
             <div class="col-xs-8">
               <div class="fr">
                 <ul class="contacts reset mgli5">
@@ -69,11 +68,17 @@
                   <textarea rows="5" name="msg" placeholder="Сообщение" class="required w100p"></textarea>
                 </div>
                 <div class="form__item form__item_btn">
-                  <button type="submit" class="btn orange lh32">submit</button>
+                  <button type="submit" class="btn btn_orange lh_32">submit</button>
                 </div>
               </form>
               <p>&nbsp;</p>
             </div>
+            <aside class="page__sidebar page__sidebar_left">
+              <div class="panel">
+                <h3 class="panel__title">left panel</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.</p>
+              </div>
+            </aside>
             <aside class="page__sidebar page__sidebar_right">
               <div class="panel">
                 <h3 class="panel__title">right panel</h3>
@@ -101,7 +106,7 @@
     <!-- FOOTER END -->
     <!-- MODALS START -->
     <div id="id" class="modal is-hidden">
-      <h3 class="modal__title"></h3>
+      <h3 class="modal__title">title</h3>
       <div class="modal__content">content</div>
     </div>
     <!-- MODALS END -->

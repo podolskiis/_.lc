@@ -130,25 +130,23 @@ $src: '../';
   }
 // BORDER
   // border-link
-  @mixin border_link($color, $hover) {
+  @mixin border_link($color: $tm_color_link_a, $hover: $tm_color_link_b, $type: dotted) {
     border-width: 0 0 0.1em;
     display: inline-block;
     text-decoration: none !important;
     line-height: 0.9em;
     color: $color;
     border-color: $color;
+    @if $type == solid {
+      border-style: solid;
+    } @else if $type == dashed {
+      border-style: dashed;
+    } @else {
+      border-style: dotted;
+    }
     &:hover {
       color: $hover;
       border-color: $hover;
-    }
-    &.solid {
-      border-style: solid
-    }
-    &.dotted {
-      border-style: dotted
-    }
-    &.dashed {
-      border-style: dashed
     }
   }
   // border-radius
