@@ -1,6 +1,5 @@
 jQuery(function($){
 
-// 
 
 
 // Resize

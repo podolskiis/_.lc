@@ -1,0 +1,19 @@
+/* font-family: "RobotoRegular"; */
+@font-face {
+	font-family: "MyriadPro-Regular";
+	src: url("../fonts/MyriadPro-Regular.otf");
+	src: url("../fonts/MyriadPro-Regular.otf"")format("embedded-opentype"),
+	url("../fonts/MyriadPro-Regular.otf") format("woff"),
+	url("../fonts/MyriadPro-Regular.otf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: "SourceSansPro-Light";
+	src: url("../fonts/SourceSansPro-Light.ttf");
+	src: url("../fonts/SourceSansPro-Light.ttf")format("embedded-opentype"),
+	url("../fonts/SourceSansPro-Light.ttf") format("woff"),
+	url("../fonts/SourceSansPro-Light.ttf") format("truetype");
+	font-style: normal;
+	font-weight: normal;
+}

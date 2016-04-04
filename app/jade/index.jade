@@ -9,8 +9,9 @@ block title
 block main_menu
   -var active = title
 block content
-  p.
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.
+  - for (var x = 0; x < 3; x++)
+    p.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores quae eius, vitae inventore necessitatibus. Cumque nobis ea mollitia blanditiis qui quam natus, eligendi laboriosam optio quis. Sit saepe, nobis eius.
   form.form
     .form__item
       label Ваше имя
@@ -21,7 +22,6 @@ block content
     .form__item.form__item_btn
       button.btn.btn_orange.lh_32(type="submit") submit
   p &nbsp;
-
 
 
 
