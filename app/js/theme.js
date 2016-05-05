@@ -4,7 +4,7 @@ jQuery(function($){
 
 // Resize
   $(window).resize(function() {
-
+    // function...
   }); $(window).resize();
 
 // load

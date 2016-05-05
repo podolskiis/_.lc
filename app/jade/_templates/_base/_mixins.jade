@@ -26,20 +26,24 @@ mixin main_menu(class_menu)
   ul(class=class__list class!=attributes.class)
     if v_main_menu[0] !== undefined
       each key in v_main_menu
-        if active === key
+        if active_menu === key
           li(class=class__item class=class__item+'_active')
-            a(class=class__link href="#")= key
+            a(class=class__link href="#")
+              span= key
         else
           li(class=class__item)
-            a(class=class__link href="#")= key
+            a(class=class__link href="#")
+              span= key
     else
       each val, key in v_main_menu
-        if active === key
+        if active_menu === key
           li(class=class__item class=class__item+'_active')
-            a(class=class__link href=val)= key
+            a(class=class__link href=val)
+              span= key
         else
           li(class=class__item)
-            a(class=class__link href=val)= key
+            a(class=class__link href=val)
+              span= key
 
 //- HELPERS MIXINS
 mixin email(email,icon)

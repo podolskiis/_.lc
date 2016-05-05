@@ -4,10 +4,9 @@ block var
   -var home = true
   -var sidebar_left = true
   -var sidebar_right = true
+  -var active_menu = title
 block title
   title #{title}
-block main_menu
-  -var active = title
 block content
   - for (var x = 0; x < 3; x++)
     p.

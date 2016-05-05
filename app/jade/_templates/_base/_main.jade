@@ -6,20 +6,23 @@ include ../_project_mixins.jade
 doctype html
 html(lang="ru")
   include _head.jade
-  body.page(
-    class = home?'page_home':'page_post'
-    class = sidebar_left?'page_sidebar_left':''
-    class = sidebar_right?'page_sidebar_right':''
-  )
-    .page__item
-      include ../_header.jade
-      // MAIN START 
-      main.main
-        if section
-          block content
-        else
-          +with_sidebars()
-      // MAIN END 
-    include ../_footer.jade
-    include ../_modals.jade
-    include ../_scripts.jade
+  if home
+    body.page(
+      class = home?'page_home':'page_post'
+      class = sidebar_left?'page_sidebar_left':''
+      class = sidebar_right?'page_sidebar_right':''
+    )
+  else
+    body.page(class=body_classes)
+      .page__item
+        include ../_header.jade
+        // MAIN START 
+        main.main
+          if section
+            block content
+          else
+            +with_sidebars()
+        // MAIN END 
+      include ../_footer.jade
+      include ../_modals.jade
+      include ../_scripts.jade
