@@ -94,8 +94,9 @@
     &_bot>*,td{vertical-align: bottom;}
     @for $i from 1 through 10 {
       &_mg_#{5*$i} {
-        margin-left: -#{5*$i}px;
         >*,td{padding-left: 5px *$i}
+        >*:first-child,
+        tr td:first-child{padding-left: 0}
       }
     }
   }

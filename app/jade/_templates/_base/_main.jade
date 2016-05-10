@@ -6,7 +6,7 @@ include ../_project_mixins.jade
 doctype html
 html(lang="ru")
   include _head.jade
-  if home
+  if multipage
     body.page(
       class = home?'page_home':'page_post'
       class = sidebar_left?'page_sidebar_left':''

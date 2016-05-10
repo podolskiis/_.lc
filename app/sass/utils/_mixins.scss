@@ -49,6 +49,17 @@ $src: '../';
     top: -1px;
     vertical-align: middle;
   }
+  @mixin icomoon() {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
   @mixin img_fit($h:200px, $bg:#fff) {
     background: $bg;
     display: block;
