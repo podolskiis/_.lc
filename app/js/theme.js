@@ -9,9 +9,7 @@ jQuery(function($){
 
 // load
   $(window).load(function() {
-    var // Equal Heights
-      $eqHtJs=$('.eqHtJs>*');
-      $eqHtJs.equalHeights();
+    // function...
     $(window).resize();
   });
 

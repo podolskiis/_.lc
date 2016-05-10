@@ -1733,46 +1733,56 @@ hr {
     vertical-align: top; }
   .tbl_bot > *, .tbl td {
     vertical-align: bottom; }
-  .tbl_mg_5 {
-    margin-left: -5px; }
-    .tbl_mg_5 > *, .tbl_mg_5 td {
-      padding-left: 5px; }
-  .tbl_mg_10 {
-    margin-left: -10px; }
-    .tbl_mg_10 > *, .tbl_mg_10 td {
-      padding-left: 10px; }
-  .tbl_mg_15 {
-    margin-left: -15px; }
-    .tbl_mg_15 > *, .tbl_mg_15 td {
-      padding-left: 15px; }
-  .tbl_mg_20 {
-    margin-left: -20px; }
-    .tbl_mg_20 > *, .tbl_mg_20 td {
-      padding-left: 20px; }
-  .tbl_mg_25 {
-    margin-left: -25px; }
-    .tbl_mg_25 > *, .tbl_mg_25 td {
-      padding-left: 25px; }
-  .tbl_mg_30 {
-    margin-left: -30px; }
-    .tbl_mg_30 > *, .tbl_mg_30 td {
-      padding-left: 30px; }
-  .tbl_mg_35 {
-    margin-left: -35px; }
-    .tbl_mg_35 > *, .tbl_mg_35 td {
-      padding-left: 35px; }
-  .tbl_mg_40 {
-    margin-left: -40px; }
-    .tbl_mg_40 > *, .tbl_mg_40 td {
-      padding-left: 40px; }
-  .tbl_mg_45 {
-    margin-left: -45px; }
-    .tbl_mg_45 > *, .tbl_mg_45 td {
-      padding-left: 45px; }
-  .tbl_mg_50 {
-    margin-left: -50px; }
-    .tbl_mg_50 > *, .tbl_mg_50 td {
-      padding-left: 50px; }
+  .tbl_mg_5 > *, .tbl_mg_5 td {
+    padding-left: 5px; }
+  .tbl_mg_5 > *:first-child,
+  .tbl_mg_5 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_10 > *, .tbl_mg_10 td {
+    padding-left: 10px; }
+  .tbl_mg_10 > *:first-child,
+  .tbl_mg_10 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_15 > *, .tbl_mg_15 td {
+    padding-left: 15px; }
+  .tbl_mg_15 > *:first-child,
+  .tbl_mg_15 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_20 > *, .tbl_mg_20 td {
+    padding-left: 20px; }
+  .tbl_mg_20 > *:first-child,
+  .tbl_mg_20 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_25 > *, .tbl_mg_25 td {
+    padding-left: 25px; }
+  .tbl_mg_25 > *:first-child,
+  .tbl_mg_25 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_30 > *, .tbl_mg_30 td {
+    padding-left: 30px; }
+  .tbl_mg_30 > *:first-child,
+  .tbl_mg_30 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_35 > *, .tbl_mg_35 td {
+    padding-left: 35px; }
+  .tbl_mg_35 > *:first-child,
+  .tbl_mg_35 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_40 > *, .tbl_mg_40 td {
+    padding-left: 40px; }
+  .tbl_mg_40 > *:first-child,
+  .tbl_mg_40 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_45 > *, .tbl_mg_45 td {
+    padding-left: 45px; }
+  .tbl_mg_45 > *:first-child,
+  .tbl_mg_45 tr td:first-child {
+    padding-left: 0; }
+  .tbl_mg_50 > *, .tbl_mg_50 td {
+    padding-left: 50px; }
+  .tbl_mg_50 > *:first-child,
+  .tbl_mg_50 tr td:first-child {
+    padding-left: 0; }
 
 .rw > * {
   float: left;
