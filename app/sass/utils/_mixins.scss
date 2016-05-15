@@ -84,8 +84,8 @@ $src: '../';
       opacity: $op;
     }
   }
-  @mixin img_radius($z:100px,$bd_z:5px) {
-    border: $bd_z solid #e00;
+  @mixin img_radius($z:100px,$bd_c:#e00,$bd_z:5px) {
+    border: $bd_z solid $bd_c;
     display: inline-block;
     border-radius: 50%;
     >* {
@@ -141,8 +141,8 @@ $src: '../';
   }
 // BORDER
   // border-link
-  @mixin border_link($color: $tm_color_link_a, $hover: $tm_color_link_b, $type: dotted) {
-    border-width: 0 0 0.1em;
+  @mixin border_link($type: dotted, $color: $tm_color_link_a, $hover: $tm_color_link_b) {
+    border-width: 0 0 1px;
     display: inline-block;
     text-decoration: none !important;
     line-height: 0.9em;

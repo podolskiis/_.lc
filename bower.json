@@ -16,14 +16,6 @@
     "owl.carousel": "OwlCarousel2#~2.0.0-beta.3"
   },
   "overrides": {
-    "bxslider-4": {
-      "main": [
-        "dist/jquery.bxslider.js"
-      ],
-      "dependencies": {
-        "jquery": ">= 1.8.3"
-      }
-    },
     "fancyBox": {
       "main": [
         "source/jquery.fancybox.css",
