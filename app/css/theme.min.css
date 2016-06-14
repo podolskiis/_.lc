@@ -2087,9 +2087,10 @@ body {
   background: #9ACD32; }
 
 body {
+  font-family: "opensans", sans-serif;
   font-size: 0.875em;
   line-height: 1.375em;
-  font-family: "opensans", sans-serif;
+  font-weight: 400;
   color: #333; }
 
 html, body, .container {
@@ -2100,6 +2101,9 @@ html, body, .container {
 
 .bg-black {
   background-color: #000; }
+
+p, pre, ul, ol, dl, .p {
+  margin: 1em 0; }
 
 a {
   color: #00c;
@@ -2308,17 +2312,17 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
   color: #000; }
 
 .email {
-  border-width: 0 0 0.1em;
+  border-width: 0 0 1px;
   display: inline-block;
   text-decoration: none !important;
   line-height: 0.9em;
-  color: green;
-  border-color: green;
-  border-style: dashed;
+  color: red;
+  border-color: red;
+  border-style: dotted;
   font-size: 40px; }
   .email:hover {
-    color: red;
-    border-color: red; }
+    color: dashed;
+    border-color: dashed; }
 
 @media (max-width: 767px) {
   .animated {
