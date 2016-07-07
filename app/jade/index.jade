@@ -15,12 +15,12 @@ block content
     .form__item
       label Ваше имя
       br
-      input(class="required" name="name" type="text" placeholder="Ваше имя")
+      input(name="name" type="text" placeholder="Ваше имя" required)
     .form__item
-      textarea(class="required w100p" rows="5" name="msg" placeholder="Сообщение")
+      textarea.w100p(rows="5" name="msg" placeholder="Сообщение" required)
     .form__item.form__item_btn
-      button.btn.btn_orange.lh_32(type="submit") submit
-  p &nbsp;
+      button.btn.btn_blue.lh_32(type="submit")
+        | submit
 
 
 

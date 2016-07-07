@@ -13,7 +13,8 @@
     "superfish": "~1.7.7",
     "jquery-form-styler": "jquery.formstyler#~1.7.4",
     "jquery-validation": "~1.14.0",
-    "owl.carousel": "OwlCarousel2#~2.0.0-beta.3"
+    "owl.carousel": "OwlCarousel2#~2.0.0-beta.3",
+    "jquery.maskedinput": "^1.4.1"
   },
   "overrides": {
     "fancyBox": {

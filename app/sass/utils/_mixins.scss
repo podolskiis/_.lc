@@ -1,20 +1,11 @@
-$src: '../';
+$src_img:  '../images/theme/';
+$src_font: '../fonts/';
+
 // BACKGROUND
-  @mixin bgp($img,$x:0,$y:0,$c:transparent,$r:no-repeat) {
-    background: url(#{$src}images/theme/#{$img}.png) $c $x $y $r
-  }
-  @mixin bgj($img,$x:0,$y:0,$c:transparent,$r:no-repeat) {
-    background: url(#{$src}images/theme/#{$img}.jpg) $c $x $y $r
-  }
-  @mixin bgd($img,$x:0,$y:0,$c:transparent,$r:no-repeat){
-    background: url(#{$src}data:image/png;base64,#{$img}) $c $x $y $r
-  }
-  @mixin bgg($img,$x:0,$y:0,$c:transparent,$r:no-repeat){
-    background: url(#{$src}images/theme/#{$img}.gif) $c $x $y $r
-  }
-  @mixin bgz($z1:cover){
-    background-size: $z1
-  }
+  @mixin bg($img,$x:0,$y:0,$c:transparent,$r:no-repeat) {
+    background: url('#{$src_img}#{$img}') $c $x $y $r }
+  @mixin bg_data($img,$x:0,$y:0,$c:transparent,$r:no-repeat){
+    background: url('#{$src_img}data:image/png;base64,#{$img}') $c $x $y $r }
 // FOOTER
   // push footer
   @mixin footer_fixed($h, $t:0) {
@@ -40,7 +31,7 @@ $src: '../';
     }
   }
 // IMAGES
-  @mixin icons($url:'#{$src}images/theme/icons.png') {
+  @mixin icons($url:'#{$src_img}icons.png') {
     background-image: url($url);
     background-position: 100% 100%;
     background-repeat: no-repeat;
@@ -220,12 +211,12 @@ $src: '../';
   @mixin font($ff, $url) {
     @font-face {
       font-family: $ff;
-      src: url(#{$src+$url}.eot);
-      src: url(#{$src+$url}.eot?#iefix) format('embedded-opentype'),
-           url(#{$src+$url}.woff) format('woff'),
-           url(#{$src+$url}.woff2) format('woff2'),
-           url(#{$src+$url}.ttf) format('truetype'),
-           url(#{$src+$url}.svg##{$ff}) format('svg');
+      src: url(#{$src_font+$url}.eot);
+      src: url(#{$src_font+$url}.eot?#iefix) format('embedded-opentype'),
+           url(#{$src_font+$url}.woff) format('woff'),
+           url(#{$src_font+$url}.woff2) format('woff2'),
+           url(#{$src_font+$url}.ttf) format('truetype'),
+           url(#{$src_font+$url}.svg##{$ff}) format('svg');
       font-weight: normal;
       font-style: normal;
     }

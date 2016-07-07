@@ -1,8 +1,5 @@
 // I add | normalize editors
 *{word-wrap:break-word}
-a:focus,
-input:focus,
-button:focus {outline:none; color:inherit}
 
 // Framework Site
 html {
@@ -27,9 +24,14 @@ ul,ol,dl {
   &.nav,
   &.reset,
   &[class*="rw"]{
-    list-style: none; padding: 0}
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
 }
 // rstmg
-.rstmg > *:first-child {margin-top: 0}
-.rstmg > * :last-child {margin-bottom: 0}
-.rstmg > * .last-child {margin-bottom: 0}
+.in_mg_0 {
+  > *:first-child {margin-top: 0}
+  > *:last-child {margin-bottom: 0}
+  > *.last-child {margin-bottom: 0}
+}
