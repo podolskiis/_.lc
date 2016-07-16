@@ -1,4 +1,9 @@
-// @include font('opensans', 'opensans/opensans-regular');
+/* 
+@include font('opensans', 'opensans/opensans-regular');
 
-
+[class^="icon-"],
+[class*=" icon-"] {
+  @include icomoon
+}
+ */
 

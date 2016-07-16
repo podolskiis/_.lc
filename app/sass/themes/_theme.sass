@@ -1,14 +1,21 @@
-
+.bg
+  &_white
+    background-color: #fff
+  &_black
+    background-color: #000
+.tx
+  &_color
+    &_white
+      color: #fff
+    &_black
+      color: #000
+    &_a
+      color: $tm_color_a
+    &_d
+      color: $tm_color_d
 .email
   +border_link(dashed, green, red)
   font-size: 40px
 
-.tbl
-  &-wrap
-    border: 1px solid red
-  &__item
-    border: 1px solid #000
-    width: 50%
-    height: 100px
 
 

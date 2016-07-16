@@ -9,17 +9,15 @@
 .fr          {float: right}
 .rzn         {resize: none}
 .w100p       {width: 100% !important}
-
-.mgt0        {margin-top: 0 !important}
-.mgb0        {margin-bottom: 0 !important}
 .nowrap      {white-space: nowrap}
 .dib         {display: inline-block; vertical-align: middle}
 .btn .dib    {vertical-align: middle}
 .list-zero   {list-style-type: decimal-leading-zero}
 .list-square {list-style-type: square}
 .is-hidden   {display: none}
-.show_grid {
-  &.tbl > *,
-  &[class*="rw"] > *,
-  &.row > *[class*="col-"] {outline: 1px solid #ccc;}
+.show_grid   {
+  .rw__item,
+  .tbl__item,
+  [class*="col-"]
+  {outline: 1px solid #aaa}
 }

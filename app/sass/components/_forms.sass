@@ -36,7 +36,9 @@ input,textarea
       margin-top: 0
     &_btn
       margin-top: 15px
-  &_validate
-    .error
-      color: red
-      border-color: red !important
+  // Validate
+  input.error,textarea.error
+    border-color: red !important
+    box-shadow: 0 0 3px red !important
+  label.error
+    display: none !important

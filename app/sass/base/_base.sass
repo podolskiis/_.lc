@@ -8,28 +8,30 @@ body
 body
   font-family: $tm_ff_d
   font-size: $tm_fz_d
-  line-height: $tm_lh_d
   font-weight: $tm_fw_d
+  line-height: $tm_lh_d
   color: $tm_color_d
 html,body,.container
   min-width: 320px
-// .container
-//   max-width: 990px !important
-//   width: auto !important
+/* .container
+  max-width: 990px !important
+  width: auto !important */
 
-.bg
-  &_white
-    background-color: #fff
-  &_black
-    background-color: #000
-.tx_color
-  &_white
-    color: #fff
-  &_black
-    color: #000
-  &_a
-    color: $tm_color_a
-  &_d
-    color: $tm_color_d
-
+/* 
+ * typography
+ */
+h1,h2,h3,h4,h5,
+b,strong,th,dt
+  // styles ...
+h1,h2,h3,h4,h5
+  // @include ffn
+p,pre,ul,ol,dl,.p
+  margin: $tm_mg_p 0
+a
+  color: $tm_color_link_a
+  text-decoration: underline
+  &:hover
+    color: $tm_color_link_b
+a,input,textarea,button
+  +tsn(.2)
 

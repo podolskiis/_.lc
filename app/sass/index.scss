@@ -1,17 +1,16 @@
 @import
   'bourbon',
+  'variables',
 
   'vendors/bootstrap',
 
-  'utils/variables',
+  'utils/helpers',
   'utils/mixins',
   'utils/tools',
-  'utils/helpers',
 
   'base/reset',
   'base/fonts',
   'base/base',
-  'base/typography',
 
   'layout/navigation',
   'layout/grid',
