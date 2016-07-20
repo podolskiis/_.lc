@@ -75,7 +75,7 @@ $src_font: '../fonts/';
       opacity: $op;
     }
   }
-  @mixin img_radius($z:100px,$bd_c:#e00,$bd_z:5px) {
+  @mixin img_radius($z:100px,$bd_z:5px,$bd_c:#e00) {
     border: $bd_z solid $bd_c;
     display: inline-block;
     border-radius: 50%;

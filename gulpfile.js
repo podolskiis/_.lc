@@ -161,20 +161,20 @@ var
   ftp = require('vinyl-ftp');
 
 gulp.task('http', function () {
-  var conn = ftp.create({
-    host:     '92.53.96.55',
-    user:     'podolskiis',
-    password: '**********',
-    parallel: 10,
-    log: gutil.log
-  });
-  var globs = [
-    buildDir+'**/*'
-  ];
+  var
+    urlDir = '/activ.sergeypodolsky.ru/public_html/work/2016/02/test1/',
+    conn = ftp.create({
+      host:     '92.53.96.55',
+      user:     'podolskiis',
+      password: '**********',
+      parallel: 10,
+      log: gutil.log
+    }),
+    globs = [
+      buildDir+'**/*'
+    ];
   return gulp.src(globs, {base: buildDir, buffer: false})
-    .pipe(conn.dest(
-      '/activ.sergeypodolsky.ru/public_html/work/2016/02/test1/'
-    ));
+    .pipe(conn.dest(urlDir));
 });
 
 /* BUILD and DEPLOOY  in the loop
@@ -182,7 +182,7 @@ gulp.task('http', function () {
 gulp.task('build:http', function(cb) {
   runSequence(
     'clean',
-    ['useref','img','fonts','extras'],
+    ['useref','img','fonts','extras','js'],
     'http',
     cb);
 });

@@ -12,7 +12,7 @@ html(lang="ru")
       class = sidebar_left?'page_sidebar_left':''
       class = sidebar_right?'page_sidebar_right':''
     )
-      .page__item
+      .page__inner
         include ../_header.jade
         // MAIN START 
         main.main
@@ -26,7 +26,7 @@ html(lang="ru")
       include ../_scripts.jade
   else
     body.page(class=body_classes)
-      .page__item
+      .page__inner
         include ../_header.jade
         // MAIN START 
         main.main
