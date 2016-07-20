@@ -13,7 +13,7 @@ $src_font: '../fonts/';
       height: 100%;
     }
     body {
-      &>.page__item {
+      &>.page__inner {
         min-height: 100%;
         &:after {
           content: ' ';

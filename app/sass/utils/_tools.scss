@@ -147,12 +147,12 @@
   }
   @for $i from 1 through 10 {
     &_mg_#{5*$i} {
-      margin-left: -5px *$ !importanti;
-      >*{margin-left: 5px *$i}
+      margin-left: -5px *$i !important;
+      >*{ margin-left: 5px *$i }
     }
     &_mg_b_#{5*$i} {
       margin:0 0 -5px *$i -5px *$i;
-      >*{margin:0 0 5px *$i 5px *$i}
+      >*{ margin:0 0 5px *$i 5px *$i }
     }
   }
 }
