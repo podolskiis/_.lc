@@ -1,15 +1,15 @@
-.tal         {text-align: left}
-.tar         {text-align: right}
-.tac         {text-align: center}
-.taj         {text-align: justify}
-.ttu         {text-transform: uppercase}
-.tdu         {text-decoration: underline}
-.tdn         {text-decoration: none}
-.fl          {float: left}
-.fr          {float: right}
-.rzn         {resize: none}
+.tal         {text-align: left !important}
+.tar         {text-align: right !important}
+.tac         {text-align: center !important}
+.taj         {text-align: justify !important}
+.ttu         {text-transform: uppercase !important}
+.tdu         {text-decoration: underline !important}
+.tdn         {text-decoration: none !important}
+.fl          {float: left !important}
+.fr          {float: right !important}
+.rzn         {resize: none !important}
 .w100p       {width: 100% !important}
-.nowrap      {white-space: nowrap}
+.nowrap      {white-space: nowrap !important}
 .dib         {display: inline-block; vertical-align: middle}
 .btn .dib    {vertical-align: middle}
 .list-zero   {list-style-type: decimal-leading-zero}

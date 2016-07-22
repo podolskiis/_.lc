@@ -225,3 +225,44 @@ $src_font: '../fonts/';
     font-weight: normal;
     font-style: normal;
   }
+// LINK EFFECTS
+@mixin link_eff_line_center($z:1px, $color:$tm_color_link_b) {
+  position: relative;
+  text-decoration: none;
+  &::before {
+    background: $color;
+    height: $z;
+    content: "";
+    display: block;
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    top: 1.05em;
+    @include tsn_all;
+  }
+  &:hover {
+    color: $color;
+    &::before {
+      left: 0;
+      right: 0;
+    }
+  }
+}
+// MENU STYLES
+@mixin menu_justify($h:50px){
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: justify;
+  overflow: hidden;
+  height: $h;
+  >*{
+    display: inline;
+    a{
+      display: inline-block;}
+  }
+  &:after{
+    content: ".";
+    margin-left: 100%;
+    display: inline-block;}
+}

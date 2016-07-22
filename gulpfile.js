@@ -23,7 +23,7 @@ var
   wiredep = require('wiredep').stream,
   // Destination path
   appDir = 'app/',
-  buildDir = 'dist/';
+  buildDir = 'www/';
 
 /* PREPROCESSING
  ********************************************************/
@@ -171,7 +171,8 @@ gulp.task('http', function () {
       log: gutil.log
     }),
     globs = [
-      buildDir+'**/*'
+      buildDir+'**/*',
+      buildDir+'**/.*'
     ];
   return gulp.src(globs, {base: buildDir, buffer: false})
     .pipe(conn.dest(urlDir));
