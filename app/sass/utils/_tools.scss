@@ -27,32 +27,37 @@
   >*:first-child {margin-top: 0}
 }
 
-// Padding element
+// Margin element (top/bottom)
 @for $i from 0 through 10 {
-  .pg_#{5*$i} {
-    padding: 5px *$i !important
+  .mg {
+    &_t_#{5*$i} {margin-top: 5px*$i !important}
+    &_b_#{5*$i} {margin-bottom: 5px*$i !important}
+    &_tb_#{5*$i}{
+      margin-top: 5px*$i;
+      margin-bottom: 5px*$i !important
+    }
   }
-  .pg_tb_#{5*$i} {
-    padding-top: 5px *$i !important;
-    padding-bottom: 5px *$i !important
+}
+
+// Padding element (top/bottom/left/right)
+@for $i from 0 through 10 {
+  .pg {
+    &_t_#{5*$i} {padding-top: 5px*$i !important}
+    &_b_#{5*$i} {padding-bottom: 5px*$i !important}
+    &_tb_#{5*$i}{
+      padding-top: 5px*$i;
+      padding-bottom: 5px*$i !important
+    }
+    &_l_#{5*$i} {padding-left: 5px*$i !important}
+    &_r_#{5*$i} {padding-right: 5px*$i !important}
+    &_lr_#{5*$i}{
+      padding-left: 5px*$i;
+      padding-right: 5px*$i !important
+    }
   }
   .btn_pg_#{5*$i} {
     padding-left: 5px *$i !important;
     padding-right: 5px *$i !important
-  }
-}
-
-// One margin element (top/bottom)
-@for $i from 0 through 10 {
-  .one {
-    &-mg {
-      &_t_#{5*$i} {margin-top: 5px*$i !important}
-      &_b_#{5*$i} {margin-bottom: 5px*$i !important}
-      &_tb_#{5*$i}{
-        margin-top: 5px*$i;
-        margin-bottom: 5px*$i !important
-      }
-    }
   }
 }
 
@@ -65,27 +70,6 @@
   @for $i from 8 through 50 {
     &_pg_l_#{2*$i} > * {
       padding-left: 2px *$i
-    }
-  }
-}
-
-// Bootstrap (add style)
-@for $i from 0 through 12 {
-  .row {
-    &_mg {
-      &_#{5*$i} {
-        margin-left: -(5px*$i)/2;
-        margin-right: -(5px*$i)/2;
-        >[class*="col-"] {
-          padding-left: (5px*$i)/2;
-          padding-right: (5px*$i)/2
-        }
-      }
-      &b_#{5*$i} {
-        >[class*="col-"] {
-          padding-bottom: 5px *$i
-        }
-      }
     }
   }
 }
@@ -121,17 +105,40 @@
   }
 }
 
+// Bootstrap (add style)
+.row {
+  @for $i from 0 through 12 {
+    &_mg {
+      &_#{5*$i} {
+        margin-left: -(5px*$i)/2;
+        margin-right: -(5px*$i)/2;
+        >[class*="col-"] {
+          padding-left: (5px*$i)/2;
+          padding-right: (5px*$i)/2
+        }
+      }
+      &_b_#{5*$i} {
+        >[class*="col-"] {
+          padding-bottom: 5px *$i
+        }
+      }
+    }
+  }
+}
+
 // Grid float
 .rw {
   > * {float: left; min-height: 1px}
   @for $i from 1 through 10 {
-    &_mg_#{5*$i} {
-      margin-left: -5px *$i !important;
-      >*{margin-left: 5px *$i}
-    }
-    &_mg_b_#{5*$i} {
-      margin:0 0 -5px *$i -5px *$i;
-      >*{margin:0 0 5px *$i 5px *$i}
+    &_mg {
+      &_#{5*$i} {
+        margin-left: -5px *$i !important;
+        >*{margin-left: 5px *$i}
+      }
+      &_b_#{5*$i} {
+        margin:0 0 -5px *$i -5px *$i;
+        >*{margin:0 0 5px *$i 5px *$i}
+      }
     }
   }
 }
@@ -146,13 +153,15 @@
     letter-spacing: normal;
   }
   @for $i from 1 through 10 {
-    &_mg_#{5*$i} {
-      margin-left: -5px *$i !important;
-      >*{ margin-left: 5px *$i }
-    }
-    &_mg_b_#{5*$i} {
-      margin:0 0 -5px *$i -5px *$i;
-      >*{ margin:0 0 5px *$i 5px *$i }
+    &_mg {
+      &_#{5*$i} {
+        margin-left: -5px *$i !important;
+        >*{ margin-left: 5px *$i }
+      }
+      &_b_#{5*$i} {
+        margin:0 0 -5px *$i -5px *$i;
+        >*{ margin:0 0 5px *$i 5px *$i }
+      }
     }
   }
 }

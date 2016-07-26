@@ -1,9 +1,16 @@
-/* 
-@include font('opensans', 'opensans/opensans-regular');
 
-[class^="icon-"],
-[class*=" icon-"] {
-  @include icomoon
-}
- */
+// @include g_font(
+//   'Roboto Condensed',             // имя при стилизации
+//   'Roboto Condensed Bold Italic', // имя local 1
+//   'RobotoCondensed-BoldItalic',   // имя local 2
+//   'roboto/700i',
+//   700, italic
+// );
+
+// @include font('icomoon', 'icomoon/icomoon');
+
+// [class^="icon-"],
+// [class*=" icon-"] {
+//   @include icomoon
+// }
 

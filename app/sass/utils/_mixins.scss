@@ -1,6 +1,23 @@
 $src_img:  '../images/theme/';
 $src_font: '../fonts/';
 
+// TRANSITION
+  @mixin tsn($speed: .15) {
+    transition:
+      box-shadow $speed+s,
+      background-color $speed+s,
+      border-color $speed+s,
+      color $speed+s
+  }
+  @mixin tsn_ops($speed: .15) {
+    transition: opacity $speed+s
+  }
+  @mixin tsn_all($speed: .15) {
+    transition: all $speed+s
+  }
+  @mixin tsn_off() {
+    transition: none !important
+  }
 // BACKGROUND
   @mixin bg($img,$x:0,$y:0,$c:transparent,$r:no-repeat) {
     background: url('#{$src_img}#{$img}') $c $x $y $r }
@@ -151,26 +168,32 @@ $src_font: '../fonts/';
       border-color: $hover;
     }
   }
+  // link effects
+  @mixin link_eff_line_center($z:1px, $color:$tm_color_link_b) {
+    position: relative;
+    text-decoration: none;
+    &::before {
+      background: $color;
+      height: $z;
+      content: "";
+      display: block;
+      position: absolute;
+      left: 50%;
+      right: 50%;
+      top: 1.05em;
+      @include tsn_all;
+    }
+    &:hover {
+      color: $color;
+      &::before {
+        left: 0;
+        right: 0;
+      }
+    }
+  }
   // border-radius
   @mixin br($r:50%) {
     border-radius: $r
-  }
-// TRANSITION
-  @mixin tsn($speed: .15) {
-    transition:
-      box-shadow $speed+s,
-      background-color $speed+s,
-      border-color $speed+s,
-      color $speed+s
-  }
-  @mixin tsn_ops($speed: .15) {
-    transition: opacity $speed+s
-  }
-  @mixin tsn_all($speed: .15) {
-    transition: all $speed+s
-  }
-  @mixin tsn_off() {
-    transition: none !important
   }
 // FORM
   // placehold
@@ -221,48 +244,35 @@ $src_font: '../fonts/';
       font-style: normal;
     }
   }
+  @mixin g_font($ff, $loc1, $loc2, $url, $fw, $fs) {
+    @font-face {
+      font-family: $ff;
+      src: local($loc1), local($loc2),
+           url(#{$src_font+$url}.woff) format('woff'),
+           url(#{$src_font+$url}.woff2) format('woff2');
+      font-weight: $fw;
+      font-style: $fs;
+    }
+  }
   @mixin ffn {
     font-weight: normal;
     font-style: normal;
   }
-// LINK EFFECTS
-@mixin link_eff_line_center($z:1px, $color:$tm_color_link_b) {
-  position: relative;
-  text-decoration: none;
-  &::before {
-    background: $color;
-    height: $z;
-    content: "";
-    display: block;
-    position: absolute;
-    left: 50%;
-    right: 50%;
-    top: 1.05em;
-    @include tsn_all;
-  }
-  &:hover {
-    color: $color;
-    &::before {
-      left: 0;
-      right: 0;
-    }
-  }
-}
 // MENU STYLES
-@mixin menu_justify($h:50px){
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  text-align: justify;
-  overflow: hidden;
-  height: $h;
-  >*{
-    display: inline;
-    a{
+  @mixin menu_justify($h:50px){
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: justify;
+    overflow: hidden;
+    height: $h;
+    >*{
+      display: inline;
+      a{
+        display: inline-block;}
+    }
+    &:after{
+      content: ".";
+      margin-left: 100%;
       display: inline-block;}
   }
-  &:after{
-    content: ".";
-    margin-left: 100%;
-    display: inline-block;}
-}
