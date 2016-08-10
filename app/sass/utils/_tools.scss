@@ -45,7 +45,7 @@
     &_t_#{5*$i} {padding-top: 5px*$i !important}
     &_b_#{5*$i} {padding-bottom: 5px*$i !important}
     &_tb_#{5*$i}{
-      padding-top: 5px*$i;
+      padding-top: 5px*$i !important;
       padding-bottom: 5px*$i !important
     }
     &_l_#{5*$i} {padding-left: 5px*$i !important}
