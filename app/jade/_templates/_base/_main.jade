@@ -7,31 +7,37 @@ doctype html
 html(lang="ru")
   include _head.jade
   if multipage
-    body.page(
-      class = home?'page_home':'page_post'
-      class = sidebar_left?'page_sidebar_left':''
-      class = sidebar_right?'page_sidebar_right':''
-    )
-      .page__inner
-        include ../_header.jade
-        // MAIN START 
-        main.main
-          if section
-            block content
-          else
-            +with_sidebars()
-        // MAIN END 
-      include ../_footer.jade
+    +body_multipage()
+    .page__inner
+      // HEADER START 
+      include ../_header.jade
+      // HEADER END 
+      // MAIN START 
+      main.main
+        +with_sidebars()
+      // MAIN END 
+    // FOOTER START 
+    include ../_footer.jade
+    // FOOTER END 
+    // MODALS START 
+    noindex.hidden
       include ../_modals.jade
-      include ../_scripts.jade
+    // MODALS END 
+    include ../_scripts.jade
   else
     body.page(class=body_classes)
       .page__inner
+        // HEADER START 
         include ../_header.jade
-        // MAIN START 
-        main.main
-          block content
-        // MAIN END 
+        // HEADER END 
+        // SECTION START 
+        block content
+        // SECTION END 
+      // FOOTER START 
       include ../_footer.jade
-      include ../_modals.jade
+      // FOOTER END 
+      // MODALS START 
+      noindex.hidden
+        include ../_modals.jade
+      // MODALS END 
       include ../_scripts.jade

@@ -1,13 +1,12 @@
 extends _templates/_base/_main.jade
 block var
   -var title = 'Главная'
-  //- -var multipage = false
+  -var multipage = true
   -var home = true
   -var sidebar_left = true
   -var sidebar_right = true
   -var active_menu = title
-block title
-  title #{title}
+  -var body_classes = ['page_hrom']
 block content
   //- 
   - for (var x = 0; x < 5; x++)
@@ -20,7 +19,7 @@ block content
       br
       input(name="name" type="text" placeholder="Ваше имя" required)
     .form__item
-      input(name="email" type="text" placeholder="Ваш e-mail" required)
+      input(name="email" type="email" placeholder="Ваш e-mail" required)
     .form__item
       input.phone.phone_ru(name="phone" type="tel" placeholder="Ваш телефон" required)
     .form__item

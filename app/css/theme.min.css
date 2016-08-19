@@ -1387,7 +1387,7 @@ hr {
   padding-bottom: 0px !important; }
 
 .pg_tb_0 {
-  padding-top: 0px;
+  padding-top: 0px !important;
   padding-bottom: 0px !important; }
 
 .pg_l_0 {
@@ -1411,7 +1411,7 @@ hr {
   padding-bottom: 5px !important; }
 
 .pg_tb_5 {
-  padding-top: 5px;
+  padding-top: 5px !important;
   padding-bottom: 5px !important; }
 
 .pg_l_5 {
@@ -1435,7 +1435,7 @@ hr {
   padding-bottom: 10px !important; }
 
 .pg_tb_10 {
-  padding-top: 10px;
+  padding-top: 10px !important;
   padding-bottom: 10px !important; }
 
 .pg_l_10 {
@@ -1459,7 +1459,7 @@ hr {
   padding-bottom: 15px !important; }
 
 .pg_tb_15 {
-  padding-top: 15px;
+  padding-top: 15px !important;
   padding-bottom: 15px !important; }
 
 .pg_l_15 {
@@ -1483,7 +1483,7 @@ hr {
   padding-bottom: 20px !important; }
 
 .pg_tb_20 {
-  padding-top: 20px;
+  padding-top: 20px !important;
   padding-bottom: 20px !important; }
 
 .pg_l_20 {
@@ -1507,7 +1507,7 @@ hr {
   padding-bottom: 25px !important; }
 
 .pg_tb_25 {
-  padding-top: 25px;
+  padding-top: 25px !important;
   padding-bottom: 25px !important; }
 
 .pg_l_25 {
@@ -1531,7 +1531,7 @@ hr {
   padding-bottom: 30px !important; }
 
 .pg_tb_30 {
-  padding-top: 30px;
+  padding-top: 30px !important;
   padding-bottom: 30px !important; }
 
 .pg_l_30 {
@@ -1555,7 +1555,7 @@ hr {
   padding-bottom: 35px !important; }
 
 .pg_tb_35 {
-  padding-top: 35px;
+  padding-top: 35px !important;
   padding-bottom: 35px !important; }
 
 .pg_l_35 {
@@ -1579,7 +1579,7 @@ hr {
   padding-bottom: 40px !important; }
 
 .pg_tb_40 {
-  padding-top: 40px;
+  padding-top: 40px !important;
   padding-bottom: 40px !important; }
 
 .pg_l_40 {
@@ -1603,7 +1603,7 @@ hr {
   padding-bottom: 45px !important; }
 
 .pg_tb_45 {
-  padding-top: 45px;
+  padding-top: 45px !important;
   padding-bottom: 45px !important; }
 
 .pg_l_45 {
@@ -1627,7 +1627,7 @@ hr {
   padding-bottom: 50px !important; }
 
 .pg_tb_50 {
-  padding-top: 50px;
+  padding-top: 50px !important;
   padding-bottom: 50px !important; }
 
 .pg_l_50 {
@@ -2264,7 +2264,8 @@ a, input, textarea, button {
 
 .page[class*="sidebar"] .page__content {
   width: 100%;
-  float: left; }
+  float: left;
+  min-height: 1px; }
 
 .page_sidebar_left .page__content {
   padding-left: 300px; }
