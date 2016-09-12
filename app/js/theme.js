@@ -13,7 +13,7 @@ jQuery(function($){
     $(window).resize();
   });
 
-// IE 8
+// if IE 8
   if (!Modernizr.input.placeholder) {
     $('[placeholder]').placeholder();
   }

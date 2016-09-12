@@ -1,9 +1,4 @@
-/*
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-/* normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -824,11 +819,21 @@ hr {
 .invisible {
   visibility: hidden; }
 
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0; }
+
 .hidden {
   display: none !important; }
 
 .affix {
   position: fixed; }
+
+@-ms-viewport {
+  width: device-width; }
 
 .visible-xs {
   display: none !important; }

@@ -8,8 +8,7 @@ html {
 body {
   background-color: #fff;
   &>.page__inner,
-  &>.footer {
-    overflow: hidden;}
+  &>.footer {overflow: hidden}
 }
 // clearfix
 .rw,.page__layout {
