@@ -2210,7 +2210,7 @@ html {
 body {
   background-color: #fff; }
   body > .page__inner,
-  body > .footer {
+  body > .s-footer {
     overflow: hidden; }
 
 .rw:before, .rw:after, .page__layout:before, .page__layout:after {
@@ -2237,8 +2237,8 @@ body {
 
 body {
   background: #F7FBEE; }
-  body .header,
-  body .footer {
+  body .s-header,
+  body .s-footer {
     background: #9ACD32; }
 
 body {
@@ -2330,7 +2330,7 @@ body > .page__inner {
     display: block;
     height: 65px; }
 
-body > .footer {
+body > .s-footer {
   height: 45px;
   margin-top: -45px; }
 
@@ -2419,6 +2419,7 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
   white-space: nowrap;
   cursor: pointer;
   text-decoration: none !important;
+  outline: none;
   padding: 0 15px; }
   .btn:hover {
     text-decoration: none; }
