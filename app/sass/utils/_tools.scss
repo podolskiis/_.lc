@@ -33,7 +33,7 @@
     &_t_#{5*$i} {margin-top: 5px*$i !important}
     &_b_#{5*$i} {margin-bottom: 5px*$i !important}
     &_tb_#{5*$i}{
-      margin-top: 5px*$i;
+      margin-top: 5px*$i !important;
       margin-bottom: 5px*$i !important
     }
   }
@@ -51,7 +51,7 @@
     &_l_#{5*$i} {padding-left: 5px*$i !important}
     &_r_#{5*$i} {padding-right: 5px*$i !important}
     &_lr_#{5*$i}{
-      padding-left: 5px*$i;
+      padding-left: 5px*$i !important;
       padding-right: 5px*$i !important
     }
   }

@@ -106,13 +106,10 @@ gulp.task('clean', function () {
 });
 // Transfer the HTML, CSS, JS into dist
 gulp.task('useref', function () {
-  var assets = useref.assets();
   return gulp.src(appDir+'*.html')
-    .pipe(assets)
+    .pipe(useref())
     .pipe(gulpif('*.js', uglify()))
     .pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
-    .pipe(assets.restore())
-    .pipe(useref())
     .pipe(gulp.dest(buildDir));
 });
 // Transferring Fonts

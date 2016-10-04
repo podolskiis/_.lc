@@ -1022,6 +1022,9 @@ hr {
 .tdu {
   text-decoration: underline !important; }
 
+.tdl {
+  text-decoration: line-through !important; }
+
 .tdn {
   text-decoration: none !important; }
 
@@ -1281,7 +1284,7 @@ hr {
   margin-bottom: 0px !important; }
 
 .mg_tb_0 {
-  margin-top: 0px;
+  margin-top: 0px !important;
   margin-bottom: 0px !important; }
 
 .mg_t_5 {
@@ -1291,7 +1294,7 @@ hr {
   margin-bottom: 5px !important; }
 
 .mg_tb_5 {
-  margin-top: 5px;
+  margin-top: 5px !important;
   margin-bottom: 5px !important; }
 
 .mg_t_10 {
@@ -1301,7 +1304,7 @@ hr {
   margin-bottom: 10px !important; }
 
 .mg_tb_10 {
-  margin-top: 10px;
+  margin-top: 10px !important;
   margin-bottom: 10px !important; }
 
 .mg_t_15 {
@@ -1311,7 +1314,7 @@ hr {
   margin-bottom: 15px !important; }
 
 .mg_tb_15 {
-  margin-top: 15px;
+  margin-top: 15px !important;
   margin-bottom: 15px !important; }
 
 .mg_t_20 {
@@ -1321,7 +1324,7 @@ hr {
   margin-bottom: 20px !important; }
 
 .mg_tb_20 {
-  margin-top: 20px;
+  margin-top: 20px !important;
   margin-bottom: 20px !important; }
 
 .mg_t_25 {
@@ -1331,7 +1334,7 @@ hr {
   margin-bottom: 25px !important; }
 
 .mg_tb_25 {
-  margin-top: 25px;
+  margin-top: 25px !important;
   margin-bottom: 25px !important; }
 
 .mg_t_30 {
@@ -1341,7 +1344,7 @@ hr {
   margin-bottom: 30px !important; }
 
 .mg_tb_30 {
-  margin-top: 30px;
+  margin-top: 30px !important;
   margin-bottom: 30px !important; }
 
 .mg_t_35 {
@@ -1351,7 +1354,7 @@ hr {
   margin-bottom: 35px !important; }
 
 .mg_tb_35 {
-  margin-top: 35px;
+  margin-top: 35px !important;
   margin-bottom: 35px !important; }
 
 .mg_t_40 {
@@ -1361,7 +1364,7 @@ hr {
   margin-bottom: 40px !important; }
 
 .mg_tb_40 {
-  margin-top: 40px;
+  margin-top: 40px !important;
   margin-bottom: 40px !important; }
 
 .mg_t_45 {
@@ -1371,7 +1374,7 @@ hr {
   margin-bottom: 45px !important; }
 
 .mg_tb_45 {
-  margin-top: 45px;
+  margin-top: 45px !important;
   margin-bottom: 45px !important; }
 
 .mg_t_50 {
@@ -1381,7 +1384,7 @@ hr {
   margin-bottom: 50px !important; }
 
 .mg_tb_50 {
-  margin-top: 50px;
+  margin-top: 50px !important;
   margin-bottom: 50px !important; }
 
 .pg_t_0 {
@@ -1401,7 +1404,7 @@ hr {
   padding-right: 0px !important; }
 
 .pg_lr_0 {
-  padding-left: 0px;
+  padding-left: 0px !important;
   padding-right: 0px !important; }
 
 .btn_pg_0 {
@@ -1425,7 +1428,7 @@ hr {
   padding-right: 5px !important; }
 
 .pg_lr_5 {
-  padding-left: 5px;
+  padding-left: 5px !important;
   padding-right: 5px !important; }
 
 .btn_pg_5 {
@@ -1449,7 +1452,7 @@ hr {
   padding-right: 10px !important; }
 
 .pg_lr_10 {
-  padding-left: 10px;
+  padding-left: 10px !important;
   padding-right: 10px !important; }
 
 .btn_pg_10 {
@@ -1473,7 +1476,7 @@ hr {
   padding-right: 15px !important; }
 
 .pg_lr_15 {
-  padding-left: 15px;
+  padding-left: 15px !important;
   padding-right: 15px !important; }
 
 .btn_pg_15 {
@@ -1497,7 +1500,7 @@ hr {
   padding-right: 20px !important; }
 
 .pg_lr_20 {
-  padding-left: 20px;
+  padding-left: 20px !important;
   padding-right: 20px !important; }
 
 .btn_pg_20 {
@@ -1521,7 +1524,7 @@ hr {
   padding-right: 25px !important; }
 
 .pg_lr_25 {
-  padding-left: 25px;
+  padding-left: 25px !important;
   padding-right: 25px !important; }
 
 .btn_pg_25 {
@@ -1545,7 +1548,7 @@ hr {
   padding-right: 30px !important; }
 
 .pg_lr_30 {
-  padding-left: 30px;
+  padding-left: 30px !important;
   padding-right: 30px !important; }
 
 .btn_pg_30 {
@@ -1569,7 +1572,7 @@ hr {
   padding-right: 35px !important; }
 
 .pg_lr_35 {
-  padding-left: 35px;
+  padding-left: 35px !important;
   padding-right: 35px !important; }
 
 .btn_pg_35 {
@@ -1593,7 +1596,7 @@ hr {
   padding-right: 40px !important; }
 
 .pg_lr_40 {
-  padding-left: 40px;
+  padding-left: 40px !important;
   padding-right: 40px !important; }
 
 .btn_pg_40 {
@@ -1617,7 +1620,7 @@ hr {
   padding-right: 45px !important; }
 
 .pg_lr_45 {
-  padding-left: 45px;
+  padding-left: 45px !important;
   padding-right: 45px !important; }
 
 .btn_pg_45 {
@@ -1641,7 +1644,7 @@ hr {
   padding-right: 50px !important; }
 
 .pg_lr_50 {
-  padding-left: 50px;
+  padding-left: 50px !important;
   padding-right: 50px !important; }
 
 .btn_pg_50 {
@@ -2202,6 +2205,9 @@ hr {
 * {
   word-wrap: break-word; }
 
+a:focus {
+  outline: none; }
+
 html {
   overflow-y: scroll;
   font-size: 100%; }
@@ -2219,8 +2225,7 @@ body {
 .rw:after, .page__layout:after {
   clear: both; }
 
-.rw, .rw-inline,
-.nav, .list, .reset {
+.rw, .rw-inline, .nav, .list, .reset {
   list-style: none;
   padding: 0;
   margin: 0; }
@@ -2473,18 +2478,20 @@ input:focus:-ms-input-placeholder, textarea:focus:-ms-input-placeholder {
 .tx_color_link {
   color: #00c !important; }
 
-.email {
-  border-width: 0 0 1px;
-  display: inline-block;
-  text-decoration: none !important;
-  line-height: 0.9em;
-  color: green;
-  border-color: green;
-  border-style: dashed;
-  font-size: 40px; }
-  .email:hover {
-    color: red;
-    border-color: red; }
+.wrap {
+  margin-left: auto;
+  margin-right: auto; }
+  .wrap_w800 {
+    max-width: 800px; }
+
+.visible-xxs {
+  display: none !important; }
+
+@media (max-width: 479px) {
+  .visible-xxs {
+    display: block !important; }
+  .hidden-xxs {
+    display: none !important; } }
 
 @media (max-width: 767px) {
   .animated {

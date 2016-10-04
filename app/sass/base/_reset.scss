@@ -1,5 +1,6 @@
 // I add | normalize editors
 *{word-wrap: break-word}
+a:focus{outline: none}
 
 // Framework Site
 html {
@@ -10,18 +11,19 @@ body {
   &>.page__inner,
   &>.s-footer {overflow: hidden}
 }
+
 // clearfix
-.rw,.page__layout {
+.rw, .page__layout {
   &:before,
   &:after {content: " "; display: table}
   &:after {clear: both}
 }
-.rw, .rw-inline,
-.nav, .list, .reset {
+.rw, .rw-inline, .nav, .list, .reset {
   list-style: none;
   padding: 0;
   margin: 0;
 }
+
 // rstmg
 .in_mg_0 {
   > *:first-child {margin-top: 0}

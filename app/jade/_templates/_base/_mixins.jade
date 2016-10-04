@@ -69,3 +69,7 @@ mixin li(...items)
 mixin li_a(...items)
   each item in items
     li: a(href="")= item
+//- Получает объект в переменной - пример: +navItems(v_foot_menu)
+mixin navItems(obj)
+  each link, val in obj
+    li: a(href=link)= val

@@ -276,3 +276,7 @@ $src_font: '../fonts/';
       margin-left: 100%;
       display: inline-block;}
   }
+// Convert pixels to ems
+  @function fz($n) {
+    @return ( strip-units($n) / strip-units($tm_fz_d) ) * 1em;
+  }

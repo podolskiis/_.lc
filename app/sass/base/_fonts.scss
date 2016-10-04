@@ -1,4 +1,4 @@
-
+// 
 // @include g_font(
 //   'Roboto Condensed',
 //   'Roboto Condensed Bold Italic',
@@ -7,10 +7,9 @@
 //   700, italic
 // );
 
+// Icomoon
 // @include font('icomoon', 'icomoon/icomoon');
-
-// [class^="icon-"],
-// [class*=" icon-"] {
+// [class^="icon-"], [class*=" icon-"] {
 //   @include icomoon
 // }
 
