@@ -6,8 +6,6 @@
     "jquery-placeholder": "^2.3.1"
   },
   "devDependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "jquery-validation": "^1.15.1",
-    "jquery.inputmask": "^3.3.3"
+    "bootstrap-sass": "^3.3.7"
   }
 }
