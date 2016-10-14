@@ -1,16 +1,31 @@
-jQuery(function($){
+$( function() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 // Resize
-  $(window).resize(function() {
+  $(window).on('resize', function() {
     // function...
-  }); $(window).resize();
+  }); $(window).trigger('resize');
 
 // load
-  $(window).load(function() {
+  $(window).on('load', function() {
     // function...
-    $(window).resize();
+    $(window).trigger('resize');
   });
 
 // if IE 8
@@ -18,4 +33,4 @@ jQuery(function($){
     $('[placeholder]').placeholder();
   }
 
-});
+} ); // END READY

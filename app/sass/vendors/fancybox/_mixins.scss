@@ -1,0 +1,56 @@
+@mixin loading($z:40px) {
+  background-color: #fff;
+  width: $z;
+  height: $z;
+  opacity: .7;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -($z/2) 0 0 -($z/2);
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+  @keyframes sk-rotateplane {
+    0% {transform: perspective(120px) rotateX(0deg) rotateY(0deg)}
+    50% {transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)}
+    100% {transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg)}
+  }
+}
+@mixin closeFonts($z:20px,$cd:#fff,$ch:red) {
+  @include icomoon;
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  z-index: 8040;
+  top: (-$z);
+  right: (-$z);
+  font-size: $z;
+  color: $cd;
+  // Прилепить к углу окна
+  // top: 0;
+  // right: 0;
+  // background: rgba(0, 0, 0, .5);
+  // @include z($z*2 $z*2)
+  // line-height: $z*1.99;
+  // text-align: center;
+  // border-radius: 0 0 0 4px;
+  &:hover {
+    color: $ch;
+  }
+}
+@mixin navFonts($z:20px,$cd:#fff,$ch:red) {
+  @include icomoon;
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  z-index: 8040;
+  top: 50%;
+  width: 80px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  margin-top: -50px;
+  font-size: $z;
+  color: $cd;
+  &:hover {
+    color: $ch;
+  }
+}
