@@ -15,5 +15,4 @@ header.s-header
                 span.phone__num 456-78-90
             li.contacts__item.contacts__item_email
               +email('email@dom.ru','icon-email')(class="email")
-    nav(class=nav_class)
-      +main_menu(nav_class)(class="rw hidden-xs")
+    +multiMenu(main_menu,'main-menu','submenu')

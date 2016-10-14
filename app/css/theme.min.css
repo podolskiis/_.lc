@@ -791,11 +791,11 @@ hr {
   .col-lg-offset-12 {
     margin-left: 100%; } }
 
-.clearfix:before, .clearfix:after {
+.clearfix:before, .main-menu ul:before, .footer-menu ul:before, .clearfix:after, .main-menu ul:after, .footer-menu ul:after {
   content: " ";
   display: table; }
 
-.clearfix:after {
+.clearfix:after, .main-menu ul:after, .footer-menu ul:after {
   clear: both; }
 
 .center-block {
@@ -2264,7 +2264,7 @@ a {
   a:hover {
     color: #0cc; }
 
-a, input, textarea, button {
+a, input, textarea, button, .btn {
   -webkit-transition: background-color 0.2s, border-color 0.2s, color 0.2s, -webkit-box-shadow 0.2s;
   transition: background-color 0.2s, border-color 0.2s, color 0.2s, -webkit-box-shadow 0.2s;
   transition: box-shadow 0.2s, background-color 0.2s, border-color 0.2s, color 0.2s;
@@ -2292,28 +2292,56 @@ a, input, textarea, button {
   margin-left: -250px; }
 
 .logo {
-  margin: 0; }
+  margin: 0;
+  display: inline-block; }
   .logo__link {
     text-decoration: none;
-    color: #333; }
+    color: #333;
+    display: block; }
     .logo__link:hover {
       text-decoration: none;
       color: inherit; }
 
-.navigation__item {
-  position: relative; }
+.main-menu ul {
+  list-style: none; }
 
-.navigation__link {
+.main-menu__list {
+  margin: 0;
+  padding: 0; }
+
+.main-menu__item {
+  position: relative;
+  float: left; }
+
+.main-menu__link {
   color: #333;
   line-height: 38px;
   text-decoration: none !important;
   display: block;
   background: #ddd;
   padding: 0 15px; }
-  .navigation__link:hover,
-  .navigation__item.active .navigation__link {
+  .main-menu__link:hover,
+  .main-menu__item.active .main-menu__link {
     color: #fff;
     background: #999; }
+
+.main-menu__submenu {
+  display: none;
+  position: absolute;
+  z-index: 99;
+  width: 220px; }
+  .main-menu__item:hover .main-menu__submenu {
+    display: block; }
+
+.main-menu-submenu {
+  margin: 0;
+  padding: 10px 0;
+  background: #ddd;
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); }
+  .main-menu-submenu__link {
+    display: block;
+    padding: 10px 15px; }
 
 .phone {
   text-decoration: none !important;
@@ -2339,6 +2367,25 @@ body > .s-footer {
 
 html.fancybox-lock body {
   overflow: visible !important; }
+
+.footer-menu {
+  text-align: center;
+  line-height: 0; }
+  .footer-menu ul {
+    list-style: none;
+    display: inline-block; }
+  .footer-menu__list {
+    margin: 0;
+    padding: 0; }
+  .footer-menu__item {
+    position: relative;
+    float: left;
+    margin: 0 5px; }
+  .footer-menu__link {
+    color: #333;
+    line-height: 1.2;
+    text-decoration: none !important;
+    display: block; }
 
 .panel {
   background: #9ACD32;

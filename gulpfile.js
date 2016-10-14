@@ -16,6 +16,7 @@ var
   cached = require('gulp-cached'),
   gulpif = require('gulp-if'), // set to (Jade,Build)
   filter = require('gulp-filter'),
+  data = require('gulp-data'),
   // Tools
   browserSync = require('browser-sync'),
   reload = browserSync.reload,
@@ -48,8 +49,11 @@ var
         return !/\/^_/.test(file.path) && !/^_/.test(file.relative);
       }))
       .pipe(plumber())
-      .pipe(jade({pretty: true}))
-      .pipe(prettify({indent_size: 2}))
+      .pipe(data(function(file) {
+        return require('./'+appDir+'jade/data/data.json');
+      }))
+      .pipe(jade({ pretty: true }))
+      .pipe(prettify({ indent_size: 2 }))
       .pipe(gulp.dest(appDir))
       .pipe(reload({ stream:true }));
   });
@@ -57,7 +61,7 @@ var
     global.isWatching = true;
   });
   // BrowserSync
-  gulp.task('serve', ['setWatch','jade','sass','bower'], function() {
+  gulp.task('serve', ['setWatch','sass','jade','bower'], function() {
     browserSync.init({
       server: {baseDir: appDir},
       notify: false
@@ -93,6 +97,7 @@ gulp.task('default', ['serve','watch']);
  ********************************************************/
 // Variables build
 var
+  runSequence = require('run-sequence'), // set to (DEPLOOY)
   clean = require('gulp-clean'),
   size = require('gulp-size'),
   imagemin = require('gulp-imagemin'),
@@ -144,26 +149,25 @@ gulp.task('js', function () {
 gulp.task('dist', ['useref','img','fonts','extras','js'], function () {
   return gulp.src(buildDir+'**/*').pipe(size({title: 'build'}));
 });
-// Build folder DIST (only after compiling Jade)
-gulp.task('build', ['clean'], function () {
-  gulp.start('dist');
+// Build folder DIST (only after compiling "Sass, Jade")
+gulp.task('build', function (cb) {
+  runSequence(['sass','jade'],'clean','dist', cb);
 });
 
 
 /* DEPLOOY
  ********************************************************/
 var
-  runSequence = require('run-sequence'),
   gutil = require('gulp-util'),
   ftp = require('vinyl-ftp');
 
 gulp.task('http', function () {
   var
-    urlDir = '/activ.sergeypodolsky.ru/public_html/work/2016/02/test1/',
+    urlDir = '/activ.sergeypodolsky.ru/public_html/work/2016/08/demo/',
     conn = ftp.create({
       host:     '92.53.96.55',
       user:     'podolskiis',
-      password: '**********',
+      password: '9999999999',
       parallel: 10,
       log: gutil.log
     }),
@@ -178,9 +182,5 @@ gulp.task('http', function () {
 /* BUILD and DEPLOOY  in the loop
  ********************************************************/
 gulp.task('build:http', function(cb) {
-  runSequence(
-    'clean',
-    ['useref','img','fonts','extras','js'],
-    'http',
-    cb);
+  runSequence('build', 'http', cb);
 });

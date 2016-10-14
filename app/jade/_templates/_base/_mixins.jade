@@ -1,5 +1,4 @@
 //- BASE MIXINS
-  //- layout
 mixin body_multipage()
   body.page(
     class = home?'page_home':'page_post'
@@ -25,51 +24,45 @@ mixin scripts(...files)
   each file in files
     script(src=file)
   //- nav links
-mixin main_menu(class_menu)
-  -var class__list = class_menu+'__list'
-  -var class__item = class_menu+'__item'
-  -var class__link = class_menu+'__link'
-  block main_menu
-  ul(class=class__list, class!=attributes.class)
-    if v_main_menu[0] !== undefined
-      each key in v_main_menu
-        if active_menu === key
-          li(class=class__item + ' active')
-            a(class=class__link href="#")
-              span= key
-        else
-          li(class=class__item)
-            a(class=class__link href="#")
-              span= key
-    else
-      each val, key in v_main_menu
-        if active_menu === key
-          li(class=class__item + ' active')
-            a(class=class__link href=val)
-              span= key
-        else
-          li(class=class__item)
-            a(class=class__link href=val)
-              span= key
+//- MULTI MENU
+mixin multiSubmenu(data, nav_class)
+  ul(class='#{nav_class}-submenu')
+    each item in data
+      li(class='#{nav_class}-submenu__item')
+        a(href="#{item.url}" class='#{nav_class}-submenu__link')
+          span= item.val
+mixin multiMenu(data, nav_class, dropdown)
+  //- Example: +multiMenu(menu_obj, 'class-menu')
+  nav(class='#{nav_class}')&attributes(attributes)
+    ul(class='#{nav_class}__list')
+      each item in data
+        - var itemClasses = [nav_class+'__item']
+        if (item.submenu && dropdown)
+          - itemClasses.push(itemClasses[0] + '_dropdown')
+        li( class=itemClasses, class={active: active_menu === item.val} )
+          a(href="#{item.url}" class='#{nav_class}__link')
+            span= item.val
+          if (item.submenu && dropdown)
+            div(class='#{nav_class}__submenu')
+              +multiSubmenu(item.submenu, nav_class)
+
 
 //- HELPERS MIXINS
 mixin email(email,icon)
   a(href="mailto:"+email, class!=attributes.class)
     if icon
-      span(class=icon)
+      i(class=icon)
       | 
     | #{email}
-mixin img_radius(attr)
-  span.radius_img
-    span.radius_img__wrap
+mixin imgRadius(attr)
+  span&attributes(attributes)
+    span
       img(src=attr alt="")
-mixin li(...items)
-  each item in items
-    li= item
-mixin li_a(...items)
-  each item in items
-    li: a(href="")= item
-//- Получает объект в переменной - пример: +navItems(v_foot_menu)
 mixin navItems(obj)
+  //- Example: +navItems(v_foot_menu)
   each link, val in obj
     li: a(href=link)= val
+mixin ulLiA(...items)
+  each item in items
+    li: a(href="#")= item
+

@@ -1,5 +1,4 @@
 include _variables.jade
-include ../_project_variables.jade
 block var
 include _mixins.jade
 include ../_project_mixins.jade
@@ -20,7 +19,7 @@ html(lang="ru")
     include ../_footer.jade
     // FOOTER END 
     // MODALS START 
-    noindex.hidden
+    .hidden
       include ../_modals.jade
     // MODALS END 
     include ../_scripts.jade
@@ -37,7 +36,7 @@ html(lang="ru")
       include ../_footer.jade
       // FOOTER END 
       // MODALS START 
-      noindex.hidden
+      .hidden
         include ../_modals.jade
       // MODALS END 
       include ../_scripts.jade

@@ -1,0 +1,26 @@
+{
+  "main_menu": [
+    {
+      "val": "Главная",
+      "url": "index.html"
+    },
+    {
+      "val": "О компании",
+      "url": "about.html",
+      "submenu": [
+        {
+          "val": "Что мы предлагаем?",
+          "url": "what-offer.html"
+        },
+        {
+          "val": "Начать бизнес",
+          "url": "start-business.html"
+        }
+      ]
+    },
+    {
+      "val": "Контакты",
+      "url": "contacts.html"
+    }
+  ]
+}
