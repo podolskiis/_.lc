@@ -1,11 +1,4 @@
 //- BASE MIXINS
-mixin body_multipage()
-  body.page(
-    class = home?'page_home':'page_post'
-    class = sidebar_left?'page_sidebar_left':''
-    class = sidebar_right?'page_sidebar_right':''
-    class=body_classes
-  )
 mixin with_sidebars()
   .container
     h1.main-title #{title}

@@ -11,7 +11,7 @@ var
   // Jade
   jade = require('gulp-jade'),
   jadeInheritance = require('gulp-jade-inheritance'),
-  prettify = require('gulp-prettify'),
+  prettify = require('gulp-html-prettify'),
   changed = require('gulp-changed'),
   cached = require('gulp-cached'),
   gulpif = require('gulp-if'), // set to (Jade,Build)
@@ -53,7 +53,7 @@ var
         return require('./'+appDir+'jade/data/data.json');
       }))
       .pipe(jade({ pretty: true }))
-      .pipe(prettify({ indent_size: 2 }))
+      .pipe(prettify({indent_char: ' ', indent_size: 2}))
       .pipe(gulp.dest(appDir))
       .pipe(reload({ stream:true }));
   });
