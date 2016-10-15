@@ -1,6 +1,5 @@
 // I add | normalize editors
-*{word-wrap: break-word}
-a:focus{outline: none}
+*{word-wrap: break-word}a:focus{outline: none}
 
 // Framework Site
 html {
@@ -24,9 +23,54 @@ body {
   margin: 0;
 }
 
-// rstmg
-.in_mg_0 {
+// Reset indents of the (first and last) child
+.in-mg_0 {
   > *:first-child {margin-top: 0}
   > *:last-child {margin-bottom: 0}
   > *.last-child {margin-bottom: 0}
 }
+
+// Grid inline
+.rw-inline {
+  letter-spacing: -0.3em;
+  >* {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 1px;
+    letter-spacing: normal;
+  }
+}
+
+// Table style
+.tbl {
+  $root: &;
+  &__list {
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    >*{display: table-cell; vertical-align: middle;}
+    #{$root}_vertical_t > & >*{vertical-align: top;}
+    #{$root}_vertical_b > & >*{vertical-align: bottom;}
+  }
+}
+
+// Helpers classes
+.tal         {text-align: left !important}
+.tar         {text-align: right !important}
+.tac         {text-align: center !important}
+.taj         {text-align: justify !important}
+.ttu         {text-transform: uppercase !important}
+.tdu         {text-decoration: underline !important}
+.tdl         {text-decoration: line-through !important}
+.tdn         {text-decoration: none !important}
+.fl          {float: left !important}
+.fr          {float: right !important}
+.rzn         {resize: none !important}
+.w100p       {width: 100% !important}
+.nowrap      {white-space: nowrap !important}
+.dib         {display: inline-block; vertical-align: middle}
+.btn .dib    {vertical-align: middle}
+.list-zero   {list-style-type: decimal-leading-zero}
+.list-square {list-style-type: square}
+.is-hidden   {display: none}

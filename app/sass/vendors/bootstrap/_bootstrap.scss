@@ -1,4 +1,7 @@
 @import
+  // Custom variables
+  './variables';
+@import
   // Core variables and mixins
   '../../../bower/bootstrap-sass/assets/stylesheets/bootstrap/variables',
   '../../../bower/bootstrap-sass/assets/stylesheets/bootstrap/mixins',

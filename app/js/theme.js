@@ -15,8 +15,6 @@ $( function() {
 
 
 
-
-
 // Resize
   $(window).on('resize', function() {
     // function...

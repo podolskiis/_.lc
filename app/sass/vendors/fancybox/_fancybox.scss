@@ -1,5 +1,6 @@
+@import 'variables';
 @import 'mixins';
-@if $fancybox {
+@if ($fancybox>0) {
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css);
 
 .fancybox-wrap,
@@ -39,7 +40,8 @@
 }
 
 .fancybox-opened .fancybox-skin {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .fancybox-outer, .fancybox-inner {
@@ -188,17 +190,14 @@
 
 
 .fancybox-close {
-  $z: 25px;
-  @include closeFonts($z,#fff,red);
-  font-family: FontAwesome !important; // FontAwesome
+  @include closeFonts(25px,#fff,red,'FontAwesome');
   &:before {
     content: "\f00d"; // FontAwesome
   }
 }
 
 .fancybox-nav {
-  @include navFonts(35px,#fff,orange);
-  font-family: FontAwesome !important; // FontAwesome
+  @include navFonts(35px,#fff,orange,'FontAwesome');
 }
 
 .fancybox-prev {
@@ -231,10 +230,10 @@
     overflow-x: hidden !important;
   }
   &-margin {
-    margin-right: 17px;
+    height: auto !important;
   }
   &-lock {
-    height: auto !important;
+    margin-right: 17px;
   }
 }
 

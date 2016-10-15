@@ -53,9 +53,11 @@ mixin imgRadius(attr)
       img(src=attr alt="")
 mixin navItems(obj)
   //- Example: +navItems(v_foot_menu)
-  each link, val in obj
-    li: a(href=link)= val
+  ul&attributes(attributes)
+    each link, val in obj
+      li: a(href=link)= val
 mixin ulLiA(...items)
-  each item in items
-    li: a(href="#")= item
+  ul&attributes(attributes)
+    each item in items
+      li: a(href="#")= item
 

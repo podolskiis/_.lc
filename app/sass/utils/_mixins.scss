@@ -278,7 +278,101 @@ $src_font: '../fonts/';
       margin-left: 100%;
       display: inline-block;}
   }
-// Convert pixels to ems
-  @function fz($n) {
-    @return ( strip-units($n) / strip-units($tm_fz_d) ) * 1em;
+
+// font-size, line-height, margins, paddings
+@mixin multiSize($task,$px,$arr) {
+  @each $size in $arr {
+    @if $task == 'fz' {
+      .fz_#{$size} {
+        font-size: $size + $px;
+      }
+    }
+    @if $task == 'lh' {
+      .lh_#{$size} {
+        line-height: $size + $px;
+      }
+    }
+    @if $task == 'mg-t' {
+      .mg-t_#{$size} {
+        margin-top: $size + $px;
+      }
+    }
+    @if $task == 'mg-b' {
+      .mg-b_#{$size} {
+        margin-bottom: $size + $px;
+      }
+    }
+    @if $task == 'mg-tb' {
+      .mg-tb_#{$size} {
+        margin-top: $size + $px;
+        margin-bottom: $size + $px;
+      }
+    }
+    @if $task == 'pg-t' {
+      .pg-t_#{$size} {
+        padding-top: $size + $px;
+      }
+    }
+    @if $task == 'pg-b' {
+      .pg-b_#{$size} {
+        padding-bottom: $size + $px;
+      }
+    }
+    @if $task == 'pg-tb' {
+      .pg-tb_#{$size} {
+        padding-top: $size + $px;
+        padding-bottom: $size + $px;
+      }
+    }
+    @if $task == 'btn-pg' {
+      .btn-pg_#{$size} {
+        padding-left: $size + $px;
+        padding-right: $size + $px;
+      }
+    }
+    @if $task == 'list-items-mg' {
+      .list-items-mg_#{$size} {
+        >* { margin-top: $size + $px; }
+      }
+    }
+    @if $task == 'row-items-mg' {
+      // Bootstrap custom indents
+      .row-items-mg_#{$size} {
+        margin-left: -($size/2) + $px;
+        margin-right: -($size/2) + $px;
+        >[class*="col-"] {
+          padding-left: ($size/2) + $px;
+          padding-right: ($size/2) + $px;
+        }
+      }
+    }
+    @if $task == 'row-items-mg-b' {
+      .row-items-mg-b_#{$size} {
+        margin-top: -($size) + $px;
+        >[class*="col-"] {
+          margin-top: $size + $px;
+        }
+      }
+    }
+    @if $task == 'tbl-items-pg' {
+      .tbl-items-pg_#{$size} {
+        margin: {
+          left:  -($size/2) + $px;
+          right: -($size/2) + $px;
+        }
+        >*>* {
+          padding: {
+            left:  ($size/2) + $px;
+            right: ($size/2) + $px;
+          }
+        }
+      }
+    }
   }
+  @if $task == 'list-items-mg' {
+    [class*="list-items-mg_"] {
+      >*:first-child { margin-top: 0; }
+    }
+  }
+}
+

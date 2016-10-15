@@ -1,3 +1,14 @@
+@mixin iconFonts($ff:'icomoon') {
+  font-family: $ff;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 @mixin loading($z:40px) {
   background-color: #fff;
   width: $z;
@@ -14,8 +25,8 @@
     100% {transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg)}
   }
 }
-@mixin closeFonts($z:20px,$cd:#fff,$ch:red) {
-  @include icomoon;
+@mixin closeFonts($z:20px,$cd:#fff,$ch:red,$ff:'icomoon') {
+  @include iconFonts($ff);
   cursor: pointer;
   text-decoration: none;
   position: absolute;
@@ -28,7 +39,8 @@
   // top: 0;
   // right: 0;
   // background: rgba(0, 0, 0, .5);
-  // @include z($z*2 $z*2)
+  // width: $z*2;
+  // height: $z*2;
   // line-height: $z*1.99;
   // text-align: center;
   // border-radius: 0 0 0 4px;
@@ -36,8 +48,8 @@
     color: $ch;
   }
 }
-@mixin navFonts($z:20px,$cd:#fff,$ch:red) {
-  @include icomoon;
+@mixin navFonts($z:20px,$cd:#fff,$ch:red,$ff:'icomoon') {
+  @include iconFonts($ff);
   cursor: pointer;
   text-decoration: none;
   position: absolute;

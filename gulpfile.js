@@ -30,7 +30,7 @@ var
  ********************************************************/
   // Sass
   gulp.task('sass', function () {
-    gulp.src(appDir+'sass/index.scss')
+    gulp.src(appDir+'sass/import.scss')
       .pipe(plumber())
       .pipe(sass({includePaths: require('node-bourbon').includePaths}).on('error', sass.logError))
       .pipe(autoprefixer({ browsers: ['last 25 versions'] }))
@@ -42,13 +42,13 @@ var
   // Jade
   gulp.task('jade', function() {
     return gulp.src(appDir+'jade/**/*.jade')
+      .pipe(plumber())
       .pipe(changed(appDir, {extension: '.html'}))
       .pipe(gulpif(global.isWatching, cached('jade')))
       .pipe(jadeInheritance({basedir: appDir+'jade/'}))
       .pipe(filter(function (file) {
         return !/\/^_/.test(file.path) && !/^_/.test(file.relative);
       }))
-      .pipe(plumber())
       .pipe(data(function(file) {
         return require('./'+appDir+'jade/data/data.json');
       }))
@@ -74,6 +74,7 @@ var
         appDir+'jade/**/_scripts.jade'
       ])
       .pipe(wiredep({
+        // directory: 'bower_components/', // задать путь к bower_components
         ignorePath: /^(\.\.\/)*\.\./
       }))
       .pipe(gulp.dest(appDir+'jade/'));
