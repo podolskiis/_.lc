@@ -168,7 +168,7 @@ gulp.task('http', function () {
     conn = ftp.create({
       host:     '92.53.96.55',
       user:     'podolskiis',
-      password: 'mHEKGpabgizPw25',
+      password: '9999999999',
       parallel: 10,
       log: gutil.log
     }),
