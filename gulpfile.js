@@ -13,7 +13,7 @@ var
   jadeInheritance = require('gulp-jade-inheritance'),
   prettify = require('gulp-html-prettify'),
   changed = require('gulp-changed'),
-  cache = require('gulp-cache'),
+  cache = require('gulp-cached'),
   gulpif = require('gulp-if'), // set to (Jade,Build)
   filter = require('gulp-filter'),
   data = require('gulp-data'),
