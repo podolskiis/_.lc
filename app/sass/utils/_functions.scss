@@ -9,3 +9,12 @@
   @return ($pxval / $base) * 1em;
 }
 
+// For multiSize
+@function pxEm($size,$px) {
+  @if $px == px {
+    @return $size + $px;
+  }
+  @else if $px == em {
+    @return ems($size);
+  }
+}

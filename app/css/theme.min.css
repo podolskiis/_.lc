@@ -1133,8 +1133,30 @@ body {
 html, body, .container {
   min-width: 320px; }
 
+h1, .h1 {
+  font-size: 2.57143em; }
+
+h2, .h2 {
+  font-size: 2.14286em; }
+
+h3, .h3 {
+  font-size: 1.71429em; }
+
+h4, .h4 {
+  font-size: 1.28571em; }
+
+h5, .h5 {
+  font-size: 1em; }
+
+h6, .h6 {
+  font-size: 0.85714em; }
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin: 1.07143em 0 0.53571em; }
+
 p, pre, ul, ol, dl, .p {
-  margin: 1em 0; }
+  margin: 1.07143em 0; }
 
 a {
   color: #00c;
@@ -1154,20 +1176,20 @@ a, input, textarea, button, .btn {
   min-height: 1px; }
 
 .page_sidebar_left .page__content {
-  padding-left: 300px; }
+  padding-left: 250px; }
 
 .page_sidebar_right .page__content {
-  padding-right: 300px; }
+  padding-right: 250px; }
 
 .page__sidebar_left {
   float: left;
-  width: 250px;
+  width: 220px;
   margin-left: -100%; }
 
 .page__sidebar_right {
   float: left;
-  width: 250px;
-  margin-left: -250px; }
+  width: 220px;
+  margin-left: -220px; }
 
 .logo {
   margin: 0;

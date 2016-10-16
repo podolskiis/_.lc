@@ -6,14 +6,14 @@ var
   sass = require('gulp-sass'),
   rename = require("gulp-rename"),
   bourbon = require('node-bourbon'),
-  minifyCss = require('gulp-minify-css'), // set to (Sass,Build)
+  cleanCSS = require('gulp-clean-css'), // set to (Sass,Build)
   autoprefixer = require('gulp-autoprefixer'),
   // Jade
   jade = require('gulp-jade'),
   jadeInheritance = require('gulp-jade-inheritance'),
   prettify = require('gulp-html-prettify'),
   changed = require('gulp-changed'),
-  cached = require('gulp-cached'),
+  cache = require('gulp-cache'),
   gulpif = require('gulp-if'), // set to (Jade,Build)
   filter = require('gulp-filter'),
   data = require('gulp-data'),
@@ -35,7 +35,7 @@ var
       .pipe(sass({includePaths: require('node-bourbon').includePaths}).on('error', sass.logError))
       .pipe(autoprefixer({ browsers: ['last 25 versions'] }))
       .pipe(rename('theme.min.css'))
-      // .pipe(minifyCss({compatibility: 'ie8'}))
+      // .pipe(cleanCSS({compatibility: 'ie8'}))
       .pipe(gulp.dest(appDir+'css/'))
       .pipe(reload({ stream:true }));
   });
@@ -44,7 +44,7 @@ var
     return gulp.src(appDir+'jade/**/*.jade')
       .pipe(plumber())
       .pipe(changed(appDir, {extension: '.html'}))
-      .pipe(gulpif(global.isWatching, cached('jade')))
+      .pipe(gulpif(global.isWatching, cache('jade')))
       .pipe(jadeInheritance({basedir: appDir+'jade/'}))
       .pipe(filter(function (file) {
         return !/\/^_/.test(file.path) && !/^_/.test(file.relative);
@@ -102,8 +102,10 @@ var
   clean = require('gulp-clean'),
   size = require('gulp-size'),
   imagemin = require('gulp-imagemin'),
+  pngquant = require('imagemin-pngquant'),
   uglify = require('gulp-uglify'),
-  useref = require('gulp-useref');
+  useref = require('gulp-useref'),
+  rev = require('gulp-rev-append');
 
 // Clean dir
 gulp.task('clean', function () {
@@ -115,8 +117,15 @@ gulp.task('useref', function () {
   return gulp.src(appDir+'*.html')
     .pipe(useref())
     .pipe(gulpif('*.js', uglify()))
-    .pipe(gulpif('*.css', minifyCss({compatibility: 'ie8'})))
+    .pipe(gulpif('*.css', cleanCSS({compatibility: 'ie8'})))
+    .pipe(rev())
     .pipe(gulp.dest(buildDir));
+});
+// Transferring Fonts
+gulp.task('theme:css', function () {
+  gulp.src(appDir+'css/theme.min.css')
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(gulp.dest(buildDir+'css/'));
 });
 // Transferring Fonts
 gulp.task('fonts', function () {
@@ -126,19 +135,18 @@ gulp.task('fonts', function () {
 // Transferring and compress img
 gulp.task('img', function () {
   return gulp.src(appDir+'images/**/*')
-    .pipe(imagemin({
+    .pipe(cache(imagemin({
+      interlaced: true,
       progressive: true,
-      interlaced: true
-    }))
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngquant()]
+    })))
     .pipe(gulp.dest(buildDir+'images/'));
 });
 // We transfer the remaining files (.ico, .htaccess, etc ...)
 gulp.task('extras', function () {
-  return gulp.src([
-    appDir+'.*',
-    appDir+'*.*',
-    '!'+appDir+'*.html'
-  ]).pipe(gulp.dest(buildDir));
+  return gulp.src(['app/{.*,*.*}','!app/*.html'])
+  .pipe(gulp.dest(buildDir));
 });
 // Transferring js
 gulp.task('js', function () {
@@ -147,7 +155,7 @@ gulp.task('js', function () {
 });
 
 // Build folder DIST
-gulp.task('dist', ['useref','img','fonts','extras','js'], function () {
+gulp.task('dist', ['useref','theme:css','fonts','img','extras','js'], function () {
   return gulp.src(buildDir+'**/*').pipe(size({title: 'build'}));
 });
 // Build folder DIST (only after compiling "Sass, Jade")
@@ -168,7 +176,7 @@ gulp.task('http', function () {
     conn = ftp.create({
       host:     '92.53.96.55',
       user:     'podolskiis',
-      password: 'mHEKGpabgizPw25',
+      password: '9999999999',
       parallel: 10,
       log: gutil.log
     }),

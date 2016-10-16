@@ -132,17 +132,14 @@ $src_font: '../fonts/';
   @mixin z($value) {
     $width: nth($value, 1);
     $height: $width;
-
     @if length($value) > 1 {
       $height: nth($value, 2);
     }
-
     @if is-size($height) {
       height: $height;
     } @else {
       @warn "`#{$height}` is not a valid length for the `$height` parameter in the `size` mixin.";
     }
-
     @if is-size($width) {
       width: $width;
     } @else {
@@ -260,6 +257,15 @@ $src_font: '../fonts/';
     font-weight: normal;
     font-style: normal;
   }
+  @mixin titleSize($arr) {
+    $i: 1;
+    @each $size in $arr {
+      h#{$i}, .h#{$i} {
+        font-size: ems($size);
+      }
+      $i: $i+1;
+    }
+  }
 // MENU STYLES
   @mixin menu_justify($h:50px){
     margin: 0;
@@ -284,86 +290,86 @@ $src_font: '../fonts/';
   @each $size in $arr {
     @if $task == 'fz' {
       .fz_#{$size} {
-        font-size: $size + $px;
+        font-size: pxEm($size,$px);
       }
     }
     @if $task == 'lh' {
       .lh_#{$size} {
-        line-height: $size + $px;
+        line-height: pxEm($size,$px);
       }
     }
     @if $task == 'mg-t' {
       .mg-t_#{$size} {
-        margin-top: $size + $px;
+        margin-top: pxEm($size,$px);
       }
     }
     @if $task == 'mg-b' {
       .mg-b_#{$size} {
-        margin-bottom: $size + $px;
+        margin-bottom: pxEm($size,$px);
       }
     }
     @if $task == 'mg-tb' {
       .mg-tb_#{$size} {
-        margin-top: $size + $px;
-        margin-bottom: $size + $px;
+        margin-top: pxEm($size,$px);
+        margin-bottom: pxEm($size,$px);
       }
     }
     @if $task == 'pg-t' {
       .pg-t_#{$size} {
-        padding-top: $size + $px;
+        padding-top: pxEm($size,$px);
       }
     }
     @if $task == 'pg-b' {
       .pg-b_#{$size} {
-        padding-bottom: $size + $px;
+        padding-bottom: pxEm($size,$px);
       }
     }
     @if $task == 'pg-tb' {
       .pg-tb_#{$size} {
-        padding-top: $size + $px;
-        padding-bottom: $size + $px;
+        padding-top: pxEm($size,$px);
+        padding-bottom: pxEm($size,$px);
       }
     }
     @if $task == 'btn-pg' {
       .btn-pg_#{$size} {
-        padding-left: $size + $px;
-        padding-right: $size + $px;
+        padding-left: pxEm($size,$px);
+        padding-right: pxEm($size,$px);
       }
     }
     @if $task == 'list-items-mg' {
       .list-items-mg_#{$size} {
-        >* { margin-top: $size + $px; }
+        >* { margin-top: pxEm($size,$px); }
       }
     }
     @if $task == 'row-items-mg' {
       // Bootstrap custom indents
       .row-items-mg_#{$size} {
-        margin-left: -($size/2) + $px;
-        margin-right: -($size/2) + $px;
+        margin-left: pxEm(-$size/2,$px);
+        margin-right: pxEm(-$size/2,$px);
         >[class*="col-"] {
-          padding-left: ($size/2) + $px;
-          padding-right: ($size/2) + $px;
+          padding-left: pxEm($size/2,$px);
+          padding-right: pxEm($size/2,$px);
         }
       }
     }
     @if $task == 'row-items-mg-b' {
       .row-items-mg-b_#{$size} {
-        margin-top: -($size) + $px;
+        margin-top: (pxEm(-$size,$px));
         >[class*="col-"] {
-          margin-top: $size + $px;
+          margin-top: pxEm($size,$px);
         }
       }
     }
     @if $task == 'tbl-items-pg' {
       .tbl-items-pg_#{$size} {
         margin: {
-          left:  -($size/2) + $px;
-          right: -($size/2) + $px;
+          left:  pxEm(-$size/2,$px);
+          right: pxEm(-$size/2,$px);
         }
         >*>* {
           padding: {
-            left:  ($size/2) + $px;
-            right: ($size/2) + $px;
+            left:  pxEm($size/2,$px);
+            right: pxEm($size/2,$px);
           }
         }
       }
