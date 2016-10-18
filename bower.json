@@ -2,7 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "dependencies": {
-    "jquery": "latest",
+    "jquery": "2.2.4",
     "jquery-placeholder": "latest"
   },
   "devDependencies": {
