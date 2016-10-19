@@ -99,7 +99,7 @@ gulp.task('default', ['serve','watch']);
 // Variables build
 var
   runSequence = require('run-sequence'), // set to (DEPLOOY)
-  clean = require('gulp-clean'),
+  clean = require('del'),
   size = require('gulp-size'),
   imagemin = require('gulp-imagemin'),
   pngquant = require('imagemin-pngquant'),
@@ -109,8 +109,7 @@ var
 
 // Clean dir
 gulp.task('clean', function () {
-  return gulp.src(buildDir, {read: false})
-    .pipe(clean());
+  return del(buildDir);
 });
 // Transfer the HTML, CSS, JS into dist
 gulp.task('useref', function () {
