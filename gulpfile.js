@@ -13,10 +13,9 @@ var
   jadeInheritance = require('gulp-jade-inheritance'),
   prettify = require('gulp-html-prettify'),
   changed = require('gulp-changed'),
-  cache = require('gulp-cached'),
+  cached = require('gulp-cached'),
   gulpif = require('gulp-if'), // set to (Jade,Build)
   filter = require('gulp-filter'),
-  data = require('gulp-data'),
   // Tools
   browserSync = require('browser-sync'),
   reload = browserSync.reload,
@@ -24,7 +23,8 @@ var
   wiredep = require('wiredep').stream,
   // Destination path
   appDir = 'app/',
-  buildDir = 'www/';
+  buildDir = 'www/',
+  dateJade = require('./app/jade/_template/_base/_data.json');
 
 /* PREPROCESSING
  ********************************************************/
@@ -44,15 +44,12 @@ var
     return gulp.src(appDir+'jade/**/*.jade')
       .pipe(plumber())
       .pipe(changed(appDir, {extension: '.html'}))
-      .pipe(gulpif(global.isWatching, cache('jade')))
-      .pipe(jadeInheritance({basedir: appDir+'jade/'}))
+      .pipe(gulpif(global.isWatching, cached('jade')))
+      .pipe(jadeInheritance({basedir: appDir+'jade'}))
       .pipe(filter(function (file) {
-        return !/\/^_/.test(file.path) && !/^_/.test(file.relative);
+        return !/\/_/.test(file.path) && !/^_/.test(file.relative);
       }))
-      .pipe(data(function(file) {
-        return require('./'+appDir+'jade/data/data.json');
-      }))
-      .pipe(jade({ pretty: true }))
+      .pipe(jade({ locals: dateJade }))
       .pipe(prettify({indent_char: ' ', indent_size: 2}))
       .pipe(gulp.dest(appDir))
       .pipe(reload({ stream:true }));
@@ -69,14 +66,8 @@ var
   });
   // Bower Wiredep
   gulp.task('bower', function () {
-    gulp.src([
-        appDir+'jade/**/_styles.jade',
-        appDir+'jade/**/_scripts.jade'
-      ])
-      .pipe(wiredep({
-        // directory: 'bower_components/', // задать путь к bower_components
-        ignorePath: /^(\.\.\/)*\.\./
-      }))
+    gulp.src(appDir+'jade/**/{_styles,_scripts}.jade')
+      .pipe(wiredep({ ignorePath: /^(\.\.\/)*\.\./ }))
       .pipe(gulp.dest(appDir+'jade/'));
   });
 
@@ -134,7 +125,7 @@ gulp.task('fonts', function () {
 // Transferring and compress img
 gulp.task('img', function () {
   return gulp.src(appDir+'images/**/*')
-    .pipe(cache(imagemin({
+    .pipe(cached(imagemin({
       interlaced: true,
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],

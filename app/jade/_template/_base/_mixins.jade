@@ -39,7 +39,6 @@ mixin multiMenu(data, nav_class, dropdown)
             div(class='#{nav_class}__submenu')
               +multiSubmenu(item.submenu, nav_class)
 
-
 //- HELPERS MIXINS
 mixin email(email,icon)
   a(href="mailto:"+email, class!=attributes.class)
