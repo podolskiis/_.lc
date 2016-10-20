@@ -49,7 +49,7 @@ var
       .pipe(filter(function (file) {
         return !/\/_/.test(file.path) && !/^_/.test(file.relative);
       }))
-      .pipe(jade({ locals: dateJade }))
+      .pipe(jade({ data: dateJade }))
       .pipe(prettify({indent_char: ' ', indent_size: 2}))
       .pipe(gulp.dest(appDir))
       .pipe(reload({ stream:true }));
