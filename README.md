@@ -3,8 +3,7 @@
 > Что должно быть?
 
 1. Install "nodejs" - https://nodejs.org/en/
-2. $ npm install --global gulp-cli
-3. $ npm install --global bower
+2. $ npm i -g bower gulp-cli
 
 > Как запустить "Start Project"?
 
