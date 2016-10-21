@@ -90,7 +90,7 @@ gulp.task('default', ['serve','watch']);
 // Variables build
 var
   runSequence = require('run-sequence'), // set to (DEPLOOY)
-  clean = require('del'),
+  clean = require('gulp-clean'),
   size = require('gulp-size'),
   imagemin = require('gulp-imagemin'),
   pngquant = require('imagemin-pngquant'),
@@ -100,7 +100,8 @@ var
 
 // Clean dir
 gulp.task('clean', function () {
-  return del(buildDir);
+  return gulp.src(buildDir, {read: false})
+    .pipe(clean());
 });
 // Transfer the HTML, CSS, JS into dist
 gulp.task('useref', function () {
@@ -149,7 +150,7 @@ gulp.task('dist', ['useref','theme:css','fonts','img','extras','js'], function (
   return gulp.src(buildDir+'**/*').pipe(size({title: 'build'}));
 });
 // Build folder DIST (only after compiling "Sass, Jade")
-gulp.task('build', function (cb) {
+gulp.task('b', function (cb) {
   runSequence(['sass','jade'],'clean','dist', cb);
 });
 
@@ -166,7 +167,7 @@ gulp.task('http', function () {
     conn = ftp.create({
       host:     '92.53.96.55',
       user:     'podolskiis',
-      password: '9999999999',
+      password: 'yNE5UYvbHCRlEp7A',
       parallel: 10,
       log: gutil.log
     }),
@@ -180,6 +181,6 @@ gulp.task('http', function () {
 
 /* BUILD and DEPLOOY  in the loop
  ********************************************************/
-gulp.task('build:http', function(cb) {
-  runSequence('build', 'http', cb);
+gulp.task('b:f', function(cb) {
+  runSequence('b', 'http', cb);
 });

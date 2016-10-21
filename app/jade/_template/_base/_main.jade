@@ -1,46 +1,45 @@
 include _variables.jade
-block var
 include _mixins.jade
-include ../_project_mixins.jade
-doctype html
-html(lang="ru")
-  include _head.jade
-  if multipage
-    body.page(
-      class = home?'page_home':'page_post'
-      class = sidebar_left?'page_sidebar_left':''
-      class = sidebar_right?'page_sidebar_right':''
-      class=body_classes)
-      .page__inner
-        // HEADER START 
-        include ../_header.jade
-        // HEADER END 
+include ../_utils/_mixins.jade
+mixin article(multipage)
+  - var attributes = {};
+  - attributes.class = [multipage ? (home ? 'page_home' : 'page_post') : ''];
+  - attributes.class.push(sidebar_left ? 'page_sidebar_left' : '');
+  - attributes.class.push(sidebar_right ? 'page_sidebar_right' : '');
+  body.page(class=body_classes)&attributes(attributes)
+    .page__inner
+      // HEADER START 
+      include ../_inc/_header.jade
+      // HEADER END 
+      if multipage
         // MAIN START 
         main.main
-          +with_sidebars()
+          .container
+            h1.main-title #{title}
+            if sidebar_right || sidebar_left
+              .page__layout
+                .page__content
+                  block content
+                include ../_inc/_sidebar.jade
+            else
+              block content
         // MAIN END 
-      // FOOTER START 
-      include ../_footer.jade
-      // FOOTER END 
-      // MODALS START 
-      .hidden
-        include ../_modals.jade
-      // MODALS END 
-      include ../_scripts.jade
-  else
-    body.page(class=body_classes)
-      .page__inner
-        // HEADER START 
-        include ../_header.jade
-        // HEADER END 
+      else
         // SECTION START 
         block content
         // SECTION END 
-      // FOOTER START 
-      include ../_footer.jade
-      // FOOTER END 
-      // MODALS START 
-      .hidden
-        include ../_modals.jade
-      // MODALS END 
-      include ../_scripts.jade
+    block
+doctype html
+html(lang="ru")
+  include _head.jade
+    block styles
+      include ../_inc/_styles.jade
+  +article(multipage)
+    // FOOTER START 
+    include ../_inc/_footer.jade
+    // FOOTER END 
+    // MODALS START 
+    .hidden
+      include ../_inc/_modals.jade
+    // MODALS END 
+    include ../_inc/_scripts.jade

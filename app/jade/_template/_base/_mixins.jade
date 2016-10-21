@@ -1,14 +1,4 @@
 //- BASE MIXINS
-mixin with_sidebars()
-  .container
-    h1.main-title #{title}
-    if sidebar_right || sidebar_left
-      .page__layout
-        .page__content
-          block content
-        include ../_sidebar.jade
-    else
-      block content
   //- connection files
 mixin styles(...files)
   each file in files

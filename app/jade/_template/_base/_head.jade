@@ -2,8 +2,10 @@ head
   meta(charset="utf-8")
   meta(http-equiv="X-UA-Compatible" content="IE=edge")
   meta(name="viewport" content="width=device-width, initial-scale=1.0")
+
   block title
     title #{title}
+
   link(rel='apple-touch-icon', sizes='180x180', href='images/favicons/apple-touch-icon.png')
   link(rel='icon', type='image/png', href='images/favicons/favicon-32x32.png', sizes='32x32')
   link(rel='icon', type='image/png', href='images/favicons/favicon-16x16.png', sizes='16x16')
@@ -12,9 +14,11 @@ head
   meta(name='theme-color', content='#ffffff')
   meta(name="description" content="")
   meta(name="keywords" content="")
-  include ../_styles.jade
-  |<!--[if lt IE 9]>
+
+  block styles
+
+  <!--[if lt IE 9]>
   <link href="http://rawgit.com/codefucker/finalReject/master/reject/reject.css" rel="stylesheet"/>
   <script src="http://rawgit.com/codefucker/finalReject/master/reject/reject.min.js"></script>
   <script src="http://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-  |<![endif]-->
+  <![endif]-->
