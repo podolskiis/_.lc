@@ -22,7 +22,7 @@ mixin multiMenu(data, nav_class, dropdown)
         - var itemClasses = [nav_class+'__item']
         if (item.submenu && dropdown)
           - itemClasses.push(itemClasses[0] + '_dropdown')
-        li( class=itemClasses, class={active: active_menu === item.val} )
+        li( class=itemClasses, class={active: activeMenu === item.val} )
           a(href="#{item.url}" class='#{nav_class}__link')
             span= item.val
           if (item.submenu && dropdown)
@@ -31,7 +31,7 @@ mixin multiMenu(data, nav_class, dropdown)
 
 //- HELPERS MIXINS
 mixin email(email,icon)
-  a(href="mailto:"+email, class!=attributes.class)
+  a(href="mailto:"+email, target="_blank", class!=attributes.class)
     if icon
       i(class=icon)
       | 
@@ -49,4 +49,3 @@ mixin ulLiA(...items)
   ul&attributes(attributes)
     each item in items
       li: a(href="#")= item
-

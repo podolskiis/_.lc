@@ -24,7 +24,7 @@ var
   // Destination path
   appDir = 'app/',
   buildDir = 'www/',
-  dateJade = require('./app/jade/_template/_base/_data.json');
+  dateJade = require('./app/jade/_template/_data.json');
 
 /* PREPROCESSING
  ********************************************************/

@@ -1,12 +1,18 @@
 include _variables.jade
 include _mixins.jade
-include ../_utils/_mixins.jade
-mixin article(multipage)
+include ../_utils.jade
+doctype html
+html(lang="ru")
+  //- CONNECT HEAD
+  include _head.jade
+    block styles
+      include ../_inc/_styles.jade
+  //- CONNECT BODY
   - var attributes = {};
   - attributes.class = [multipage ? (home ? 'page_home' : 'page_post') : ''];
-  - attributes.class.push(sidebar_left ? 'page_sidebar_left' : '');
-  - attributes.class.push(sidebar_right ? 'page_sidebar_right' : '');
-  body.page(class=body_classes)&attributes(attributes)
+  - attributes.class.push(sidebarLeft ? 'page_sidebar_left' : '');
+  - attributes.class.push(sidebarRight ? 'page_sidebar_right' : '');
+  body.page(class=bodyClasses)&attributes(attributes)
     .page__inner
       // HEADER START 
       include ../_inc/_header.jade
@@ -16,7 +22,7 @@ mixin article(multipage)
         main.main
           .container
             h1.main-title #{title}
-            if sidebar_right || sidebar_left
+            if sidebarLeft || sidebarRight
               .page__layout
                 .page__content
                   block content
@@ -28,13 +34,7 @@ mixin article(multipage)
         // SECTION START 
         block content
         // SECTION END 
-    block
-doctype html
-html(lang="ru")
-  include _head.jade
-    block styles
-      include ../_inc/_styles.jade
-  +article(multipage)
+    //- CONNECT FOOTER
     // FOOTER START 
     include ../_inc/_footer.jade
     // FOOTER END 

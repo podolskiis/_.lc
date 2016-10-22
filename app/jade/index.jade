@@ -1,12 +1,12 @@
 extends _template/_base/_main.jade
 block variables
   -var title = 'Главная'
-  -var multipage = true
+  -var activeMenu = title
+  -var bodyClasses = ['page_chrom']
   -var home = true
-  -var sidebar_left = true
-  -var sidebar_right = true
-  -var active_menu = title
-  -var body_classes = ['page_hrom']
+  -var multipage = true
+  -var sidebarLeft = true
+  -var sidebarRight = true
 block content
   - for (var x = 0; x < 1; x++)
     p
@@ -28,4 +28,3 @@ block content
     .form__item.form__item_btn
       button.btn.btn_blue.lh_32(type="submit")
         | submit
-
