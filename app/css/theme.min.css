@@ -1186,9 +1186,9 @@ a, input, textarea, button, .btn {
     text-decoration: none;
     color: #333;
     display: block; }
-  .logo:hover {
-    text-decoration: none;
-    color: inherit; }
+    .logo__link:hover {
+      text-decoration: none;
+      color: inherit; }
 
 .main-menu ul {
   list-style: none; }

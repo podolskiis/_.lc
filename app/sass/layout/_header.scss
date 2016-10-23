@@ -8,10 +8,11 @@
   &__link {
     text-decoration: none;
     color: $tm_color_d;
-    display: block; }
+    display: block;
     &:hover {
       text-decoration: none;
       color: inherit; }
+  }
   &__img {}
 }
 
