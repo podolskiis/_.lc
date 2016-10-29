@@ -7,11 +7,13 @@ mixin scripts(...files)
   each file in files
     script(src=file)
   //- nav links
+
 //- MULTI MENU
 mixin multiSubmenu(data, nav_class)
   ul(class='#{nav_class}-submenu')
     each item in data
       li(class='#{nav_class}-submenu__item')
+        = '\n'
         a(href="#{item.url}" class='#{nav_class}-submenu__link')
           span= item.val
 mixin multiMenu(data, nav_class, dropdown)
@@ -23,6 +25,7 @@ mixin multiMenu(data, nav_class, dropdown)
         if (item.submenu && dropdown)
           - itemClasses.push(itemClasses[0] + '_dropdown')
         li( class=itemClasses, class={active: activeMenu === item.val} )
+          = '\n'
           a(href="#{item.url}" class='#{nav_class}__link')
             span= item.val
           if (item.submenu && dropdown)
@@ -31,21 +34,26 @@ mixin multiMenu(data, nav_class, dropdown)
 
 //- HELPERS MIXINS
 mixin email(email,icon)
+  = '\n'
   a(href="mailto:"+email, target="_blank", class!=attributes.class)
     if icon
       i(class=icon)
       | 
     | #{email}
 mixin imgRadius(attr)
+  = '\n'
   span&attributes(attributes)
     span
       img(src=attr alt="")
 mixin navItems(obj)
-  //- Example: +navItems(v_foot_menu)
   ul&attributes(attributes)
     each link, val in obj
-      li: a(href=link)= val
+      li
+        = '\n'
+        a(href=link)= val
 mixin ulLiA(...items)
   ul&attributes(attributes)
     each item in items
-      li: a(href="#")= item
+      li
+        = '\n'
+        a(href="#")= item

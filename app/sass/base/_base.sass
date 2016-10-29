@@ -1,0 +1,36 @@
+// preview theme
+body
+  background: #F7FBEE
+  .s-header,
+  .s-footer
+    background: #9ACD32
+
+body
+  font-family: $tm_ff_d
+  font-size: em($tm_fz_d)
+  font-weight: $tm_fw_d
+  line-height: $tm_lh_d
+  color: $tm_color_d
+  // @include bg('1.jpg',50%)
+  // opacity: .7
+html, body, .container
+  min-width: 300px
+.container
+  // width: 990px !important
+
+// Typography
+@include titleSize((36,30,24,18,14,12))
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6
+  margin: ems($tm_mg_p) 0 ems($tm_mg_p/2)
+h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6,
+b,strong,th,dt
+  // styles ...
+p,pre,ul,ol,dl,hr,.p
+  margin: ems($tm_mg_p) 0
+a
+  color: $tm_color_link_a
+  text-decoration: underline
+  &:hover
+    color: $tm_color_link_b
+a,input,textarea,button,.btn
+  +tsn(.2)

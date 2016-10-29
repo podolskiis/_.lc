@@ -49,7 +49,7 @@ var
       .pipe(filter(function (file) {
         return !/\/_/.test(file.path) && !/^_/.test(file.relative);
       }))
-      .pipe(jade({ data: dateJade }))
+      .pipe(jade({ pretty: true, data: dateJade }))
       .pipe(prettify({indent_char: ' ', indent_size: 2}))
       .pipe(gulp.dest(appDir))
       .pipe(reload({ stream:true }));
@@ -126,12 +126,12 @@ gulp.task('fonts', function () {
 // Transferring and compress img
 gulp.task('img', function () {
   return gulp.src(appDir+'images/**/*')
-    .pipe(cached(imagemin({
+    .pipe(imagemin({
       interlaced: true,
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
       use: [pngquant()]
-    })))
+    }))
     .pipe(gulp.dest(buildDir+'images/'));
 });
 // We transfer the remaining files (.ico, .htaccess, etc ...)
@@ -167,7 +167,7 @@ gulp.task('http', function () {
     conn = ftp.create({
       host:     '92.53.96.55',
       user:     'podolskiis',
-      password: 'yNE5UYvbHCRlEp7A',
+      password: '9999999999',
       parallel: 10,
       log: gutil.log
     }),

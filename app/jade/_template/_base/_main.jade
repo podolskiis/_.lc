@@ -14,9 +14,10 @@ html(lang="ru")
   - attributes.class.push(sidebarRight ? 'page_sidebar_right' : '');
   body.page(class=bodyClasses)&attributes(attributes)
     .page__inner
-      // HEADER START 
-      include ../_inc/_header.jade
-      // HEADER END 
+      if header
+        // HEADER START 
+        include ../_inc/_header.jade
+        // HEADER END 
       if multipage
         // MAIN START 
         main.main
@@ -35,11 +36,13 @@ html(lang="ru")
         block content
         // SECTION END 
     //- CONNECT FOOTER
-    // FOOTER START 
-    include ../_inc/_footer.jade
-    // FOOTER END 
-    // MODALS START 
-    .hidden
-      include ../_inc/_modals.jade
-    // MODALS END 
+    if footer
+      // FOOTER START 
+      include ../_inc/_footer.jade
+      // FOOTER END 
+    if modals
+      // MODALS START 
+      .hidden
+        include ../_inc/_modals.jade
+      // MODALS END 
     include ../_inc/_scripts.jade

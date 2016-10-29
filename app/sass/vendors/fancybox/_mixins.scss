@@ -66,3 +66,20 @@
     color: $ch;
   }
 }
+
+// EFFECT GROUP
+// ==============================
+// Effect 1: Fade in and scale up
+@mixin fadescale() {
+  .fadescale {
+    transform: scale(0.7);
+    opacity: 0;
+    &-transitions{
+      transition: all 0.3s;
+    }
+    &.show{
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}

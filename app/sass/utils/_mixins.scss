@@ -267,12 +267,11 @@ $src_font: '../fonts/';
     }
   }
 // MENU STYLES
-  @mixin menu_justify($h:50px){
+  @mixin menu_justify($h:1.5em){
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: justify;
-    overflow: hidden;
     height: $h;
     >*{
       display: inline;
@@ -282,7 +281,9 @@ $src_font: '../fonts/';
     &:after{
       content: ".";
       margin-left: 100%;
-      display: inline-block;}
+      display: inline-block;
+      height: 0;
+      overflow: hidden; }
   }
 
 // font-size, line-height, margins, paddings
@@ -328,6 +329,12 @@ $src_font: '../fonts/';
       .pg-tb_#{$size} {
         padding-top: pxEm($size,$px);
         padding-bottom: pxEm($size,$px);
+      }
+    }
+    @if $task == 'pg-lr' {
+      .pg-tb_#{$size} {
+        padding-left: pxEm($size,$px);
+        padding-right: pxEm($size,$px);
       }
     }
     @if $task == 'btn-pg' {
@@ -382,3 +389,34 @@ $src_font: '../fonts/';
   }
 }
 
+// Grid Inline
+@mixin rwInline {
+  letter-spacing: -0.3em;
+  >* {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 1px;
+    letter-spacing: normal;
+  }
+}
+
+// Grid Table
+@mixin tbl {
+  $root: &;
+  &__list {
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    >*{display: table-cell; vertical-align: middle;}
+    #{$root}_vertical_t > & >*{vertical-align: top;}
+    #{$root}_vertical_b > & >*{vertical-align: bottom;}
+  }
+}
+
+// Reset indents of the (first and last) child
+@mixin inMg0 {
+  > *:first-child {margin-top: 0}
+  > *:last-child {margin-bottom: 0}
+  > *.last-child {margin-bottom: 0}
+}
