@@ -92,6 +92,7 @@ var
   runSequence = require('run-sequence'), // set to (DEPLOOY)
   clean = require('gulp-clean'),
   size = require('gulp-size'),
+  cache = require('gulp-cache'),
   imagemin = require('gulp-imagemin'),
   pngquant = require('imagemin-pngquant'),
   uglify = require('gulp-uglify'),
@@ -126,12 +127,12 @@ gulp.task('fonts', function () {
 // Transferring and compress img
 gulp.task('img', function () {
   return gulp.src(appDir+'images/**/*')
-    .pipe(imagemin({
+    .pipe(cache(imagemin({
       interlaced: true,
       progressive: true,
       svgoPlugins: [{removeViewBox: false}],
       use: [pngquant()]
-    }))
+    })))
     .pipe(gulp.dest(buildDir+'images/'));
 });
 // We transfer the remaining files (.ico, .htaccess, etc ...)

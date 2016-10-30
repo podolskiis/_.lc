@@ -9,51 +9,25 @@ mixin scripts(...files)
   //- nav links
 
 //- MULTI MENU
-mixin multiSubmenu(data, nav_class)
-  ul(class='#{nav_class}-submenu')
+mixin multiSubmenu(data, navСlass)
+  ul(class='#{navСlass}-submenu')
     each item in data
-      li(class='#{nav_class}-submenu__item')
+      li(class='#{navСlass}-submenu__item')
         = '\n'
-        a(href="#{item.url}" class='#{nav_class}-submenu__link')
+        a(href="#{item.url}" class='#{navСlass}-submenu__link')
           span= item.val
-mixin multiMenu(data, nav_class, dropdown)
+mixin multiMenu(data, navСlass, dropdown)
   //- Example: +multiMenu(menu_obj, 'class-menu')
-  nav(class='#{nav_class}')&attributes(attributes)
-    ul(class='#{nav_class}__list')
+  nav(class='#{navСlass}')&attributes(attributes)
+    ul(class='#{navСlass}__list')
       each item in data
-        - var itemClasses = [nav_class+'__item']
+        - var itemClasses = [navСlass+'__item']
         if (item.submenu && dropdown)
           - itemClasses.push(itemClasses[0] + '_dropdown')
         li( class=itemClasses, class={active: activeMenu === item.val} )
           = '\n'
-          a(href="#{item.url}" class='#{nav_class}__link')
+          a(href="#{item.url}" class='#{navСlass}__link')
             span= item.val
           if (item.submenu && dropdown)
-            div(class='#{nav_class}__submenu')
-              +multiSubmenu(item.submenu, nav_class)
-
-//- HELPERS MIXINS
-mixin email(email,icon)
-  = '\n'
-  a(href="mailto:"+email, target="_blank", class!=attributes.class)
-    if icon
-      i(class=icon)
-      | 
-    | #{email}
-mixin imgRadius(attr)
-  = '\n'
-  span&attributes(attributes)
-    span
-      img(src=attr alt="")
-mixin navItems(obj)
-  ul&attributes(attributes)
-    each link, val in obj
-      li
-        = '\n'
-        a(href=link)= val
-mixin ulLiA(...items)
-  ul&attributes(attributes)
-    each item in items
-      li
-        = '\n'
-        a(href="#")= item
+            div(class='#{navСlass}__submenu')
+              +multiSubmenu(item.submenu, navСlass)

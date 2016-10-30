@@ -1,5 +1,5 @@
-$src_img:  '../images/theme/';
-$src_font: '../fonts/';
+$srcImg:  '../images/theme/';
+$srcFont: '../fonts/';
 
 // TRANSITION
   @mixin tsn($speed: .15) {
@@ -9,23 +9,23 @@ $src_font: '../fonts/';
       border-color $speed+s,
       color $speed+s
   }
-  @mixin tsn_ops($speed: .15) {
+  @mixin tsnOps($speed: .15) {
     transition: opacity $speed+s
   }
-  @mixin tsn_all($speed: .15) {
+  @mixin tsnAll($speed: .15) {
     transition: all $speed+s
   }
-  @mixin tsn_off() {
+  @mixin tsnOff() {
     transition: none !important
   }
 // BACKGROUND
   @mixin bg($img,$x:0,$y:0,$c:transparent,$r:no-repeat) {
-    background: url('#{$src_img}#{$img}') $c $x $y $r }
-  @mixin bg_data($img,$x:0,$y:0,$c:transparent,$r:no-repeat){
-    background: url('#{$src_img}data:image/png;base64,#{$img}') $c $x $y $r }
+    background: url('#{$srcImg}#{$img}') $c $x $y $r }
+  @mixin bgData($img,$x:0,$y:0,$c:transparent,$r:no-repeat){
+    background: url('#{$srcImg}data:image/png;base64,#{$img}') $c $x $y $r }
 // FOOTER
   // push footer
-  @mixin footer_fixed($h, $t:0) {
+  @mixin footerFixed($h, $t:0) {
     html,body {
       height: 100%;
     }
@@ -48,7 +48,7 @@ $src_font: '../fonts/';
     }
   }
 // IMAGES
-  @mixin icons($url:'#{$src_img}icons.png') {
+  @mixin icons($url:'#{$srcImg}icons.png') {
     background-image: url($url);
     background-position: 100% 100%;
     background-repeat: no-repeat;
@@ -68,7 +68,7 @@ $src_font: '../fonts/';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  @mixin img_fit($h:200px, $bg:#fff) {
+  @mixin imgFit($h:200px, $bg:#fff) {
     background: $bg;
     display: block;
     overflow: hidden;
@@ -81,7 +81,7 @@ $src_font: '../fonts/';
       max-height: 100%;
     }
   }
-  @mixin img_zoom($op:.7) {
+  @mixin imgZoom($op:.7) {
     overflow: hidden;
     display: inline-block;
     img {
@@ -92,7 +92,7 @@ $src_font: '../fonts/';
       opacity: $op;
     }
   }
-  @mixin img_radius($z:100px,$bd_z:5px,$bd_c:#e00) {
+  @mixin imgRadius($z:100px,$bd_z:5px,$bd_c:#e00) {
     border: $bd_z solid $bd_c;
     display: inline-block;
     vertical-align: middle;
@@ -111,7 +111,7 @@ $src_font: '../fonts/';
       }
     }
   }
-  @mixin img_center($w:200px,$h:200px) {
+  @mixin imgCenter($w:200px,$h:200px) {
     position: relative;
     overflow: hidden;
     width: $w;
@@ -148,7 +148,7 @@ $src_font: '../fonts/';
   }
 // BORDER
   // border-link
-  @mixin border_link($type: dotted, $color: $tm_color_link_a, $hover: $tm_color_link_b) {
+  @mixin borderLink($type: dotted, $color: $tm_color_link_a, $hover: $tm_color_link_b) {
     border-width: 0 0 1px;
     display: inline-block;
     text-decoration: none !important;
@@ -168,9 +168,10 @@ $src_font: '../fonts/';
     }
   }
   // link effects
-  @mixin link_eff_line_center($z:1px, $color:$tm_color_link_b) {
+  @mixin borderLinkEffLineCenter($z:1px, $color:$tm_color_link_b, $tsn:.5) {
     position: relative;
     text-decoration: none;
+    @include tsn($tsn);
     &::before {
       background: $color;
       height: $z;
@@ -180,7 +181,7 @@ $src_font: '../fonts/';
       left: 50%;
       right: 50%;
       top: 1.05em;
-      @include tsn_all;
+      @include tsnAll($tsn);
     }
     &:hover {
       color: $color;
@@ -230,33 +231,45 @@ $src_font: '../fonts/';
     background-image: linear-gradient(to bottom, $t 0%,$b 100%);
   }
 // FONTS
+  // Font-face all format
   @mixin font($ff, $url) {
     @font-face {
       font-family: $ff;
-      src: url(#{$src_font+$url}.eot);
-      src: url(#{$src_font+$url}.eot?#iefix) format('embedded-opentype'),
-           url(#{$src_font+$url}.woff) format('woff'),
-           url(#{$src_font+$url}.woff2) format('woff2'),
-           url(#{$src_font+$url}.ttf) format('truetype'),
-           url(#{$src_font+$url}.svg##{$ff}) format('svg');
+      src: url(#{$srcFont+$url}.eot);
+      src: url(#{$srcFont+$url}.eot?#iefix) format('embedded-opentype'),
+           url(#{$srcFont+$url}.woff) format('woff'),
+           url(#{$srcFont+$url}.woff2) format('woff2'),
+           url(#{$srcFont+$url}.ttf) format('truetype'),
+           url(#{$srcFont+$url}.svg##{$ff}) format('svg');
       font-weight: normal;
       font-style: normal;
     }
   }
-  @mixin g_font($ff, $loc1, $loc2, $url, $fw, $fs) {
-    @font-face {
-      font-family: $ff;
-      src: local($loc1), local($loc2),
-           url(#{$src_font+$url}.woff) format('woff'),
-           url(#{$src_font+$url}.woff2) format('woff2');
-      font-weight: $fw;
-      font-style: $fs;
+  // Font-face woff format
+  @mixin woffFont($ff, $url, $fw, $fs: normal) {
+    $styleMin: '';
+    @each $style in $fs {
+      @if $style == 'i' or $style == italic {
+        $styleMin: 'i';
+        $style: italic;
+      } @else {
+        $style: normal;
+      }
+      $path: ($srcFont+$url) + '/' + ($fw+$styleMin) + '.woff';
+      @font-face {
+        font-family: $ff;
+        font-style: $style;
+        font-weight: $fw;
+        src: local('☺'), url($path) format('woff'), url($path+2) format('woff2');
+      }
     }
   }
+  // Reset font
   @mixin ffn {
     font-weight: normal;
     font-style: normal;
   }
+  // Multi title font-size
   @mixin titleSize($arr) {
     $i: 1;
     @each $size in $arr {
@@ -267,7 +280,7 @@ $src_font: '../fonts/';
     }
   }
 // MENU STYLES
-  @mixin menu_justify($h:1.5em){
+  @mixin menuJustify($h:1.5em){
     margin: 0;
     padding: 0;
     list-style: none;
@@ -286,8 +299,8 @@ $src_font: '../fonts/';
       overflow: hidden; }
   }
 
-// font-size, line-height, margins, paddings
-@mixin multiSize($task,$px,$arr) {
+// Multi Indents
+@mixin mi($task,$px,$arr) {
   @each $size in $arr {
     @if $task == 'fz' {
       .fz_#{$size} {
@@ -332,7 +345,7 @@ $src_font: '../fonts/';
       }
     }
     @if $task == 'pg-lr' {
-      .pg-tb_#{$size} {
+      .pg-lr_#{$size} {
         padding-left: pxEm($size,$px);
         padding-right: pxEm($size,$px);
       }

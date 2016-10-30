@@ -1,14 +1,6 @@
-
-@include g_font(
-  'Roboto Condensed',
-  'Roboto Condensed Bold Italic',
-  'RobotoCondensed-BoldItalic',
-  'roboto/700i',
-  700, italic
-);
-
+// @include woffFont('Open Sans', 'opensans', 400, n i);
 // Icomoon
-@include font('icomoon', 'icomoon/icomoon');
-[class^="icon-"], [class*=" icon-"] {
-  @include icomoon
-}
+// @include font('icomoon', 'icomoon/icomoon');
+// [class^="icon-"], [class*=" icon-"] {
+//   @include icomoon
+// }
