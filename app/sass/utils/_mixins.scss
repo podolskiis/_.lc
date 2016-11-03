@@ -168,7 +168,7 @@ $srcFont: '../fonts/';
     }
   }
   // link effects
-  @mixin borderLinkEffLineCenter($z:1px, $color:$tm_color_link_b, $tsn:.5) {
+  @mixin borderLinkEffLineCenter($z:1px, $color:$tm_color_link_b, $tsn:.3) {
     position: relative;
     text-decoration: none;
     @include tsn($tsn);
@@ -180,7 +180,7 @@ $srcFont: '../fonts/';
       position: absolute;
       left: 50%;
       right: 50%;
-      top: 1.05em;
+      top: 1.2em;
       @include tsnAll($tsn);
     }
     &:hover {
@@ -280,13 +280,15 @@ $srcFont: '../fonts/';
     }
   }
 // MENU STYLES
-  @mixin menuJustify($h:1.5em){
+  @mixin menuJustify($lh:20px){
     margin: 0;
     padding: 0;
     list-style: none;
     text-align: justify;
-    height: $h;
+    height: $lh;
+    line-height: $lh;
     >*{
+      line-height: $tm_lh_d;
       display: inline;
       a{
         display: inline-block;}
@@ -328,6 +330,12 @@ $srcFont: '../fonts/';
         margin-bottom: pxEm($size,$px);
       }
     }
+    @if $task == 'mg-lr' {
+      .pg-lr_#{$size} {
+        margin-left: pxEm($size,$px);
+        margin-right: pxEm($size,$px);
+      }
+    }
     @if $task == 'pg-t' {
       .pg-t_#{$size} {
         padding-top: pxEm($size,$px);
@@ -350,17 +358,6 @@ $srcFont: '../fonts/';
         padding-right: pxEm($size,$px);
       }
     }
-    @if $task == 'btn-pg' {
-      .btn-pg_#{$size} {
-        padding-left: pxEm($size,$px);
-        padding-right: pxEm($size,$px);
-      }
-    }
-    @if $task == 'list-items-mg' {
-      .list-items-mg_#{$size} {
-        >* { margin-top: pxEm($size,$px); }
-      }
-    }
     @if $task == 'row-items-mg' {
       // Bootstrap custom indents
       .row-items-mg_#{$size} {
@@ -380,32 +377,38 @@ $srcFont: '../fonts/';
         }
       }
     }
-    @if $task == 'tbl-items-pg' {
-      .tbl-items-pg_#{$size} {
-        margin: {
-          left:  pxEm(-$size/2,$px);
-          right: pxEm(-$size/2,$px);
-        }
-        >*>* {
-          padding: {
-            left:  pxEm($size/2,$px);
-            right: pxEm($size/2,$px);
-          }
-        }
-      }
-    }
   }
-  @if $task == 'list-items-mg' {
-    [class*="list-items-mg_"] {
-      >*:first-child { margin-top: 0; }
-    }
+}
+
+// Clear list
+@mixin itemsReset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// Indent (col)
+@mixin itemsMgLeft($size) {
+  margin-left: -$size;
+  >* { margin-left: $size; }
+}
+// Indent (row)
+@mixin itemsMgTop($size) {
+  >* {
+    margin-top: $size;
+    &:first-child { margin-top: 0; }
   }
 }
 
 // Grid Inline
-@mixin rwInline {
+@mixin itemsInline($size:false) {
+  @include itemsReset;
+  @if $size {
+    @include itemsMgLeft($size); }
   letter-spacing: -0.3em;
+  line-height: 1;
   >* {
+    line-height: $tm_lh_d;
     display: inline-block;
     vertical-align: top;
     min-height: 1px;

@@ -25,5 +25,36 @@ mixin ulLiA(...items)
         a(href="#")= item
 
 //- PROJECT CODES MIXINS
-
+mixin multiSubmenu(data, navСlass)
+  ul(class='#{navСlass}-submenu')
+    each item in data
+      li(class='#{navСlass}-submenu__item')
+        = '\n'
+        a(href=item.url, class='#{navСlass}-submenu__link')
+          span= item.val
+mixin multiMenu(data, navСlass, dropdown)
+  //- Example: +multiMenu(menu_obj, 'class-menu')
+  nav(class='#{navСlass}')&attributes(attributes)
+    ul(class='#{navСlass}__list')
+      each item in data
+        - var itemClasses = [navСlass+'__item']
+        if (item.submenu && dropdown)
+          - itemClasses.push(itemClasses[0] + '_dropdown')
+        li( class=itemClasses, class={active: activeMenu === item.val} )
+          = '\n'
+          a(href=item.url, class='#{navСlass}__link')
+            span= item.val
+          if (item.submenu && dropdown)
+            div(class='#{navСlass}__submenu')
+              +multiSubmenu(item.submenu, navСlass)
+  //- Навигационная цепочка
+mixin breadcrumb(...items)
+  ul&attributes(attributes)
+    each item, i in items
+      li
+        = '\n'
+        if (i == items.length - 1)
+          span= item
+        else
+          a(href="#")= item
 
