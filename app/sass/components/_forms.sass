@@ -18,22 +18,27 @@ input,textarea
   $formItemMg: 5
   #{$text-inputs}
     outline: none
+    box-shadow: none
+    border-radius: 0
     margin: 0 0 ems(5)
     padding: ems($inputPgHt) ems($inputPgWt)
     line-height: ems($inputHt - $inputPgHt*2 - $inputBdWt*2)
     height: ems($inputHt)
-    font
-      family: $tm_ff_d
-      size: $tm_fz_d
-    border:
-      width: ems($inputBdWt)
-      style: solid
+    font-family: $tm_ff_d
+    font-size: $tm_fz_d
+    font-weight: $tm_fw_d
+    border-width: $inputBdWt+px
+    border-style: solid
     color: $tm_color_d
     // EDIT
     background: #fff
     border-color: #ddd
     &:focus
       border-color: #aaa
+  html.touch &
+    // Отключение автоматического Увеличение ввода - Safari на iPhone
+    #{$text-inputs}
+      font-size: 16px
   textarea
     min-height: ems(100)
     height: auto
@@ -53,3 +58,4 @@ input,textarea
     box-shadow: 0 0 ems(3) red !important
   label.error
     display: none !important
+

@@ -9,12 +9,22 @@
       "url": "about.html",
       "submenu": [
         {
-          "val": "Что мы предлагаем?",
-          "url": "what-offer.html"
+          "val": "menu-item_2.1",
+          "url": "2.1.html",
+          "submenu": [
+            {
+              "val": "menu-item_3.1",
+              "url": "3.1.html"
+            },
+            {
+              "val": "menu-item_3.2",
+              "url": "3.2.html"
+            }
+          ]
         },
         {
-          "val": "Начать бизнес",
-          "url": "start-business.html"
+          "val": "menu-item_2.2",
+          "url": "2.2.html"
         }
       ]
     },

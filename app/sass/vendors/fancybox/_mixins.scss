@@ -35,15 +35,18 @@
   right: (-$z);
   font-size: $z;
   color: $cd;
-  // Прилепить к углу окна
-  // top: 0;
-  // right: 0;
-  // background: rgba(0, 0, 0, .5);
-  // width: $z*2;
-  // height: $z*2;
-  // line-height: $z*1.99;
-  // text-align: center;
-  // border-radius: 0 0 0 4px;
+  @media (max-width: 767px) {
+    // Прилепить к углу окна
+    font-size: 18px;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    width: $z*1.3;
+    height: $z*1.3;
+    line-height: $z*1.3;
+    text-align: center;
+    border-radius: 0 0 0 4px;
+  }
   &:hover {
     color: $ch;
   }

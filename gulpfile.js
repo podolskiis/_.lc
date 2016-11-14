@@ -8,6 +8,7 @@ var
   bourbon = require('node-bourbon'),
   cleanCSS = require('gulp-clean-css'), // set to (Sass,Build)
   autoprefixer = require('gulp-autoprefixer'),
+  gcmq = require('gulp-group-css-media-queries'),
   // Jade
   jade = require('gulp-jade'),
   jadeInheritance = require('gulp-jade-inheritance'),
@@ -34,6 +35,7 @@ var
       .pipe(plumber())
       .pipe(sass({includePaths: require('node-bourbon').includePaths}).on('error', sass.logError))
       .pipe(autoprefixer({ browsers: ['last 25 versions'] }))
+      .pipe(gcmq())
       .pipe(rename('theme.min.css'))
       // .pipe(cleanCSS({compatibility: 'ie8'}))
       .pipe(gulp.dest(appDir+'css/'))

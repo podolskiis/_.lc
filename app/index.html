@@ -12,7 +12,7 @@
   <!-- bower:css-->
   <!-- endbower-->
   <!-- endbuild -->
-  <link rel="stylesheet" href="css/theme.min.css" />
+  <link rel="stylesheet" href="css/theme.min.css?rev=@@hash" />
   <script src="js/modernizr.js"></script>
   <!--[if lt IE 9]>
     <link href="http://rawgit.com/codefucker/finalReject/master/reject/reject.css" rel="stylesheet"/>
@@ -21,8 +21,9 @@
     <![endif]-->
 </head>
 
-<body class="page page_index page_home page_sidebar_left page_sidebar_right">
-  <div class="page__inner">
+<body class="page page_index add-class_1 page_home page_sidebar_left page_sidebar_right">
+  <!-- PAGE-WRAP START -->
+  <div class="page-wrap">
     <!-- HEADER START -->
     <header class="s-header">
       <div class="container">
@@ -53,10 +54,17 @@
               <div class="main-menu__submenu">
                 <ul class="main-menu-submenu">
                   <li class="main-menu-submenu__item">
-                    <a href="what-offer.html" class="main-menu-submenu__link"><span>Что мы предлагаем?</span></a>
+                    <a href="2.1.html" class="main-menu-submenu__link"><span>menu-item_2.1</span></a>
+                    <div class="main-menu__submenu">
+                      <ul class="main-menu-submenu">
+                        <li class="main-menu-submenu__item">
+                          <a href="3.1.html" class="main-menu-submenu__link"><span>menu-item_3.1</span></a>
+                        </li>
+                      </ul>
+                    </div>
                   </li>
                   <li class="main-menu-submenu__item">
-                    <a href="start-business.html" class="main-menu-submenu__link"><span>Начать бизнес</span></a>
+                    <a href="2.2.html" class="main-menu-submenu__link"><span>menu-item_2.2</span></a>
                   </li>
                 </ul>
               </div>
@@ -115,6 +123,7 @@
     </main>
     <!-- MAIN END -->
   </div>
+  <!-- PAGE-WRAP END -->
   <!-- FOOTER START -->
   <footer class="s-footer">
     <div class="container">
@@ -145,27 +154,13 @@
     </div>
   </footer>
   <!-- FOOTER END -->
-  <!-- MODALS START -->
-  <div class="hidden">
-    <div id="id" class="modall">
-      <div class="modall__head">
-        <h3 class="modall__title">title</h3>
-      </div>
-      <div class="modall__body">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis cum voluptates sed commodi maxime quidem magnam, non assumenda inventore in nemo, dolore, voluptas quam. Itaque quos dolorem architecto deserunt, adipisci!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis cum voluptates sed commodi maxime quidem magnam, non assumenda inventore in nemo, dolore, voluptas quam. Itaque quos dolorem architecto deserunt, adipisci!</p>
-      </div>
-      <div class="modall__foot">content</div>
-    </div>
-  </div>
-  <!-- MODALS END -->
   <!-- build:js js/vendors.min.js -->
   <!-- bower:js-->
   <script src="/bower/jquery/dist/jquery.js"></script>
   <script src="/bower/jquery-placeholder/jquery.placeholder.js"></script>
   <!-- endbower-->
   <!-- endbuild -->
-  <script src="js/theme.js"></script>
+  <script src="js/theme.js?rev=@@hash"></script>
 </body>
 
 </html>

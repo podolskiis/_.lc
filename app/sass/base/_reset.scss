@@ -8,7 +8,7 @@ html {
   font-size: 100%; }
 body {
   background-color: #fff;
-  &>.page__inner,
+  &>.page-wrap,
   &>.s-footer {overflow: hidden;}
 }
 
@@ -45,3 +45,4 @@ body {
 .is-hidden   {display: none}
 .mg-t_0      {margin-top: 0 !important}
 .mg-b_0      {margin-bottom: 0 !important}
+.mg-tb_0     {margin-top: 0 !important; margin-bottom: 0 !important}

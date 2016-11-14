@@ -30,7 +30,7 @@ $srcFont: '../fonts/';
       height: 100%;
     }
     body {
-      &>.page__inner {
+      &>.page-wrap {
         min-height: 100%;
         &:after {
           content: ' ';
@@ -42,9 +42,6 @@ $srcFont: '../fonts/';
         height: $h;
         margin-top: -$h;
       }
-    }
-    html.fancybox-lock body {
-      overflow: visible !important;
     }
   }
 // IMAGES
@@ -264,116 +261,134 @@ $srcFont: '../fonts/';
       }
     }
   }
-  // Reset font
-  @mixin ffn {
-    font-weight: normal;
-    font-style: normal;
-  }
-  // Multi title font-size
-  @mixin titleSize($arr) {
-    $i: 1;
-    @each $size in $arr {
-      h#{$i}, .h#{$i} {
-        font-size: ems($size);
-      }
-      $i: $i+1;
+
+// Reset font
+@mixin ffn {
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Multi title font-size
+@mixin titleSize($arr) {
+  $i: 1;
+  @each $size in $arr {
+    h#{$i}, .h#{$i} {
+      font-size: ems($size);
     }
+    $i: $i+1;
   }
+}
+
 // MENU STYLES
-  @mixin menuJustify($lh:20px){
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-align: justify;
-    height: $lh;
-    line-height: $lh;
-    >*{
-      line-height: $tm_lh_d;
-      display: inline;
-      a{
-        display: inline-block;}
-    }
-    &:after{
-      content: ".";
-      margin-left: 100%;
-      display: inline-block;
-      height: 0;
-      overflow: hidden; }
+@mixin menuJustify($lh:20px){
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: justify;
+  height: $lh;
+  line-height: $lh;
+  >*{
+    line-height: $tm_lh_d;
+    display: inline;
+    a{
+      display: inline-block;}
   }
+  &:after{
+    content: ".";
+    margin-left: 100%;
+    display: inline-block;
+    height: 0;
+    overflow: hidden; }
+}
 
 // Multi Indents
 @mixin mi($task,$px,$arr) {
   @each $size in $arr {
     @if $task == 'fz' {
       .fz_#{$size} {
-        font-size: pxEm($size,$px);
+        font-size: pxEm($size,$px) !important;
       }
     }
     @if $task == 'lh' {
       .lh_#{$size} {
-        line-height: pxEm($size,$px);
+        line-height: pxEm($size,$px) !important;
+      }
+    }
+    @if $task == 'ht' {
+      .ht_#{$size} {
+        height: pxEm($size,$px) !important;
       }
     }
     @if $task == 'mg-t' {
       .mg-t_#{$size} {
-        margin-top: pxEm($size,$px);
+        margin-top: pxEm($size,$px) !important;
       }
     }
     @if $task == 'mg-b' {
       .mg-b_#{$size} {
-        margin-bottom: pxEm($size,$px);
+        margin-bottom: pxEm($size,$px) !important;
       }
     }
     @if $task == 'mg-tb' {
       .mg-tb_#{$size} {
-        margin-top: pxEm($size,$px);
-        margin-bottom: pxEm($size,$px);
+        margin-top: pxEm($size,$px) !important;
+        margin-bottom: pxEm($size,$px) !important;
       }
     }
     @if $task == 'mg-lr' {
       .pg-lr_#{$size} {
-        margin-left: pxEm($size,$px);
-        margin-right: pxEm($size,$px);
+        margin-left: pxEm($size,$px) !important;
+        margin-right: pxEm($size,$px) !important;
       }
     }
     @if $task == 'pg-t' {
       .pg-t_#{$size} {
-        padding-top: pxEm($size,$px);
+        padding-top: pxEm($size,$px) !important;
       }
     }
     @if $task == 'pg-b' {
       .pg-b_#{$size} {
-        padding-bottom: pxEm($size,$px);
+        padding-bottom: pxEm($size,$px) !important;
       }
     }
     @if $task == 'pg-tb' {
       .pg-tb_#{$size} {
-        padding-top: pxEm($size,$px);
-        padding-bottom: pxEm($size,$px);
+        padding-top: pxEm($size,$px) !important;
+        padding-bottom: pxEm($size,$px) !important;
+      }
+    }
+    @if $task == 'pg-l' {
+      .pg-l_#{$size} {
+        padding-left: pxEm($size,$px) !important;
+      }
+    }
+    @if $task == 'pg-r' {
+      .pg-r_#{$size} {
+        padding-right: pxEm($size,$px) !important;
       }
     }
     @if $task == 'pg-lr' {
       .pg-lr_#{$size} {
-        padding-left: pxEm($size,$px);
-        padding-right: pxEm($size,$px);
+        padding-left: pxEm($size,$px) !important;
+        padding-right: pxEm($size,$px) !important;
       }
     }
-    @if $task == 'row-items-mg' {
+    @if $task == 'row-items-mg-l' {
       // Bootstrap custom indents
-      .row-items-mg_#{$size} {
-        margin-left: pxEm(-$size/2,$px);
-        margin-right: pxEm(-$size/2,$px);
+      .row-items-mg-l_#{$size} {
+        margin-left: pxEm(-$size/2,$px) !important;
+        margin-right: pxEm(-$size/2,$px) !important;
         >[class*="col-"] {
-          padding-left: pxEm($size/2,$px);
-          padding-right: pxEm($size/2,$px);
+          padding-left: pxEm($size/2,$px) !important;
+          padding-right: pxEm($size/2,$px) !important;
         }
       }
     }
     @if $task == 'row-items-mg-b' {
       .row-items-mg-b_#{$size} {
-        margin-top: (pxEm(-$size,$px));
+        margin-top: (pxEm(-$size,$px)) !important;
         >[class*="col-"] {
-          margin-top: pxEm($size,$px);
+          margin-top: pxEm($size,$px) !important;
         }
       }
     }
@@ -436,3 +451,35 @@ $srcFont: '../fonts/';
   > *:last-child {margin-bottom: 0}
   > *.last-child {margin-bottom: 0}
 }
+
+// ***
+  // Центрирование блока (по высоте-ширине) в нутри другого
+  // @example: http://codepen.io/podolskiis/pen/wovVPx
+@mixin centered {
+  text-align: center;
+  white-space: nowrap;
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em; }
+  &>* {
+    white-space: normal;
+    display: inline-block;
+    vertical-align: middle; }
+}
+
+@mixin videoResponsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  iframe, object, embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+}
+

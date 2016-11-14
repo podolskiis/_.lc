@@ -1,4 +1,4 @@
-include _variables.jade
+include ../_variables.jade
 include _mixins.jade
 include ../_utils.jade
 doctype html
@@ -8,12 +8,13 @@ html(lang="ru")
     block styles
       include ../_inc/_styles.jade
   //- CONNECT BODY
-  - var attributes = {};
-  - attributes.class = [multipage ? (home ? 'page_home' : 'page_post') : ''];
-  - attributes.class.push(sidebarLeft ? 'page_sidebar_left' : '');
-  - attributes.class.push(sidebarRight ? 'page_sidebar_right' : '');
+  - var attributes = {}
+  - attributes.class = [multipage ? (home ? 'page_home' : 'page_post') : '']
+  - attributes.class.push(sidebarLeft ? 'page_sidebar_left' : '')
+  - attributes.class.push(sidebarRight ? 'page_sidebar_right' : '')
   body.page(class=bodyClasses)&attributes(attributes)
-    .page__inner
+    // PAGE-WRAP START 
+    .page-wrap
       if header
         // HEADER START 
         include ../_inc/_header.jade
@@ -35,6 +36,7 @@ html(lang="ru")
         // SECTION START 
         block content
         // SECTION END 
+    // PAGE-WRAP END 
     //- CONNECT FOOTER
     if footer
       // FOOTER START 

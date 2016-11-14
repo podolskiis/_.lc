@@ -1,8 +1,9 @@
 extends _template/_base/_main.jade
+block mixins
+  +pageTitle('Главная')
 block variables
-  - title = 'Главная'
-  - activeMenu = title
-  - bodyClasses = ['page_index']
+  - modals = false
+  - bodyClasses = ['add-class_1']
   - home = true
   - multipage = true
   - sidebarLeft = true

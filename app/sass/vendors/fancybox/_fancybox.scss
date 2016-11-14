@@ -27,21 +27,9 @@
   z-index: 8020;
 }
 
-.fancybox-skin {
-  position: relative;
-  background: #f9f9f9;
-  color: #444;
-  text-shadow: none;
-  // border-radius: 4px;
-}
 
 .fancybox-opened {
   z-index: 8030;
-}
-
-.fancybox-opened .fancybox-skin {
-  // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .fancybox-outer, .fancybox-inner {
@@ -189,6 +177,38 @@
 }
 
 
+// EDIT STYLE
+
+// Add custom base
+.fancybox {
+  &-overlay {
+    background: rgba(0, 0, 0, .6);
+    overflow-x: hidden !important;
+  }
+  &-lock {
+    margin-right: 17px;
+    body {
+      overflow: visible !important;
+    }
+  }
+  &-close_delay {
+    height: auto !important;
+  } }
+
+// Add custom base
+.fancybox-skin {
+  position: relative;
+  text-shadow: none;
+  background: #f9f9f9;
+  // color: #444;
+  // border-radius: 4px;
+}
+
+.fancybox-opened .fancybox-skin {
+  // box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
 .fancybox-close {
   @include closeFonts(25px,#fff,red,'FontAwesome');
   &:before {
@@ -223,21 +243,11 @@
     transform-origin: 100%; }
 }
 
- // Add custom style
-.fancybox {
-  &-overlay {
-    background: rgba(0, 0, 0, .7);
-    overflow-x: hidden !important;
-  }
-  &-margin {
-    height: auto !important;
-  }
-  &-lock {
-    margin-right: 17px;
-  }
+.modall{
+  width: 500px
 }
 
 // Effect
-// @include fadescale;
+@include fadescale;
 
 } // END @if $fancybox
