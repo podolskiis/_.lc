@@ -10,7 +10,11 @@
       "submenu": [
         {
           "val": "menu-item_2.1",
-          "url": "2.1.html",
+          "url": "2.1.html"
+        },
+        {
+          "val": "menu-item_2.2",
+          "url": "2.2.html",
           "submenu": [
             {
               "val": "menu-item_3.1",
@@ -21,10 +25,6 @@
               "url": "3.2.html"
             }
           ]
-        },
-        {
-          "val": "menu-item_2.2",
-          "url": "2.2.html"
         }
       ]
     },

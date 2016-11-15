@@ -40,13 +40,19 @@
     position: absolute
     z-index: 99
     width: 220px
-    #{$rootParent}__item:hover &
+    #{$rootParent}__item:hover > &,
+    #{$rootParent}-submenu__item:hover > &
       display: block
+    #{$rootParent}__submenu &
+      top: 0
+      left: 100%
   &-submenu
     margin: 0
     padding: 10px 0
     background: #ddd
     box-shadow: 1px 1px 3px rgba(#000,.3)
+    &__item
+      position: relative
     &__link
       display: block
       padding: 10px 15px
