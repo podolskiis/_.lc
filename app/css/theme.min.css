@@ -976,30 +976,25 @@ button,
   transition: box-shadow 0.3s, background-color 0.3s, border-color 0.3s, color 0.3s, -webkit-box-shadow 0.3s;
 }
 
-.page[class*="sidebar"] .page__content {
-  width: 100%;
-  float: left;
-  min-height: 1px;
+.main-layout {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
-.page_sidebar_left .page__content {
-  padding-left: 250px;
+.main-layout > * {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 100%;
+  -ms-flex: 1 100%;
+  flex: 1 100%;
 }
 
-.page_sidebar_right .page__content {
-  padding-right: 250px;
-}
-
-.page__sidebar_left {
-  float: left;
-  width: 220px;
-  margin-left: -100%;
-}
-
-.page__sidebar_right {
-  float: left;
-  width: 220px;
-  margin-left: -220px;
+.main-layout__content {
+  padding-bottom: 50px;
 }
 
 .logo {
@@ -1470,6 +1465,15 @@ html.touch .form textarea {
   display: none !important;
 }
 
+@media all and (min-width: 480px) {
+  .main-layout__sidebar {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1;
+    -ms-flex: 1 1;
+    flex: 1 1;
+  }
+}
+
 @media (min-width: 768px) {
   .container {
     width: 750px;
@@ -1692,6 +1696,42 @@ html.touch .form textarea {
 
   .col-sm-offset-12 {
     margin-left: 100%;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .main-layout__content {
+    -webkit-box-flex: 2;
+    -webkit-flex: 2 0;
+    -ms-flex: 2 0;
+    flex: 2 0;
+    -webkit-box-ordinal-group: 3;
+    -webkit-order: 2;
+    -ms-flex-order: 2;
+    order: 2;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+
+  .main-layout__sidebar {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 1 220px;
+    -ms-flex: 0 1 220px;
+    flex: 0 1 220px;
+  }
+
+  .main-layout__sidebar_left {
+    -webkit-box-ordinal-group: 2;
+    -webkit-order: 1;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+
+  .main-layout__sidebar_right {
+    -webkit-box-ordinal-group: 4;
+    -webkit-order: 3;
+    -ms-flex-order: 3;
+    order: 3;
   }
 }
 
@@ -2178,6 +2218,15 @@ html.touch .form textarea {
   }
 }
 
+@media all and (min-width: 1200px) {
+  .main-layout__content {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3 0;
+    -ms-flex: 3 0;
+    flex: 3 0;
+  }
+}
+
 @media (max-width: 767px) {
   .visible-xs {
     display: block !important;
@@ -2266,6 +2315,20 @@ html.touch .form textarea {
 
   .hidden-sm {
     display: none !important;
+  }
+
+  .main-layout__content {
+    -webkit-box-flex: 3;
+    -webkit-flex: 3 0;
+    -ms-flex: 3 0;
+    flex: 3 0;
+  }
+
+  .main-layout__sidebar_right {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 100%;
+    -ms-flex: 1 100%;
+    flex: 1 100%;
   }
 }
 

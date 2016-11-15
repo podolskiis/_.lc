@@ -1,19 +1,32 @@
-.page
-  $rootParent: &
+.main-layout
+  display: flex
+  flex-flow: row wrap
+  & > *
+    flex: 1 100%
   &__content
-    #{$rootParent}[class*="sidebar"] &
-      width: 100%
-      float: left
-      min-height: 1px
-    #{$rootParent}_sidebar_left &
-      padding-left: $w_sidebar_l+$pg_content+$main_grid_unit
-    #{$rootParent}_sidebar_right &
-      padding-right: $w_sidebar_r+$pg_content+$main_grid_unit
-  &__sidebar_left
-    float: left
-    width: $w_sidebar_l+$main_grid_unit
-    margin-left: -100%
-  &__sidebar_right
-    float: left
-    width: $w_sidebar_r+$main_grid_unit
-    margin-left: -$w_sidebar_r+$main_grid_unit
+    padding-bottom: 50px
+  @media all and (min-width: 1200px)
+    &__content
+      flex: 3 0
+  @media (min-width: 768px) and (max-width: 991px)
+    &__content
+      flex: 3 0
+    &__sidebar
+      &_right
+        flex: 1 100%
+  @media all and (min-width: 768px)
+    &__content
+      flex: 2 0
+      order: 2
+      margin-left: 2%
+      margin-right: 2%
+    &__sidebar
+      flex: 0 1 220px
+      &_left
+        order: 1
+      &_right
+        order: 3
+  @media all and (min-width: 480px)
+    &__sidebar
+      flex: 1 1
+
